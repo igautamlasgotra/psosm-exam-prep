@@ -1,0 +1,1146 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>PSOSM Exam Prep</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: a study notebook — sticky tab bar, one reading column (~760px), wide tables scroll in place.
+   Accent = deep teal (security/privacy), highlighter yellow marks exam traps. */
+:root {
+  --bg: #f2f5f4;
+  --surface: #ffffff;
+  --surface-2: #e9efed;
+  --ink: #14212a;
+  --muted: #4f5f68;
+  --line: #d3dcda;
+  --accent: #0b6b62;
+  --accent-ink: #ffffff;
+  --accent-soft: #dcefea;
+  --mark: #fff0a6;
+  --mark-ink: #4a3b00;
+  --ok: #1d7a3e;
+  --ok-soft: #e1f3e6;
+  --bad: #b42318;
+  --bad-soft: #fbe7e5;
+  --warn: #9a4b00;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --radius: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1517; --surface: #152024; --surface-2: #1b292d; --ink: #e4ecea; --muted: #9db0ad;
+    --line: #2a3a3e; --accent: #4fc2b1; --accent-ink: #062a25; --accent-soft: #163631;
+    --mark: #4d4214; --mark-ink: #ffe9a3; --ok: #5cc985; --ok-soft: #173525; --bad: #ff8a7d; --bad-soft: #3d1c19; --warn: #f0a85a;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1517; --surface: #152024; --surface-2: #1b292d; --ink: #e4ecea; --muted: #9db0ad;
+  --line: #2a3a3e; --accent: #4fc2b1; --accent-ink: #062a25; --accent-soft: #163631;
+  --mark: #4d4214; --mark-ink: #ffe9a3; --ok: #5cc985; --ok-soft: #173525; --bad: #ff8a7d; --bad-soft: #3d1c19; --warn: #f0a85a;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.6; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--surface); }
+.wrap { max-width: 820px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+header.top { background: var(--surface); border-bottom: 1px solid var(--line); }
+header.top .wrap { padding-block: 22px 14px; display: grid; gap: 6px; }
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.2; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(28px, 6vw, 40px); font-weight: 800; letter-spacing: -.01em; }
+h2 { font-size: 26px; font-weight: 700; margin-top: 8px; }
+h3 { font-size: 20px; font-weight: 700; }
+h4 { font-size: 16px; font-weight: 700; }
+.sub { color: var(--muted); margin: 0; max-width: 62ch; }
+nav.tabs { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--surface); border-bottom: 1px solid var(--line); }
+nav.tabs .wrap { display: flex; gap: 4px; overflow-x: auto; padding-block: 8px; scrollbar-width: thin; }
+nav.tabs button { flex: 0 0 auto; font: 600 14px/1 var(--font-body); padding: 10px 14px; border-radius: 999px; border: 1px solid transparent; background: transparent; color: var(--muted); cursor: pointer; }
+nav.tabs button:hover { color: var(--ink); background: var(--surface-2); }
+nav.tabs button[aria-selected="true"] { background: var(--accent); color: var(--accent-ink); }
+button:focus-visible, input:focus-visible, summary:focus-visible, label:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
+main .wrap { padding-block: 24px 80px; display: grid; gap: 22px; }
+section.panel { display: grid; gap: 22px; }
+p { margin: 0; }
+.prose { display: grid; gap: 12px; max-width: 70ch; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; display: grid; gap: 12px; min-width: 0; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+ul, ol { margin: 0; padding-left: 1.25em; display: grid; gap: 6px; }
+li { min-width: 0; }
+.mark { background: var(--mark); color: var(--mark-ink); padding: 0 .25em; border-radius: 3px; }
+.trap { background: var(--mark); color: var(--mark-ink); border-radius: 8px; padding: 10px 12px; font-size: 15px; }
+.trap b:first-child { font-family: var(--font-mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; display: block; }
+.note { border-left: 3px solid var(--accent); padding: 4px 0 4px 12px; color: var(--muted); font-size: 15px; }
+code, .mono { font-family: var(--font-mono); font-size: .92em; }
+code { background: var(--surface-2); padding: 1px 5px; border-radius: 4px; overflow-wrap: anywhere; }
+pre { margin: 0; background: var(--surface-2); border-radius: 8px; padding: 12px 14px; overflow-x: auto; font: 14px/1.55 var(--font-mono); }
+.tbl { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-weight: 600; background: var(--surface-2); white-space: nowrap; }
+tr:last-child td { border-bottom: 0; }
+td.num, th.num { text-align: right; font-family: var(--font-mono); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font: 600 13px/1 var(--font-body); padding: 8px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.pill { display: inline-block; font: 600 11px/1.6 var(--font-mono); letter-spacing: .04em; padding: 0 7px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); vertical-align: 2px; white-space: nowrap; }
+.pill.msq { background: var(--mark); color: var(--mark-ink); }
+.pill.nat { background: var(--ok-soft); color: var(--ok); }
+.pill.gap { background: var(--bad-soft); color: var(--bad); }
+details { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+details > summary { list-style: none; cursor: pointer; padding: 14px 16px; display: grid; grid-template-columns: auto 1fr auto; gap: 10px; align-items: start; }
+details > summary::-webkit-details-marker { display: none; }
+details > summary::after { content: "+"; font: 600 18px/1 var(--font-mono); color: var(--muted); }
+details[open] > summary::after { content: "–"; }
+details > .body { padding: 0 16px 16px; display: grid; gap: 10px; }
+.qn { font: 600 13px/1.6 var(--font-mono); color: var(--accent); }
+.ans { background: var(--ok-soft); color: var(--ok); border-radius: 6px; padding: 6px 10px; font-weight: 600; }
+.src { font: 500 12.5px/1.4 var(--font-mono); color: var(--muted); }
+.weekhead { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 14px; border-bottom: 2px solid var(--ink); padding-bottom: 6px; }
+.weekhead .src { margin-left: auto; }
+.qlist { display: grid; gap: 8px; }
+.fact-list li::marker { color: var(--accent); }
+.formula { font-family: var(--font-mono); background: var(--accent-soft); color: var(--ink); border-radius: 8px; padding: 10px 14px; overflow-x: auto; white-space: nowrap; }
+.steps { counter-reset: s; list-style: none; padding: 0; }
+.steps li { counter-increment: s; padding-left: 30px; position: relative; }
+.steps li::before { content: counter(s); position: absolute; left: 0; top: 2px; width: 20px; height: 20px; border-radius: 50%; background: var(--surface-2); font: 600 12px/20px var(--font-mono); text-align: center; color: var(--muted); }
+.reveal { justify-self: start; font: 600 14px/1 var(--font-body); padding: 10px 14px; border-radius: 8px; border: 1px solid var(--accent); color: var(--accent); background: transparent; cursor: pointer; }
+.reveal:hover { background: var(--accent-soft); }
+svg text { fill: var(--ink); font-family: var(--font-mono); font-size: 13px; }
+svg .edge { stroke: var(--muted); stroke-width: 2; fill: none; }
+svg .node { fill: var(--surface); stroke: var(--accent); stroke-width: 2; }
+svg .hub { fill: var(--accent-soft); }
+/* mock test */
+.quizbar { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 56px); z-index: 4; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 10px 14px; display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; }
+.quizbar .stat { font: 600 14px/1.3 var(--font-mono); }
+.btn { font: 600 14px/1 var(--font-body); padding: 11px 16px; border-radius: 8px; border: 1px solid var(--accent); background: var(--accent); color: var(--accent-ink); cursor: pointer; }
+.btn.ghost { background: transparent; color: var(--accent); }
+.mq { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; display: grid; gap: 10px; min-width: 0; }
+.mq.right { border-color: var(--ok); }
+.mq.wrong { border-color: var(--bad); }
+.opt { display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: start; padding: 9px 12px; border: 1px solid var(--line); border-radius: 8px; cursor: pointer; }
+.opt:hover { background: var(--surface-2); }
+.opt input { margin-top: 4px; accent-color: var(--accent); }
+.opt.is-correct { background: var(--ok-soft); border-color: var(--ok); }
+.opt.is-wrong { background: var(--bad-soft); border-color: var(--bad); }
+.natin { font: 500 16px var(--font-mono); padding: 9px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink); width: min(220px, 100%); }
+.exp { font-size: 15px; color: var(--ink); background: var(--surface-2); border-radius: 8px; padding: 10px 12px; }
+.verdict { font-weight: 700; }
+.verdict.ok { color: var(--ok); }
+.verdict.no { color: var(--bad); }
+.small { font-size: 14px; color: var(--muted); }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+@media (max-width: 520px) { body { font-size: 15.5px; } h2 { font-size: 23px; } .card { padding: 14px; } }
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <span class="eyebrow">NPTEL · noc26_cs141 · Prof. Ponnurangam Kumaraguru</span>
+    <h1>PSOSM Exam Prep</h1>
+    <p class="sub">Privacy and Security in Online Social Media. Saare 11 quizzes ka har question uske lecture concept se match kiya gaya hai, aur saath mein numericals step-by-step aur ek mock test bhi hai.</p>
+  </div>
+</header>
+<nav class="tabs" aria-label="Sections">
+  <div class="wrap" role="tablist">
+    <button role="tab" data-tab="start" aria-selected="true">Start here</button>
+    <button role="tab" data-tab="decoder" aria-selected="false">Quiz Decoder</button>
+    <button role="tab" data-tab="notes" aria-selected="false">Topic Notes</button>
+    <button role="tab" data-tab="numericals" aria-selected="false">Numericals</button>
+    <button role="tab" data-tab="mock" aria-selected="false">Mock Test</button>
+    <button role="tab" data-tab="sheet" aria-selected="false">Last-day Sheet</button>
+  </div>
+</nav>
+<main>
+<div class="wrap">
+
+<section class="panel" id="start" role="tabpanel">
+  <div class="prose">
+    <h2>Exam ka game plan</h2>
+    <p>NPTEL ke final exam mein usually quiz jaise hi MCQ, MSQ (ek se zyada sahi option) aur kabhi-kabhi numerical aate hain. Inme se bahut saare questions <b>assignment questions ke concepts ko thoda badal ke</b> poochhe jaate hain. Isliye pehle quiz ke concepts pakke karo, phir lecture ke wo important numbers aur facts yaad karo jo abhi tak quiz mein nahi aaye.</p>
+  </div>
+
+  <div class="card">
+    <h3>Padhne ka order</h3>
+    <ol class="steps">
+      <li><b>Quiz Decoder</b>: har week ke questions kholo. Har question ka answer, wo kis lecture se aaya, aur uske peeche ka concept diya hai. Trap boxes zaroor padhna.</li>
+      <li><b>Numericals</b>: centrality (degree, closeness, betweenness), clustering coefficient, density, PageRank, NDCG, Spearman, Jaccard/edit distance, k-anonymity, precision/recall. Har ek ka formula, solved example aur practice hai.</li>
+      <li><b>Topic Notes</b>: lecture-wise high-yield facts, yaani wo numbers aur names jo exam mein MCQ ban sakte hain.</li>
+      <li><b>Mock Test</b>: 49 naye questions (MCQ + MSQ + numerical) instant checking ke saath. Score 80%+ aana chahiye.</li>
+      <li><b>Last-day Sheet</b>: exam se ek raat pehle sirf ye table dekhna.</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h3>Quiz mein kaun-se topics sabse zyada aaye</h3>
+    <p class="small">Weeks 1–11 ke 110 questions ko topic ke hisaab se gina gaya hai. Jo topic zyada baar aaya, exam mein bhi uska weight zyada hone ke chances hain.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Topic</th><th class="num">Quiz Qs</th><th>Lectures</th></tr></thead>
+      <tbody>
+        <tr><td>Python, NLTK, numpy/pandas, Git, DBs, APIs</td><td class="num">26</td><td>Tutorials (L4–L14, L25) + new ones</td></tr>
+        <tr><td>Location-based social networks (Foursquare, home location, correlation)</td><td class="num">13</td><td>L29, L30, L32</td></tr>
+        <tr><td>Social Network Analysis (centrality, degree, clustering, scale-free)</td><td class="num">11</td><td>L21, L27, L28</td></tr>
+        <tr><td>Policing on social media</td><td class="num">10</td><td>L16–L18</td></tr>
+        <tr><td>Link farming, spam, reciprocity</td><td class="num">9</td><td>L20, L22</td></tr>
+        <tr><td>Username change and profile linking</td><td class="num">9</td><td>L26, L33</td></tr>
+        <tr><td>Trust and credibility (TweetCred, NDCG, Cronbach)</td><td class="num">8</td><td>L9, L10</td></tr>
+        <tr><td>Privacy (Westin, India survey, k-anonymity, Sweeney)</td><td class="num">8</td><td>L11, L15</td></tr>
+        <tr><td>Phishing and nudges</td><td class="num">6</td><td>L23, L24</td></tr>
+        <tr><td>OSM basics, V's, anonymous networks, Gab</td><td class="num">6</td><td>L2, L3, L27</td></tr>
+        <tr><td>Boston Marathon fake content</td><td class="num">4</td><td>L34</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="card">
+    <h3>Lecture → week map (tumhari PDFs)</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Week</th><th>Lectures</th><th>Topic</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>L1–L5</td><td>Intro, OSM overview, incidents, Ubuntu and Python tutorials</td></tr>
+        <tr><td>2</td><td>L6–L9</td><td>APIs, JSON, DBs, Facebook Graph API, Trust and Credibility (TweetCred)</td></tr>
+        <tr><td>3</td><td>L10–L14</td><td>Misinformation, Facebook Inspector, Privacy (Westin, India survey), Twitter API, MySQL, MongoDB</td></tr>
+        <tr><td>4</td><td>L15</td><td>Privacy and pictures (face re-identification, Sweeney)</td></tr>
+        <tr><td>5</td><td>L16–L18</td><td>Policing and OSM</td></tr>
+        <tr><td>6</td><td>L19–L21</td><td>eCrime types, link farming intro, SNA tutorial</td></tr>
+        <tr><td>7</td><td>L22–L25</td><td>Link farmers, Nudges, Spear phishing, NLTK</td></tr>
+        <tr><td>8</td><td>L26–L28</td><td>Profile linking, Anonymous networks (Whisper), Gephi</td></tr>
+        <tr><td>9</td><td>L29–L31</td><td>Foursquare privacy ("We Know Where You Live"), Highcharts</td></tr>
+        <tr><td>10</td><td>L32–L34</td><td>Home location inference, Username change, Boston Marathon</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">2026 run ke quizzes mein kuch topics aise hain jo tumhari PDFs mein nahi hain: <b>Git, venv, Reddit API (PRAW), numpy/pandas/matplotlib, Strength of weak ties, Gab, Pearson vs Spearman, scale-free networks</b>. Ye naye tutorials se aaye hain. Quiz Decoder mein inhe <span class="pill gap">PDF mein nahi</span> tag diya gaya hai aur standard knowledge se samjhaya gaya hai.</p>
+  </div>
+
+  <div class="trap"><b>Golden rule for MSQ</b>Agar quiz key mein "All of the above" ya saare options sahi the (jaise centrality measures, anonymous networks, LBS services, link farmers ke types), to exam mein bhi same list ke saare options tick karna. Lekin "only", "always", "never" jaise words wala option zyadatar galat hota hai (W8 Q1c dekho).</div>
+</section>
+
+<section class="panel" id="decoder" role="tabpanel" hidden>
+  <div class="prose">
+    <h2>Quiz Decoder</h2>
+    <p>Har question ke saath diya hai: sahi answer, wo <b>kis lecture se aaya</b>, aur uske peeche ka concept. Question par click karke kholo. <span class="pill msq">MSQ</span> ka matlab multiple-select hai, <span class="pill nat">NAT</span> numerical hai, aur <span class="pill gap">PDF mein nahi</span> ka matlab hai ki wo topic tumhari lecture PDFs mein nahi hai.</p>
+  </div>
+  <div class="chips" id="weekChips" aria-label="Filter by quiz week"></div>
+  <div class="chips">
+    <button class="chip" id="expandAll" aria-pressed="false">Sab kholo</button>
+    <button class="chip" id="collapseAll" aria-pressed="false">Sab band karo</button>
+  </div>
+  <div id="decoderList" class="qlist"></div>
+</section>
+
+<section class="panel" id="notes" role="tabpanel" hidden>
+  <div class="prose">
+    <h2>Topic Notes</h2>
+    <p>Lecture-wise sabse important facts. Jo cheezein abhi tak quiz mein nahi aayi lekin MCQ ban sakti hain, unpar <span class="mark">highlight</span> hai. Numbers ko ratna nahi, bas pehchaan lena aana chahiye.</p>
+  </div>
+
+  <details open><summary><span class="qn">Week 1</span><span><b>OSM overview, 5 V's, incidents</b><br><span class="src">L1–L5</span></span></summary><div class="body">
+    <ul class="fact-list">
+      <li>Course ka outcome: OSM par <b>spam, phishing, fraud nodes, identity theft</b> jaisi privacy/security concerns samajhna.</li>
+      <li>Social media ke types: social networks (Facebook, Twitter, LinkedIn), <b>publish</b> (Wikipedia, crowd-sourced), social/virtual games. Naye types: <b>ephemeral</b> (content khud destroy ho jaata hai, jaise Snapchat) aur <b>anonymous</b> (Whisper). Lagbhag <span class="mark">215–220</span> popular SN services hain.</li>
+      <li>"Online in 60 seconds": Facebook par 2.5M posts (2013) se badhkar ~3.3–3.5M; Twitter par <span class="mark">278,000 se 420,000</span> tweets; YouTube par <span class="mark">100 hours se 400 hours</span> ka video har minute.</li>
+      <li><b>5 V's</b>: Volume, Velocity, Variety, Veracity, aur <b>Value</b> (5th, baad mein add hua).</li>
+      <li><b>Facebook = bidirectional</b> (friend request accept karni padti hai) aur data graph mein store karta hai. Building blocks: post (text/image/video), likes, comments, shares, pages, groups. <b>Twitter = unidirectional</b> microblog (140 chars): followers/following, tweet, retweet, reply, like (pehle 'favorite' tha), hashtag, mention, trends.</li>
+      <li>LinkedIn = <b>connections</b>; Google+ = <b>circles</b> aur <b>+1</b>; Foursquare = check-in, tip, done, mayor; Pinterest = images + <b>boards</b> (sabse tezi se badhne wala); Periscope = <b>live streaming</b>; Tinder = left/right swipe; Whisper = anonymous (categories: popular, latest, LOL, confessions…).</li>
+      <li>Incidents: <span class="mark">2009 Hudson River</span> plane (@jkrums), pehli baar Twitter crisis management mein use hua · Indian railway station par khoyi bachchi <span class="mark">20 minute</span> mein mili (railway minister ko tag kiya tha) · cyberbullying se suicide · UK riots social media se bigde · Nepal earthquake relief · Egypt revolution · Boston rumours · <b>AP ka compromised verified account</b> ('two explosions in White House') · Chennai floods ka crocodile (Dec 2015) · Hurricane Sandy ka shark · Robin Williams ka fake video · MI6 chief ki wife ki FB photos · logon ki naukri jaana.</li>
+      <li>Tutorials: Ubuntu <span class="mark">14.04 desktop</span> ko <b>VirtualBox</b> mein chalaya; <code>sudo apt-get update</code>; <code>apt-get install python-pip</code>; <b>pip</b> Python packages install karta hai jaise apt-get Ubuntu packages (<code>pip install requests</code>).</li>
+    </ul>
+  </div></details>
+
+  <details><summary><span class="qn">Week 2</span><span><b>APIs, data formats, Trust and Credibility</b><br><span class="src">L6–L9</span></span></summary><div class="body">
+    <ul class="fact-list">
+      <li><b>API</b> = program aur OSM ke beech ka 'tunnel'. Har API par <b>rate limits</b> hoti hain. Data <b>JSON</b> mein aata hai (kuch XML mein).</li>
+      <li>Storage: <b>MySQL</b> (relational, rows/columns), jise <b>phpMyAdmin</b> se dekhte hain. <b>MongoDB</b> (non-relational, document, collections), jise <b>RoboMongo</b> se dekhte hain.</li>
+      <li>Facebook mein har object node hai, connections edges hain, aur har node ki unique numeric ID hai, isliye naam <b>Graph API</b>. <b>Graph API Explorer</b> se browser mein data dekh sakte hain. <b>Access token</b> OAuth se banta hai. Short-lived token jaldi expire hota hai (demo mein 38 min bache the), aur <b>App ID + App Secret</b> se use extend kar sakte hain.</li>
+      <li>Credibility analysis ka pipeline: data collection → characterisation → features → ground truth → model → evaluation. Analysis ke sawaal: <b>who, when, where, what, why, how</b> (why aur how sabse mushkil hain).</li>
+      <li>Boston rumour graph: <b>rumours pehle aur tezi se failte hain</b>, aur true information der se aati hai (~9 hours). Do solutions: true info jaldi laao, rumour ki spread jaldi roko.</li>
+      <li><b>Hurricane Sandy</b> (22–31 Oct 2012, $75B damage): <span class="mark">1,782,526 tweets, ~1M users, 622,000 tweets with URLs</span>. Ground truth <b>The Guardian</b> ki list se: <span class="mark">10,350 tweets with fake images, 10,215 users</span>.</li>
+      <li>Features: <b>F1 = user features</b> (friends, followers, follower-friend ratio, kitni lists mein, URL, verified, account age) aur <b>F2 = tweet features</b> (length, words, ?, !, happy/sad emoticons). Classifiers: <b>Naive Bayes, Decision Tree</b>, 5-fold cross validation. <span class="mark">Decision tree + tweet features = 97.65%</span>. Tweet features user features se behtar the.</li>
+      <li>Boston data: <span class="mark">7.8M tweets, 3.6M users, 3.4M with URLs, 62,000 geotagged</span> (Twitter ke ~1% tweets geotagged hote hain). Data <b>query expansion</b> se collect hua. Top 20 viral tweets: 6 rumours, 7 true, 7 generic. Fake tweets ~<b>76% mobile se</b>. <b>32,000</b> naye accounts, unme se <b>19%</b> suspended. Fake accounts ek <b>closed community</b> the.</li>
+      <li>Annotation: <b>Mechanical Turk</b>, har tweet ≥ 3 annotators, <b>Cronbach's α ≥ 0.7</b>. Result: 30% tweets mein information thi, 17% credible thi, 14% spam tha. Ranking quality <b>NDCG</b> se naapi; tweet + user features ka NDCG sabse achha tha.</li>
+      <li><b>TweetCred</b>: Chrome extension, score <b>1–7</b>, <span class="mark">45 features</span>, feedback se model update hota hai. Naye features: swear words, positive/negative emotion words, <b>WOT score</b>, YouTube like/dislike ratio. Top-10 features: chars, unique chars, words, user has location, retweets, tweet ki age, URL, 'via', statuses/followers, friends/followers. Users: emergency responders, firefighters, journalists.</li>
+    </ul>
+  </div></details>
+
+  <details><summary><span class="qn">Week 3</span><span><b>Facebook Inspector, Privacy basics, Twitter/DB tutorials</b><br><span class="src">L10–L14</span></span></summary><div class="body">
+    <ul class="fact-list">
+      <li><b>Facebook Inspector (FBI)</b>: TweetCred jaisa hi tool Facebook posts ke liye. Supervised learning, RESTful API, Chrome aur Firefox dono par.</li>
+      <li><b>WOT (Web of Trust)</b>: domain input karo to rating (excellent / good / satisfactory / poor / very poor) aur confidence milta hai.</li>
+      <li>API key, secret aur access token <b>share mat karo</b>. Koi aur use karega to lagega tum data collect kar rahe ho.</li>
+      <li>Privacy context-dependent hai. <b>Westin</b>: Fundamentalists 25%, Pragmatists 60%, Unconcerned 15%. Cartoon: <i>"On the internet nobody knows you're a dog"</i> → baad mein dog food ke personalised ads aane lage.</li>
+      <li>India survey: 10,427 respondents. <b>Q42</b> (6,855 responses): <span class="mark">42%</span> ne kaha "privacy settings specify kar di hain, isliye data secure hai" (galat soch). 19% ko koi concern nahi, 23% concerned hain par phir bhi share karte hain. <b>Q43</b> (6,929): sabse zyada <span class="mark">27% opposite gender</span> ki request accept karte hain, 10.12% achhi profile picture dekh ke, 2.99% kisi ko bhi.</li>
+      <li>Twitter API (L12): app → consumer key/secret → access token/secret. Library <b>Twython</b>. <b>REST/Search API</b> purana data deta hai, <b>Streaming API</b> real-time data.</li>
+      <li>MySQL (L13): tweet_id <b>PRIMARY KEY</b>, <code>INSERT IGNORE</code> duplicate skip karta hai. MongoDB (L14): <b>pymongo</b>, poora tweet JSON store hota hai, <code>show collections</code>, <code>db.tweets.find()</code>, <code>count()</code>.</li>
+    </ul>
+  </div></details>
+
+  <details><summary><span class="qn">Week 4</span><span><b>Privacy and pictures, re-identification</b><br><span class="src">L15</span></span></summary><div class="body">
+    <ul class="fact-list">
+      <li>Definitions: <b>Robert Post</b> (<i>Three Concepts of Privacy</i>): "a value so complex…". <b>Westin 1967</b> (<i>Privacy and Freedom</i>): "claim of individuals… to determine when, how and to what extent information about them is communicated". Saar: <b>privacy = control over information</b>.</li>
+      <li>4 forms: information, communication, territorial, bodily (CCTV).</li>
+      <li>Photos: 2000 mein <span class="mark">100B photos</span> kheenchi gayi; 2010 mein Facebook par <span class="mark">2.5B photos/month</span>; FB+Insta+Flickr+Snapchat+WhatsApp par mila ke <span class="mark">1.8B/day</span>. <b>pleaserobme.com</b> tweets se pata lagata tha ki tum ghar par nahi ho.</li>
+      <li>Re-identification badhne ke 4 karan: self-disclosure badhna, face recognition ki accuracy badhna, cloud computing, aur re-identification techniques ka behtar hona.</li>
+      <li><b>Sweeney</b>: medical data + voter list, common fields ZIP + birth date + gender → k-anonymity.</li>
+      <li>Face re-identification study (Acquisti et al.), tool <b>PittPatt</b> (baad mein Google ne khareeda):
+        <ul>
+          <li><b>Exp 1, online–online</b>: Facebook (identified; ~270k profiles, 274k images, 110k faces) vs dating site (unidentified; ~6,000 profiles, ~5,000 faces). <b>500M+ pairs</b> compare hue, MTurk par 5 Turkers per pair, 1–7 Likert. Highly likely <span class="mark">6.3%</span>, highly likely + likely <span class="mark">10.5%</span>, yaani ~1 in 10 log identify ho gaye.</li>
+          <li><b>Exp 2, offline–online</b>: campus booth par har participant ki 3 photos, <span class="mark">98 participants, 38%</span> sahi Facebook profile se match hue.</li>
+          <li><b>Exp 3</b>: public data se SSN predict kiya: <span class="mark">27%</span> logon ke pehle 5 digits, 4 attempts mein.</li>
+        </ul></li>
+    </ul>
+  </div></details>
+
+  <details><summary><span class="qn">Week 5</span><span><b>Policing and OSM</b><br><span class="src">L16–L18</span></span></summary><div class="body">
+    <ul class="fact-list">
+      <li>Foursquare se home location nikal sakte hain. <b>Mayor</b> = jisne <b>last 60 days</b> mein venue par sabse zyada check-in kiye. Conferences: <b>WWW, ICWSM, COSN, CSCW</b>.</li>
+      <li>#myNYPD campaign ulta pad gaya (negative photos aayi, phir #myLAPD bhi). India mein popular handles: Bangalore City Police, Delhi Traffic Police. <b>@CPBLR</b> ke <span class="mark">688,000</span> followers the (Aug 2016). Verified = blue tick. Fake police handles bhi the (jaise 'Delhi Traffic Polize', egg profile wala Hyderabad Police). Lagbhag 80–85 police accounts track kiye gaye.</li>
+      <li><b>L17 Bangalore City Police FB (2014)</b>: <span class="mark">255 posts, ~1,600 comments</span>. Coding: <b>24</b> citizen post categories, <b>2</b> styles (formal/informal), <b>4</b> police responses (acknowledge, reply, follow-up, ignore). Sabse zyada posts <b>neighbourhood concerns</b> ke the, uske baad appreciation. Response time: <span class="mark">average 30 hrs, max 211 hrs, min 4 min</span>. Acknowledged 21%, "please lodge complaint" 22%. Information <b>direct vs indirect</b>. Trees: worried / why / need / want.</li>
+      <li><b>L18 (85 police pages, 2010 – Apr 2015)</b>: <span class="mark">47,474 citizen wall posts, 85,408 police posts</span>. 4 research questions: topical, engagement, emotional exchange, cognitive and social orientation. Tools: n-grams, K-means, <b>LIWC</b>, ANEW. Valence = positive/negative, arousal = intensity.</li>
+      <li>Findings: police posts mein 'rules, safety, violations', citizen posts mein '<b>please take action</b>'. Police-initiated discussions zyada focused, citizen-initiated zyada diverse. Jab police comment karti hai (CPC) to comments <span class="mark">9.49% kam</span> hote hain, kyunki police loop jaldi close kar deti hai. Citizen threads mein negative affect aur anger zyada, aur police aane par <b>anxiety kam</b>. Sabse common pronoun <b>'I'</b> (self-driven posts).</li>
+    </ul>
+  </div></details>
+
+  <details><summary><span class="qn">Week 6</span><span><b>eCrimes, link farming intro, SNA tutorial</b><br><span class="src">L19–L21</span></span></summary><div class="body">
+    <ul class="fact-list">
+      <li>eCrimes: <b>phishing</b> (<b>spear phishing</b> = ek specific group ko target, <b>whaling</b> = CEOs ko). Facebook credentials ab bahut valuable hain. Fake customer-service accounts (bank ko tag kiya to fraudster reply karta hai), fake comments on popular posts, <b>fake live streaming</b> videos (Olympics/cricket), fake discounts (Netflix), fake surveys/contests, <b>fake Foursquare tips</b>, social reputation manipulation (<span class="mark">Amazon ne 1,000 logon par fake reviews ke liye case kiya</span>), clickbaiting, <b>hashtag hijacking</b> (Coca-Cola #RoyalBaby, DiGiorno #WhyIStayed), compromised account (AP), impersonation (Kiran Rao), work-from-home scam (Pinterest).</li>
+      <li><b>Klout score</b> (1–100) online influence naapta hai. Link farming web vs Twitter: web par sirf spammers karte hain; Twitter par <b>legit popular users bhi</b> karte hain, aur reciprocity bhi zyada hai.</li>
+      <li>Spam studies: <i>Suspended accounts in retrospect</i>: <span class="mark">1.1M suspended accounts, 7 months, 1.8B tweets, 80M spam; 77% spam accounts pehle tweet ke ek din ke andar suspend</span>. <i>@spam</i>: <span class="mark">25M URLs mein se 8% malicious, click-through 0.13%</span> (email spam se zyada). <i>Automated activity</i>: <span class="mark">16%</span> active accounts highly automated, 11% browser source spoof karte hain.</li>
+      <li>2009 ka full Twitter dataset: <span class="mark">54M users, 1.9B links</span>; 379,340 accounts suspended (Aug 2009 – Feb 2011); 41,352 ne blacklisted shortened URL (bit.ly/tinyurl) post kiya. Spam followers 248k; <span class="mark">82%</span> spam followers spam targets ke saath overlap. PageRank mein spammers: top 10k mein 7, top 100k mein 304, top 1M mein 2,131.</li>
+      <li>SNA tutorial (L21): representations: <b>adjacency matrix</b> (n×n, sparse graph mein jagah waste karta hai), <b>GraphML</b> (XML), CSV. Tool <b>twecoll</b>. In-degree / out-degree (self-loop dono mein count hota hai). Centralities: in-degree, out-degree, betweenness, closeness. <b>Community</b> = strongly connected group; <b>modularity</b> = edges ka wo fraction jo group ke andar hai.</li>
+    </ul>
+  </div></details>
+
+  <details><summary><span class="qn">Week 7</span><span><b>Link farmers, Nudges, Spear phishing, NLTK</b><br><span class="src">L22–L25</span></span></summary><div class="body">
+    <ul class="fact-list">
+      <li>L22: top <span class="mark">100,000 spam followers ne spammers ke 60% links</span> diye. Top spam followers almost har spammer ko follow back karte hain. Follow-back ki probability in-degree ke saath badhti hai, aur low in-degree wale users reciprocate nahi karte.</li>
+      <li>Top 100k link farmers: <span class="mark">18,826 suspended, 4,768 not found, 76% active, 235 verified; 100 random mein se 86 real</span>. Topics: business, internet marketing, social media. In-degree aur out-degree dono high, ratio ≈ 1. Inhe <b>social capitalists</b> kehte hain.</li>
+      <li>L23: privacy policies padhne mein <span class="mark">244 hours/year</span> lagenge, US national cost <span class="mark">$781B</span>. MIT tool: mailing list ke recipients ki photos dikhata tha. Facebook nudges (picture / timer 10s / sentiment): <b>21</b> participants, <b>13</b> interviews, <b>IRB</b> approval (Institutional Review Board). Metrics: privacy settings changes, cancelled/edited posts, post frequency, topic sensitivity. Timer nudge ke baare mein ek user ne kaha "at times annoying, at times handy".</li>
+      <li>L24: <b>Schneier</b> ke attack types: physical, syntactic (DoS, buffer overflow), <b>semantic</b> (insaan ko target karte hain). <b>Semantic barrier</b> = user ke mental model aur system model ka gap. Types: phishing, context-aware, whaling, <b>vishing</b> (phone), <b>smishing</b> (SMS), <b>social phishing</b>. ILOVEYOU virus. Phishing ka cost <span class="mark">$3M+</span> per 100k-employee organisation. <b>APWG</b> = Anti-Phishing Working Group.</li>
+      <li>Social phishing (Indiana University, April 2005, age 18–24): control <span class="mark">16%</span> vs social <span class="mark">72%</span>. <b>70% authentications pehle 12 hours mein</b>. Kuch logon ne <b>80 baar tak</b> login try kiya. Females zyada vulnerable the, aur opposite gender se email aaye to success zyada (M→F <span class="mark">78%</span>, F→M 68%). Freshmen sabse vulnerable. Science dept mein gap sabse zyada (80% vs 0%), technology mein sabse kam. Study par backlash hua (unethical bola gaya). Solutions: education, browser tools, fast takedown, digitally signed emails.</li>
+      <li>NLTK (L25): <code>word_tokenize</code> (punkt package chahiye), <code>.lower()</code>, <code>Counter.most_common</code>, <b>PorterStemmer</b> (course/courses → course, certification → certif), <code>stopwords.words('english')</code>, <code>ngrams(tokens, 2)</code>, <code>pos_tag</code> (JJ = adjective). Unicode error aaye to <code>.encode('utf-8')</code>.</li>
+    </ul>
+  </div></details>
+
+  <details><summary><span class="qn">Week 8</span><span><b>Profile linking, Anonymous networks, Gephi</b><br><span class="src">L26–L28</span></span></summary><div class="body">
+    <ul class="fact-list">
+      <li>Profile linking = <b>identity resolution</b>. Paper: <i>"Other times, other values: Leveraging attribute history to link user profiles across OSNs"</i> (Paridhi Jain). Faayde: duplicate ads na bhejna, sentiment ko double-count na karna, law enforcement.</li>
+      <li><span class="mark">376M users</span> track kiye, ~5–7% ne screen name change kiya. Facebook par username sirf ek baar change hota hai, Twitter par unlimited. User ID kabhi nahi badalti, isliye ID se username changes track karte hain.</li>
+      <li>Username comparison: <b>Jaccard</b>, <b>edit distance</b>, LCS. Features: username creation (length, characters ka choice aur arrangement), temporal evolution, reuse. ~<b>56 features</b>, Twitter↔Instagram/Tumblr/Facebook pairs. Exact match + <b>SVM ≈ 76% accuracy</b>.</li>
+      <li>Anonymous networks (L27): 4chan, Whisper, Secret, Yik Yak, Wickr. Whisper mein hearts (= likes), replies, private messages hain. Koi persistent social links nahi. <b>GUID June 2014</b> mein researchers ke kehne par hataya gaya.</li>
+      <li>Whisper data (2014): <span class="mark">9M whispers, 15M replies, 1M GUIDs</span>. <span class="mark">55%</span> whispers ko koi reply nahi; 25% mein ≥2 replies ki chain; <span class="mark">54%</span> replies 1 hour ke andar, <span class="mark">94%</span> 1 din ke andar; 80% users ne 10 se kam posts kiye; 15% sirf reply karte hain, 30% sirf whisper.</li>
+      <li>Network: 690k nodes (FB 707k, Twitter 4.3M). Avg degree 9.47, clustering 0.033, path length 4.28, assortativity −0.011, yaani <b>random graph</b>.</li>
+      <li>Deletion: <span class="mark">18% whispers delete hue (Twitter par sirf 4%)</span>, 1.7M deleted. 70% ek week ke andar, peak <b>3–9 hours</b> par. Sabse zyada deleted categories: <b>sexting, selfie, chat</b>; sabse kam: emotion, religion, work, politics. Interacting pairs: 90% same state mein, 75% &lt; 40 miles door. Har week ~80,000 users; naye users ka content mein 20% contribution.</li>
+      <li>Gephi (L28): CSV nodes (id) + edges (source, target, type), Overview / Data Laboratory / Preview tabs, layouts, appearance (colour/size by attribute), modularity class.</li>
+    </ul>
+  </div></details>
+
+  <details><summary><span class="qn">Week 9</span><span><b>Foursquare privacy: "We Know Where You Live"</b><br><span class="src">L29–L31</span></span></summary><div class="body">
+    <ul class="fact-list">
+      <li>India survey (location on FB): <span class="mark">39% ne 'everyone'</span> ke saath share kiya, 33% friends, 12.5% friends-of-friends, 5.7% network, 3.1% customised. Doosre state mein phone switch-off message regional language mein aana: 54% ne ise privacy-invasive maana (44% agree + 10% strongly agree).</li>
+      <li>Foursquare: check-in → venue; <b>badges</b> (gamification); <b>mayor</b> (60 days); <b>tip</b> (review); <b>done/to-do</b> (tip se agree). Check-ins private hain, baaki sab public.</li>
+      <li>Data: <span class="mark">13M users (Aug–Oct 2011), 10M tips, 9M dones, 15M mayorships</span>. Reverse geocoding ke liye Yahoo PlaceFinder. Distributions Pareto/skewed. Mayorships aur tips ka correlation <span class="mark">0.78</span>. Mayorships wali <span class="mark">79,000</span> cities. Remote jagah ka example: Svalbard. Tips ka map mayorships se sparse, dones ka aur bhi sparse.</li>
+      <li>Return times 24 hours ke multiples mein (daily routine); <b>69.7%</b> observations 360 hours ke andar the.</li>
+      <li>Inference: majority voting. <b>Class 0</b> = sirf ek activity; <b>Class 1</b> = kai activities, ek location dominant; <b>Class 2</b> = koi location dominant nahi (infer nahi kar sakte). Mayorship class 1 se home city <span class="mark">~67%</span>. Galat inferences mein 46% &lt; 50 km door the, isliye overall <span class="mark">~78% users 50 km ke andar</span>.</li>
+      <li>Paper ka structure (PK ne sikhaya): abstract → introduction → related work → dataset/EDA → analysis → inference → conclusion/limitations. Reproducibility ke liye dataset describe karna zaroori hai.</li>
+    </ul>
+  </div></details>
+
+  <details><summary><span class="qn">Week 10</span><span><b>Home location, Username dynamics, Boston paper</b><br><span class="src">L32–L34</span></span></summary><div class="body">
+    <ul class="fact-list">
+      <li><b>Beware What You Share</b>: Foursquare (13M users, ~16M venues), Google+ (<span class="mark">27M profiles</span>; 7M places lived, 7M education, ~6M employment), Twitter (Streaming API, <span class="mark">120M tweets, 20M users, Apr–Jun 2012, 0.5% geotagged</span> ≈ 700k tweets, 300k users). Home city: <b>67 / 72 / 82%</b>. 50 km ke andar: <b>78.5 / 64 / 87%</b>. Residence ke liye Twitter: <span class="mark">35% exact, 73.67% within 20 km</span>; Foursquare: 52% &lt; 5 km, 77% &lt; 20 km; Google+: sirf 5.23% exact. Refined friend model se Google+ mein <b>21%</b> gain.</li>
+      <li><b>Username dynamics</b> (Paridhi Jain): <span class="mark">8.7M users, 2 months, har fortnight scan</span>; <span class="mark">73.21%</span> ne koi profile attribute change kiya; ~10% (853,827) ne username change kiya. 10,000 users ko <b>har 15 min</b> par 14 months tak scan kiya; 4,198 ne change kiya, total 14,880 changes. Data 17 events (Apr–Sep 2013) se. Median username length <b>11</b>: lambe usernames mein se 75.19% chhote/same length par gaye, chhote mein se 60.87% lambe par. Popularity/activity ke saath weak positive correlation. Limitation: API ki wajah se sirf 10k users (zyada ke liye 1,462 tokens chahiye the). Username squatting example: PMO India handle.</li>
+      <li><b>Boston paper</b> ("$1.00 per RT #BostonMarathon #PrayForBoston"): 7.9M tweets, collection 45 min baad shuru hua (retweets ki wajah se pehle ka data bhi mila). Pehla tweet blast ke ~3 min baad aaya. Keywords: #watertown, #manhunt, Sean Collier, #BostonStrong, #prayforboston… (query expansion). Top 20 tweets = <span class="mark">~400k tweets</span>. <span class="mark">3,249</span> users ne true aur fake dono tweet kiye. Fake seed users ke followers kam the (sirf seed 4 ke 73k). Impact metric = social reputation, global engagement, topic engagement, likability, credibility → regression R² ≈ 0.7. Suspended profiles: 6,000 mein se 69 nodes ka koi edge tha. Structures: <b>single links, closed community, star topology, self loops</b>.</li>
+    </ul>
+  </div></details>
+</section>
+
+<section class="panel" id="numericals" role="tabpanel" hidden>
+  <div class="prose">
+    <h2>Numericals: formula, solved example, practice</h2>
+    <p>Quiz mein numericals in topics se aaye the: betweenness (W6), NDCG (W3), engagement SD (W5), numpy outputs (W4), mean vs median (W8), aur CDF reading. Neeche har type ka formula hai, ek solved example hai, aur practice question hai jiska answer "Answer dikhao" dabane par khulta hai. Saare answers Python (networkx/scipy) se verify kiye gaye hain.</p>
+  </div>
+
+  <div class="card">
+    <h3>Ye graph yaad rakho (G): saare SNA examples isi par hain</h3>
+    <p>Undirected graph, 5 nodes, 5 edges: <b>A–B, A–C, B–C, C–D, D–E</b>. Yaani ek triangle (A, B, C) hai jisse ek tail (C–D–E) nikalti hai.</p>
+    <svg viewBox="0 0 440 150" width="100%" style="max-width:440px" role="img" aria-label="Graph: triangle A B C, then C to D to E">
+      <line class="edge" x1="50" y1="30" x2="50" y2="120"/>
+      <line class="edge" x1="50" y1="30" x2="150" y2="75"/>
+      <line class="edge" x1="50" y1="120" x2="150" y2="75"/>
+      <line class="edge" x1="150" y1="75" x2="270" y2="75"/>
+      <line class="edge" x1="270" y1="75" x2="390" y2="75"/>
+      <circle class="node" cx="50" cy="30" r="17"/><text x="50" y="35" text-anchor="middle">A</text>
+      <circle class="node" cx="50" cy="120" r="17"/><text x="50" y="125" text-anchor="middle">B</text>
+      <circle class="node hub" cx="150" cy="75" r="17"/><text x="150" y="80" text-anchor="middle">C</text>
+      <circle class="node" cx="270" cy="75" r="17"/><text x="270" y="80" text-anchor="middle">D</text>
+      <circle class="node" cx="390" cy="75" r="17"/><text x="390" y="80" text-anchor="middle">E</text>
+    </svg>
+    <div class="tbl"><table>
+      <thead><tr><th>Node</th><th class="num">Degree</th><th class="num">Deg. centrality</th><th class="num">Σ distance</th><th class="num">Closeness</th><th class="num">Betweenness (raw)</th><th class="num">Betw. (norm)</th><th class="num">Clustering</th></tr></thead>
+      <tbody>
+        <tr><td>A</td><td class="num">2</td><td class="num">0.50</td><td class="num">7</td><td class="num">0.571</td><td class="num">0</td><td class="num">0</td><td class="num">1.0</td></tr>
+        <tr><td>B</td><td class="num">2</td><td class="num">0.50</td><td class="num">7</td><td class="num">0.571</td><td class="num">0</td><td class="num">0</td><td class="num">1.0</td></tr>
+        <tr><td>C</td><td class="num">3</td><td class="num">0.75</td><td class="num">5</td><td class="num">0.800</td><td class="num">4</td><td class="num">0.667</td><td class="num">0.333</td></tr>
+        <tr><td>D</td><td class="num">2</td><td class="num">0.50</td><td class="num">6</td><td class="num">0.667</td><td class="num">3</td><td class="num">0.50</td><td class="num">0</td></tr>
+        <tr><td>E</td><td class="num">1</td><td class="num">0.25</td><td class="num">9</td><td class="num">0.444</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr>
+      </tbody>
+    </table></div>
+    <p class="small">Density = 0.5 · Average clustering = 0.467 · Saari centralities mein C sabse upar hai (degree, closeness, betweenness, eigenvector teeno).</p>
+  </div>
+
+  <details open><summary><span class="qn">N1</span><span><b>Degree, in/out-degree, degree centrality</b></span></summary><div class="body">
+    <div class="formula">deg(v) = edges ki ginti · C_D(v) = deg(v) / (n − 1) · directed: in = aane wale, out = jaane wale</div>
+    <p><b>Solved (G):</b> C ke neighbours A, B, D hain, to deg = 3 aur C_D = 3/4 = <b>0.75</b>. E ki deg = 1, C_D = 0.25.</p>
+    <p><b>Directed rule (L21):</b> Twitter mein A → B ka matlab A follows B. B ki in-degree = followers. Self-loop in-degree mein bhi +1 hota hai aur out-degree mein bhi +1. L21 example: node 2 par 1 → 2 aur 2 → 2 (self loop) aate hain, to in-degree = 2; 2 → 4, 2 → 5 aur self loop jaate hain, to out-degree = 3; total degree = 5.</p>
+    <p><b>Practice:</b> Directed edges A→B, A→C, B→C, C→A, D→C. C ki in-degree aur out-degree kya hai? Sabse popular (Twitter sense mein) kaun hai?</p>
+    <button class="reveal" type="button">Answer dikhao</button>
+    <p class="exp" hidden>C: in = 3 (A, B, D se), out = 1 (A ki taraf). C ke sabse zyada followers hain, isliye wahi sabse popular hai. D ki in-degree 0 hai.</p>
+  </div></details>
+
+  <details><summary><span class="qn">N2</span><span><b>Density</b></span></summary><div class="body">
+    <div class="formula">Undirected: D = 2m / (n(n−1)) · Directed: D = m / (n(n−1))</div>
+    <p><b>Solved (G):</b> n = 5, m = 5 → 2·5 / (5·4) = 10/20 = <b>0.5</b>.</p>
+    <p><b>Practice:</b> Directed graph mein 5 nodes aur 8 edges hain. Density kya hai?</p>
+    <button class="reveal" type="button">Answer dikhao</button>
+    <p class="exp" hidden>8 / (5·4) = <b>0.4</b>.</p>
+  </div></details>
+
+  <details><summary><span class="qn">N3</span><span><b>Closeness centrality: "sabke paas kaun hai"</b></span></summary><div class="body">
+    <div class="formula">C_C(v) = (n − 1) / Σ d(v, u)   (har doosre node u tak ki shortest distance ka sum)</div>
+    <ol class="steps">
+      <li>D se distances: A = 2 (D–C–A), B = 2, C = 1, E = 1. Sum = 6.</li>
+      <li>C_C(D) = (5 − 1) / 6 = <b>0.667</b>.</li>
+      <li>C ke liye: sum = 1 + 1 + 1 + 2 = 5, isliye C_C = 4/5 = <b>0.8</b>, jo sabse zyada hai.</li>
+    </ol>
+    <p><b>Practice:</b> Star graph: 1 centre aur 5 leaves (n = 6). Centre ki closeness aur ek leaf ki closeness?</p>
+    <button class="reveal" type="button">Answer dikhao</button>
+    <p class="exp" hidden>Centre: sab 1 step door hain, sum = 5, to 5/5 = <b>1.0</b>. Leaf: centre tak 1, baaki 4 leaves tak 2-2, sum = 1 + 8 = 9, to 5/9 = <b>0.556</b>.</p>
+  </div></details>
+
+  <details><summary><span class="qn">N4</span><span><b>Betweenness centrality: "bridge kaun hai"</b> (W6 Q1 type)</span></summary><div class="body">
+    <div class="formula">C_B(v) = Σ over pairs (s,t), s≠v≠t, of σ_st(v) / σ_st · Normalised (undirected) = raw / [(n−1)(n−2)/2]</div>
+    <p>σ_st = s se t tak kitne shortest paths hain, aur σ_st(v) = unme se kitne v se guzarte hain. Undirected graph mein har pair sirf ek baar gino.</p>
+    <p><b>Solved: G mein C ki betweenness</b>. C ko chhod ke baaki pairs: (A,B), (A,D), (A,E), (B,D), (B,E), (D,E).</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Pair</th><th>Shortest path(s)</th><th class="num">C par?</th></tr></thead>
+      <tbody>
+        <tr><td>A–B</td><td>A–B (direct)</td><td class="num">0</td></tr>
+        <tr><td>A–D</td><td>A–C–D</td><td class="num">1</td></tr>
+        <tr><td>A–E</td><td>A–C–D–E</td><td class="num">1</td></tr>
+        <tr><td>B–D</td><td>B–C–D</td><td class="num">1</td></tr>
+        <tr><td>B–E</td><td>B–C–D–E</td><td class="num">1</td></tr>
+        <tr><td>D–E</td><td>D–E (direct)</td><td class="num">0</td></tr>
+        <tr><td colspan="2"><b>Total</b></td><td class="num"><b>4</b></td></tr>
+      </tbody>
+    </table></div>
+    <p>Normalised = 4 / [(4·3)/2] = 4/6 = <b>0.667</b>. Isi tarah D = 3 (A–E, B–E, C–E), aur A, B, E = 0.</p>
+    <div class="trap"><b>Equal-paths case</b>Agar ek pair ke 2 shortest paths hon aur v sirf ek par ho to v ko ½ milta hai. W6 ke 4-cycle mein har node ko 0.5 mila tha, normalised 0.5/3 = 1/6.</div>
+    <p><b>Practice 1:</b> Star: centre + 5 leaves. Centre ki raw betweenness?</p>
+    <button class="reveal" type="button">Answer dikhao</button>
+    <p class="exp" hidden>Har leaf-pair ka path centre se guzarta hai. Pairs = C(5,2) = <b>10</b>. Normalised = 10 / [(5·4)/2] = <b>1.0</b>.</p>
+    <p><b>Practice 2:</b> Path A–B–C–D–E. B aur C ki betweenness?</p>
+    <button class="reveal" type="button">Answer dikhao</button>
+    <p class="exp" hidden>B par se: A–C, A–D, A–E = <b>3</b>. C par se: A–D, A–E, B–D, B–E = <b>4</b>. Middle node C sabse zyada hai.</p>
+  </div></details>
+
+  <details><summary><span class="qn">N5</span><span><b>Local clustering coefficient</b> (Whisper W8 Q4 ka concept)</span></summary><div class="body">
+    <div class="formula">C(v) = (v ke neighbours ke beech actual links) / (k(k−1)/2),  k = deg(v)</div>
+    <p><b>Solved:</b> C ke neighbours A, B, D hain (k = 3), to possible links = 3. Actual links mein sirf A–B hai, yaani 1. C(C) = 1/3 = <b>0.333</b>. A ke neighbours B, C hain, aur B–C exist karta hai, to 1/1 = <b>1.0</b>. D ke neighbours C, E hain, C–E nahi hai, to <b>0</b>.</p>
+    <p>Average clustering (G) = (1 + 1 + 0.333 + 0 + 0)/5 = <b>0.467</b>. Note: degree 1 wale node ka C = 0 maana jaata hai.</p>
+    <p class="note">Whisper ka clustering 0.033 tha, jo Facebook (0.059) aur Twitter (0.048) se kam hai, kyunki strangers aapas mein connect nahi hote.</p>
+    <p><b>Practice:</b> Node X ke 4 neighbours hain aur unke beech 2 links hain. C(X)?</p>
+    <button class="reveal" type="button">Answer dikhao</button>
+    <p class="exp" hidden>Possible = 4·3/2 = 6, isliye 2/6 = <b>0.333</b>.</p>
+  </div></details>
+
+  <details><summary><span class="qn">N6</span><span><b>PageRank aur link farming</b></span></summary><div class="body">
+    <div class="formula">PR(p) = (1 − d)/N + d · Σ PR(q) / L(q)    (q = jo p ko link karte hain, L(q) = q ke out-links, d ≈ 0.85)</div>
+    <p>Idea (L20): jitne zyada aur jitne important in-links, utni zyada rank. Link farm artificial in-links banata hai, isliye rank badh jaati hai. Twitter par in-links = followers.</p>
+    <p><b>Solved:</b> A→B, A→C, B→C, C→A, N = 3, shuru mein sabka PR = 1/3, d = 0.85. (1−d)/N = 0.05.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Iteration</th><th class="num">PR(A)</th><th class="num">PR(B)</th><th class="num">PR(C)</th></tr></thead>
+      <tbody>
+        <tr><td>0</td><td class="num">0.3333</td><td class="num">0.3333</td><td class="num">0.3333</td></tr>
+        <tr><td>1</td><td class="num">0.05 + 0.85·(1/3) = 0.3333</td><td class="num">0.05 + 0.85·(1/3 ÷ 2) = 0.1917</td><td class="num">0.05 + 0.85·(1/6 + 1/3) = 0.4750</td></tr>
+        <tr><td>2</td><td class="num">0.4537</td><td class="num">0.1917</td><td class="num">0.3546</td></tr>
+        <tr><td>converged</td><td class="num">0.388</td><td class="num">0.215</td><td class="num">0.397</td></tr>
+      </tbody>
+    </table></div>
+    <p class="small">C ko do in-links milte hain (A aur B se), isliye uski rank sabse upar hai. Kuch books (1−d)/N ki jagah sirf (1−d) likhti hain. Exam mein jo formula diya ho, wahi lagana.</p>
+    <p><b>Link farm demo:</b> F1, F2, F3 teeno T ko link karte hain aur T unhe wapas link karta hai, yaani mutual follow. Converge hone par T ≈ <b>0.32</b> aur har F ≈ 0.116. Hub artificially upar aa gaya.</p>
+    <p><b>Reciprocity aur ratio numericals:</b></p>
+    <ul>
+      <li>Spammer ne 200 logon ko follow kiya, 50 ne follow back kiya → reciprocity = 50/200 = <b>25%</b>.</li>
+      <li>In/out ratio: link farmer 5,000/4,800 ≈ <b>1.04 (≈1)</b>; celebrity 10M/200 = bahut bada; spammer 50/2,000 = 0.025, yaani ≪ 1.</li>
+    </ul>
+  </div></details>
+
+  <details><summary><span class="qn">N7</span><span><b>NDCG</b> (W3 Q4)</span></summary><div class="body">
+    <div class="formula">DCG@k = Σ rel_i / log₂(i + 1),  i = 1..k  ·  NDCG = DCG / IDCG  (IDCG = relevances ko descending sort karke DCG)</div>
+    <p><b>Quiz wala solved (standard formula):</b> ranking ki relevances [2, 2, 0, 1, 1].</p>
+    <ol class="steps">
+      <li>log₂ values: log₂2 = 1, log₂3 = 1.585, log₂4 = 2, log₂5 = 2.322, log₂6 = 2.585.</li>
+      <li>DCG = 2/1 + 2/1.585 + 0/2 + 1/2.322 + 1/2.585 = 2 + 1.262 + 0 + 0.431 + 0.387 = <b>4.080</b>.</li>
+      <li>Ideal [2, 2, 1, 1, 0]: IDCG = 2 + 1.262 + 0.5 + 0.431 + 0 = <b>4.193</b>.</li>
+      <li>NDCG = 4.080 / 4.193 = <b>0.973 ≈ 0.975</b>.</li>
+    </ol>
+    <div class="trap"><b>Quiz key ka formula</b>Official solution ne DCG = rel₁ + Σ<sub>i≥2</sub> rel_i / log₂(i) use kiya tha, jisse ~0.96–0.975 aata hai. Dono formulas se closest option 0.975 hi hai. Exam mein jo formula diya ho wahi lagao; agar nahi diya to standard formula lagao aur closest option chuno.</div>
+    <p><b>Practice:</b> Relevances [3, 1, 2, 0]. NDCG (standard formula)?</p>
+    <button class="reveal" type="button">Answer dikhao</button>
+    <p class="exp" hidden>DCG = 3 + 1/1.585 + 2/2 + 0 = 3 + 0.631 + 1 = 4.631. Ideal [3, 2, 1, 0]: 3 + 2/1.585 + 1/2 = 3 + 1.262 + 0.5 = 4.762. NDCG = <b>0.9725</b>.</p>
+  </div></details>
+
+  <details><summary><span class="qn">N8</span><span><b>Cronbach's alpha</b> (inter-annotator reliability)</span></summary><div class="body">
+    <div class="formula">α = (k / (k − 1)) · (1 − Σσᵢ² / σ_T²)   k = annotators/items, σᵢ² = har annotator ka variance, σ_T² = total score ka variance</div>
+    <p><b>Solved:</b> 3 annotators ne 5 tweets ko rate kiya: T1 (4, 5, 3), T2 (2, 2, 3), T3 (5, 4, 5), T4 (3, 3, 2), T5 (1, 2, 1).</p>
+    <ol class="steps">
+      <li>Har annotator ka sample variance: 2.5, 1.7, 2.2, sum = <b>6.4</b>.</li>
+      <li>Har tweet ka total: 12, 7, 14, 8, 4 (mean 9). Inka variance = (9 + 4 + 25 + 1 + 25)/4 = <b>16</b>.</li>
+      <li>α = (3/2) · (1 − 6.4/16) = 1.5 · 0.6 = <b>0.90</b>. Ye ≥ 0.7 hai, isliye agreement reliable hai.</li>
+    </ol>
+  </div></details>
+
+  <details><summary><span class="qn">N9</span><span><b>Mean, median, SD, skew</b> (W5 Q9, W8 Q10)</span></summary><div class="body">
+    <div class="formula">mean = Σx/n · SD = √(Σ(x − mean)² / n) · right-skewed (power law) ⇒ mean &gt; median</div>
+    <p><b>W5 Q9 ka sahi tareeka:</b> har post ki apni variability nikaalo. Post 1 (120, 30, 15): mean 55, deviations 65, −25, −40, variance = (4225 + 625 + 1600)/3 = 2150, SD ≈ <b>46.4</b>. Post 2 SD ≈ 24.6, Post 3 SD ≈ 39.4. Isliye Post 1 sabse variable hai.</p>
+    <p><b>W8 Q10:</b> 50, 80, 100, 120, 150, 150, 170, 180, 200, 1800: mean = 3000/10 = <b>300</b>, median = (150 + 150)/2 = <b>150</b>. Ek outlier ne mean ko upar kheench liya.</p>
+    <p><b>Pareto check:</b> "20% users ne 85% username changes kiye" (L33) aur "80% Whisper users ne &lt; 10 posts kiye" (L27) dono heavy-tail ke examples hain.</p>
+  </div></details>
+
+  <details><summary><span class="qn">N10</span><span><b>Pearson vs Spearman</b> (W9 Q2, Q3)</span></summary><div class="body">
+    <div class="formula">Spearman (no ties): ρ = 1 − 6Σd² / (n(n² − 1)),  d = rank(x) − rank(y)</div>
+    <p><b>Solved:</b> x ranks 1, 2, 3, 4, 5; y ranks 2, 1, 4, 3, 5. d = −1, 1, −1, 1, 0, to Σd² = 4. ρ = 1 − 24/(5·24) = 1 − 0.2 = <b>0.8</b>.</p>
+    <p><b>Linear vs monotonic:</b> y = x³ (1, 8, 27, 64, 125) mein Spearman = <b>1.0</b> hai (perfect monotonic), lekin Pearson = <b>0.943</b> (kyunki relation straight line nahi hai).</p>
+    <p><b>Practice:</b> x = 10, 20, 30, 40, 50 aur y = 3, 1, 4, 2, 5. Spearman ρ?</p>
+    <button class="reveal" type="button">Answer dikhao</button>
+    <p class="exp" hidden>x ranks 1–5, y ki values hi ranks hain (3, 1, 4, 2, 5). d = −2, 1, −1, 2, 0, Σd² = 10. ρ = 1 − 60/120 = <b>0.5</b>.</p>
+  </div></details>
+
+  <details><summary><span class="qn">N11</span><span><b>Username similarity: Jaccard, edit distance, LCS</b> (L26 profile linking)</span></summary><div class="body">
+    <div class="formula">Jaccard J(A, B) = |A ∩ B| / |A ∪ B| · Edit (Levenshtein) = minimum insert/delete/substitute operations · LCS = longest common subsequence</div>
+    <p><b>Jaccard on bigrams:</b> "ponguru" ke bigrams {po, on, ng, gu, ur, ru} aur "pon_guru" ke {po, on, n_, _g, gu, ur, ru}. Common = po, on, gu, ur, ru = 5; union = 8. J = <b>0.625</b>.</p>
+    <p><b>Edit distance:</b> kitten → sitting = <b>3</b> (k→s, e→i, +g). sonu_gupta → sonugupta24 = <b>3</b> (delete '_', insert '2', insert '4').</p>
+    <p><b>LCS:</b> LCS("ponguru", "ponguru_iiit") = 7. Ise lambi string ki length (12) se normalise karo to 0.583. L33 mein purane aur naye username ki similarity normalised LCS se naapi gayi thi.</p>
+    <p><b>Practice:</b> "abc" aur "abd" ke character sets ka Jaccard?</p>
+    <button class="reveal" type="button">Answer dikhao</button>
+    <p class="exp" hidden>{a, b, c} ∩ {a, b, d} = {a, b}, yaani 2. Union {a, b, c, d} = 4. J = <b>0.5</b>.</p>
+  </div></details>
+
+  <details><summary><span class="qn">N12</span><span><b>k-anonymity: table se k nikaalo</b></span></summary><div class="body">
+    <p>Quasi-identifiers ZIP, Age aur Gender hain. Rows ko in teeno ke same values ke hisaab se group karo. <b>k = sabse chhote group ka size</b>.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>ZIP</th><th>Age</th><th>Gender</th><th>Disease (sensitive)</th></tr></thead>
+      <tbody>
+        <tr><td>130**</td><td>20–29</td><td>M</td><td>Flu</td></tr>
+        <tr><td>130**</td><td>20–29</td><td>M</td><td>Cold</td></tr>
+        <tr><td>130**</td><td>20–29</td><td>M</td><td>Flu</td></tr>
+        <tr><td>148**</td><td>30–39</td><td>F</td><td>Cancer</td></tr>
+        <tr><td>148**</td><td>30–39</td><td>F</td><td>Flu</td></tr>
+        <tr><td>130**</td><td>40–49</td><td>*</td><td>Heart</td></tr>
+        <tr><td>130**</td><td>40–49</td><td>*</td><td>Flu</td></tr>
+        <tr><td>130**</td><td>40–49</td><td>*</td><td>Cold</td></tr>
+        <tr><td>130**</td><td>40–49</td><td>*</td><td>Flu</td></tr>
+      </tbody>
+    </table></div>
+    <button class="reveal" type="button">Answer dikhao</button>
+    <p class="exp" hidden>Groups ke sizes 3, 2, 4 hain, isliye <b>k = 2</b> (table 2-anonymous hai). Generalisation (130**, age ranges) aur suppression (*) se ye anonymity aayi hai. Agar 148** group ke dono logon ki disease same hoti to attacker disease jaan leta (homogeneity attack). Isiliye aage l-diversity concept aaya.</p>
+  </div></details>
+
+  <details><summary><span class="qn">N13</span><span><b>Classifier metrics</b> (TweetCred, profile linking accuracy)</span></summary><div class="body">
+    <div class="formula">Accuracy = (TP + TN)/All · Precision = TP/(TP + FP) · Recall = TP/(TP + FN) · F1 = 2PR/(P + R)</div>
+    <p><b>Solved:</b> 100 tweets ka fake-detector: TP = 40, FP = 10, FN = 20, TN = 30. Accuracy = 70/100 = <b>0.70</b>, Precision = 40/50 = <b>0.80</b>, Recall = 40/60 = <b>0.667</b>, F1 = 2·0.8·0.667/1.467 = <b>0.727</b>.</p>
+    <p class="note"><b>5-fold cross validation</b>: data ke 5 hisse banao, har baar 4 par train karo aur 1 par test karo, phir 5 results ka average lo (L9).</p>
+  </div></details>
+
+  <details><summary><span class="qn">N14</span><span><b>Python output questions</b> (W4, W7)</span></summary><div class="body">
+    <pre>e = np.array([1200,1500,1300,1400,1800,1600,1400,1250,1350,1500,1700,1900])
+e[6:]                     # Jul–Dec → [1400 1250 1350 1500 1700 1900]
+np.where(e &gt; 1600)[0] + 1 # months → [ 5 11 12]
+np.mean(e[:3])            # Q1 → 1333.33
+Counter({'a':2,'b':5,'c':4}).most_common(2)   # [('b', 5), ('c', 4)]  descending
+df.groupby('Category')['Price'].agg(['sum','mean'])  # Electronics 2130, 532.5</pre>
+    <p><b>Practice:</b> <code>x = np.array([4, 9, 2, 7]); print(x[1:3].sum(), np.argmax(x))</code></p>
+    <button class="reveal" type="button">Answer dikhao</button>
+    <p class="exp" hidden><code>x[1:3]</code> = [9, 2], sum = <b>11</b>. Max value 9 index <b>1</b> par hai. Output: <code>11 1</code>.</p>
+  </div></details>
+
+  <details><summary><span class="qn">N15</span><span><b>CDF aur bar-chart padhna</b> (W3 Q8, W8 Q3, W9 Q5/Q10, W10 Q3/Q5)</span></summary><div class="body">
+    <ul>
+      <li>CDF par point (x, y) ka matlab: <b>y fraction ki value ≤ x</b> hai. "At least x" = 1 − F(x).</li>
+      <li>x-axis log scale (1, 10, 100…) par ho to equal gaps ka matlab 10 guna hai.</li>
+      <li>Jo curve tezi se upar jaaye aur phir lambi tail bane, wo skewed/heavy-tailed distribution hai.</li>
+      <li>Stacked bars "k values" mein ho to <b>changes = k − 1</b>. "At least 3 changes" ka matlab ≥ 4 values hai.</li>
+      <li>Curve x = 0 par hi y = 0.36 se shuru ho, to 36% values exactly 0 hain (W9 Fig 5).</li>
+    </ul>
+    <p><b>Practice:</b> Ek CDF mein F(167 hrs) = 0.2 hai (maximum inter-activity time). Kitne % users ka max gap 167 hours se zyada hai?</p>
+    <button class="reveal" type="button">Answer dikhao</button>
+    <p class="exp" hidden>1 − 0.2 = <b>80%</b>. W9 Q10(b) mein yahi tha: "80% users ka maximum &gt; 167 hours".</p>
+  </div></details>
+</section>
+
+<section class="panel" id="mock" role="tabpanel" hidden>
+  <div class="prose">
+    <h2>Mock Test</h2>
+    <p>49 naye questions hain (30 MCQ, 8 MSQ, 11 numerical), jo quiz ke repeat nahi hain. Inhe lecture ke un facts se banaya gaya hai jo exam mein aa sakte hain. Saare answer karke <b>Submit</b> dabao. MSQ tabhi sahi maana jaayega jab saare sahi options tick hon aur koi galat option tick na ho, jaisa NPTEL mein hota hai.</p>
+  </div>
+  <div class="quizbar">
+    <span class="stat" id="mockProgress">0 / 49 answered</span>
+    <span class="stat" id="mockScore" hidden></span>
+    <span style="flex:1"></span>
+    <button class="btn" id="mockSubmit" type="button">Submit</button>
+    <button class="btn ghost" id="mockReset" type="button">Reset</button>
+  </div>
+  <div id="mockList" class="qlist"></div>
+</section>
+
+<section class="panel" id="sheet" role="tabpanel" hidden>
+  <div class="prose">
+    <h2>Last-day Sheet</h2>
+    <p>Exam se ek raat pehle sirf ye dekhna. Left column mein "kya", right mein "number ya naam".</p>
+  </div>
+  <div class="card">
+    <h3>Formulas</h3>
+    <div class="tbl"><table><tbody>
+      <tr><td>Degree centrality</td><td class="mono">deg / (n−1)</td></tr>
+      <tr><td>Closeness</td><td class="mono">(n−1) / Σ distances</td></tr>
+      <tr><td>Betweenness (norm., undirected)</td><td class="mono">raw / [(n−1)(n−2)/2]</td></tr>
+      <tr><td>Clustering coefficient</td><td class="mono">links among nbrs / (k(k−1)/2)</td></tr>
+      <tr><td>Density</td><td class="mono">2m / n(n−1) (undirected) · m / n(n−1) (directed)</td></tr>
+      <tr><td>PageRank</td><td class="mono">(1−d)/N + d·Σ PR(q)/L(q), d = 0.85</td></tr>
+      <tr><td>NDCG</td><td class="mono">DCG/IDCG, DCG = Σ rel_i / log₂(i+1)</td></tr>
+      <tr><td>Cronbach α</td><td class="mono">k/(k−1) · (1 − Σσᵢ²/σ_T²), ≥ 0.7 achha</td></tr>
+      <tr><td>Spearman</td><td class="mono">1 − 6Σd² / n(n²−1)</td></tr>
+      <tr><td>Jaccard</td><td class="mono">|A∩B| / |A∪B|</td></tr>
+      <tr><td>k-anonymity</td><td class="mono">k = smallest equivalence-class size</td></tr>
+    </tbody></table></div>
+  </div>
+  <div class="card">
+    <h3>Names → meaning</h3>
+    <div class="tbl"><table><tbody>
+      <tr><td>Westin</td><td>Fundamentalists 25 · Pragmatists 60 · Unconcerned 15</td></tr>
+      <tr><td>5 V's</td><td>Volume, Velocity (speed/viral), Variety, Veracity (truth), Value (5th)</td></tr>
+      <tr><td>4 privacy forms</td><td>Information, Communication, Territorial, Bodily (CCTV)</td></tr>
+      <tr><td>Sweeney</td><td>ZIP + DOB + gender → re-identification → k-anonymity</td></tr>
+      <tr><td>TweetCred</td><td>Chrome ext., 1–7 score, 45 features, feedback</td></tr>
+      <tr><td>Facebook Inspector</td><td>TweetCred for Facebook</td></tr>
+      <tr><td>WOT</td><td>Web of Trust, domain reputation</td></tr>
+      <tr><td>LIWC / ANEW</td><td>Psychological/emotion categories from text</td></tr>
+      <tr><td>Valence / Arousal</td><td>Positive vs negative / intensity</td></tr>
+      <tr><td>Spamdexing</td><td>Spamming search engine index (link farm)</td></tr>
+      <tr><td>Reciprocity</td><td>Follow back; social etiquette; social capitalists</td></tr>
+      <tr><td>Spam targets / followers</td><td>Jinhe spammer follow kare / jo spammer ko follow karein</td></tr>
+      <tr><td>Nudges</td><td>Picture (audience), Timer (10 s), Sentiment; NOT voice</td></tr>
+      <tr><td>Semantic attack</td><td>Insaan ko target karta hai; semantic barrier = mental vs system model</td></tr>
+      <tr><td>Whaling / Vishing / Smishing</td><td>CEOs / phone / SMS</td></tr>
+      <tr><td>Username reasons</td><td>Benign: space gain, trend, anonymity, life events, boredom · Malicious: obscured promotion, squatting</td></tr>
+      <tr><td>Creation vs reuse</td><td>Static + temporal = creation · Occasional + frequent = reuse</td></tr>
+      <tr><td>UGI / AGI / non-GI</td><td>Unambiguous / Ambiguous / not geographic</td></tr>
+      <tr><td>Class 0 / 1 / 2</td><td>Single activity / dominant location / no dominant location</td></tr>
+      <tr><td>Graph API</td><td>Nodes + edges + fields; access token via OAuth</td></tr>
+    </tbody></table></div>
+  </div>
+  <div class="card">
+    <h3>Numbers jo MCQ ban sakte hain</h3>
+    <div class="tbl"><table><tbody>
+      <tr><td>Boston blast</td><td>15 Apr 2013, 18:50 GMT, 3 killed, 264 injured</td></tr>
+      <tr><td>Boston data</td><td>7.8–7.9M tweets; 29% fake/rumour, 20% true, 51% generic; ~75% fake via mobile; 32k new accts, 19% suspended; R² ≈ 0.7</td></tr>
+      <tr><td>Hurricane Sandy</td><td>Oct 2012, 1.78M tweets, Guardian ground truth, 97.65% (DT + tweet features)</td></tr>
+      <tr><td>India privacy survey</td><td>10,427 respondents, 83 Qs, 4 FGDs; 42% "settings set = secure"; 27% accept opposite gender; 50% changed defaults; 39% location to everyone</td></tr>
+      <tr><td>Face re-identification</td><td>6.3% / 10.5% (online); 38% of 98 (offline); 27% SSN first 5 digits</td></tr>
+      <tr><td>Police (Bangalore)</td><td>255 posts, ~1,600 comments; avg 30 h, max 211 h, min 4 min</td></tr>
+      <tr><td>Police (85 pages)</td><td>47,474 citizen posts, 85,408 police posts; CPC 9.49% lower</td></tr>
+      <tr><td>Twitter spam</td><td>8% of 25M URLs malicious, CTR 0.13%; 77% suspended within a day; 16% automated</td></tr>
+      <tr><td>Link farming dataset</td><td>54M users, 1.9B links; 82% spam followers ∩ targets; top 100k spam followers = 60% links</td></tr>
+      <tr><td>Top link farmers</td><td>76% alive, 235 verified, 86/100 real; in/out ≈ 1</td></tr>
+      <tr><td>Privacy policies</td><td>244 h/year, $781B</td></tr>
+      <tr><td>Nudge study</td><td>21 participants, 13 interviews, IRB; posts 13 → 7</td></tr>
+      <tr><td>Social phishing</td><td>Control 16%, social 72%; 70% within 12 h; M→F 78%; younger more vulnerable</td></tr>
+      <tr><td>Whisper</td><td>9M whispers, 15M replies; 55% no reply; 18% deleted (Twitter 4%); degree 9.47, clustering 0.033, path 4.28</td></tr>
+      <tr><td>Foursquare paper</td><td>13M users; mayor = 60 days; corr 0.78; ~78% within 50 km; 36% zero displacement; 10% ≥ 6000 km</td></tr>
+      <tr><td>Beware What You Share</td><td>Home city 67 / 72 / 82% (FS / G+ / Twitter); 0.5% tweets geotagged</td></tr>
+      <tr><td>Username dynamics</td><td>8.7M users; 73.21% changed some attribute; ~10% username; 20% users → 85% changes; 65% unrelated / 35% reuse; median length 11</td></tr>
+      <tr><td>OSM in 60 s</td><td>FB ~3.3–3.5M posts, Twitter 420k, YouTube 400 h video</td></tr>
+    </tbody></table></div>
+  </div>
+</section>
+
+</div>
+</main>
+<script>
+const QZ = [
+// ---------------- WEEK 1 ----------------
+{w:1,n:1,type:"MCQ",t:"tools",gap:true,q:"Local Git repo ko GitHub par host karne ka sahi sequence?",a:"git remote add origin … → git remote -v → git push origin master",src:"Git tutorial (2026 run)",
+c:"Teen steps yaad rakho: <b>register → verify → upload</b>. <code>git remote add origin &lt;URL&gt;</code> sirf ek bookmark (remote ka naam <i>origin</i>) banata hai aur abhi kuch upload nahi hota. <code>git remote -v</code> se check karte ho ki URL sahi laga hai. <code>git push origin master</code> commits upload karta hai, aur pehli baar <code>-u</code> lagane se upstream set ho jaata hai.",
+trap:"git clone tab use hota hai jab repo pehle se GitHub par ho aur tumhe use apne computer par laana ho. Upload karne ke liye clone nahi, push lagta hai."},
+{w:1,n:2,type:"MSQ",t:"basics",q:"Anonymous social networks ke baare mein kaunse statements true hain?",a:"(a) privacy & anonymity, (b) zyada freedom of expression, (c) judgment ka darr kam: teeno sahi",src:"L2 (types of SN), L27 (Anonymous Networks)",
+c:"Lecture ke hisaab se social networks teen tarah ke hote hain: <b>traditional</b> (Facebook, Twitter, LinkedIn), <b>ephemeral</b> (Snapchat, jahan content kuch time baad khud delete ho jaata hai) aur <b>anonymous</b> (Whisper, 4chan, Secret, Yik Yak, Wickr). Anonymous networks kyun bane: privacy ki awareness badhi, aur Snowden/PRISM jaise incidents hue. Inka downside ye hai ki trolling hoti hai, aur Whisper par 18% content delete ho jaata hai.",
+trap:"'None of the above' tabhi chuno jab baaki options sach mein galat hon. Yahan a, b, c teeno sahi the."},
+{w:1,n:3,type:"MCQ",t:"tools",gap:true,q:"Python mein virtual environment banane ka command?",a:"python3 -m venv <name>",src:"Python tutorial (2026 run)",
+c:"<code>-m</code> ka matlab hai 'module ko script ki tarah run karo'. Command ka format hota hai: <code>python3 -m venv psosm_env</code>. Activate karne ke liye Linux par <code>source psosm_env/bin/activate</code> aur Windows par <code>psosm_env\\Scripts\\activate</code>, aur band karne ke liye <code>deactivate</code>."},
+{w:1,n:4,type:"MCQ",t:"tools",gap:true,q:"Virtual environment kyun zaroori hai?",a:"Project dependencies isolate karta hai, projects ke beech conflict nahi hota",src:"Python tutorial (2026 run)",
+c:"Project A ko library version 1.0 chahiye aur project B ko 2.0. Dono ka alag venv hoga to dono chal jaayenge. venv se performance, memory ya OS compatibility par koi farak nahi padta, ye distractor options hain."},
+{w:1,n:5,type:"MCQ",t:"tools",gap:true,q:"Git file lifecycle ke blanks: Untracked → … → … → Staged",a:"Unmodified, Modified",src:"Git tutorial (2026 run)",
+c:"Git mein file ki 4 states hoti hain: <b>Untracked</b> (Git ise track nahi kar raha) → <code>git add</code> → <b>Staged</b> → <code>git commit</code> → <b>Unmodified</b> (last commit jaisi hai) → edit karne par <b>Modified</b> → <code>git add</code> se phir Staged."},
+{w:1,n:6,type:"MCQ",t:"tools",gap:true,q:"Local repo ke saare remote addresses kaunsa command dikhata hai?",a:"git remote -v",src:"Git tutorial (2026 run)",
+c:"<code>-v</code> ka matlab verbose hai, ye fetch aur push dono ke URL dikhata hai. <code>git pull</code> remote se data laata hai, <code>git stash</code> uncommitted changes ko side mein rakh deta hai, aur <code>git checkout</code> branch switch karta hai."},
+{w:1,n:7,type:"MCQ",t:"sna",gap:true,q:"'Infrequent, arms-length relationships naukri/promotion ke liye strong ties se zyada faydemand' kaunsa concept hai?",a:"Strength of weak ties (Granovetter, 1973)",src:"SNA concept (2026 run)",
+c:"Strong ties (close friends) usi circle mein rehte hain jisme tum ho, isliye unke paas wahi information hoti hai jo tumhare paas already hai. <b>Weak ties</b> (acquaintances) doosre clusters tak <b>bridge</b> ka kaam karte hain, isliye unse nayi information milti hai, jaise job leads.",
+trap:"<b>Six degrees of separation</b> aur <b>small world</b> ka matlab hai ki kisi bhi do logon ke beech path chhota hota hai. Ye tie strength ki baat nahi karte."},
+{w:1,n:8,type:"MSQ",t:"basics",q:"Online social media ke shortcomings kaunse hain?",a:"Saare chaar: misinformation, cyberbullying, addiction, limited privacy control",src:"L3 (Incidents)",
+c:"L3 ke negative incidents yaad karo: <b>cyberbullying</b> ki wajah se teenager ki death, <b>UK riots</b> social media se aur bigde, <b>AP ka compromised account</b> (\"Two explosions in White House, Obama injured\"), <b>Chennai floods</b> mein crocodile ki fake photo, <b>MI6 chief</b> ki wife ki Facebook photos (privacy issue), aur logon ki naukri jaana."},
+{w:1,n:9,type:"MCQ",t:"basics",q:"Content kam time mein bahut bade audience tak pahunche, ye kaunsa V hai?",a:"Velocity",src:"L2 (5 V's)",
+c:"Lecture ke 5 V's: <b>Volume</b> (kitna data), <b>Velocity</b> (kitni speed se generate aur spread hota hai), <b>Variety</b> (text, image, video, location), <b>Veracity</b> (data kitna sach hai), aur <b>Value</b> (5th V, jo baad mein add hua). Question mein 'quickly' ya 'rapidly' dikhe to answer Velocity hai.",
+trap:"W11 Q10 mein bhi same concept tha ('viral trends spread rapidly' → Velocity)."},
+{w:1,n:10,type:"MCQ",t:"basics",gap:true,q:"Gab platform ka primary purpose?",a:"Free speech promote karna",src:"Alt-platforms (2026 run)",
+c:"Gab 2016 mein Andrew Torba ne Twitter ke 'free speech alternative' ke roop mein launch kiya tha, jismein moderation bahut kam hai. Isliye wahan extremist content concentrate ho gaya. Ye 'free expression vs harm' wale trade-off ka example hai."},
+
+// ---------------- WEEK 2 ----------------
+{w:2,n:1,type:"MCQ",t:"tools",q:"Reddit API data kis format mein return karta hai?",a:"JSON",src:"L6 (data formats)",
+c:"L6 mein bataya gaya hai ki zyadatar social media APIs (Facebook, Twitter) data <b>JSON</b> mein dete hain, kuch XML mein bhi. JSON key-value pairs mein data rakhta hai. JSON padhne ke liye online JSON viewer use hota hai."},
+{w:2,n:2,type:"MCQ",t:"tools",q:"JSON ka full form?",a:"JavaScript Object Notation",src:"L6",
+c:"Iska direct sawaal aata hai. Saath mein ye bhi yaad rakho: <b>API</b> = Application Programming Interface (program aur OSM ke beech ek 'tunnel'), aur <b>XML</b> = eXtensible Markup Language."},
+{w:2,n:3,type:"MCQ",t:"tools",gap:true,q:"r/technology ke top 5 hot posts nikaalne ke liye kaunsi Python library?",a:"PRAW (Python Reddit API Wrapper)",src:"Reddit tutorial",
+c:"Har platform ki apni Python library hai: Twitter ke liye <b>Twython</b> (L12) ya Tweepy, Reddit ke liye <b>PRAW</b>, MongoDB ke liye <b>pymongo</b>, MySQL ke liye <b>MySQL-python</b>, aur visualization ke liye <b>python-highcharts</b>. <code>requests</code> generic HTTP library hai."},
+{w:2,n:4,type:"MCQ",t:"tools",gap:true,q:"r/worldnews ke 10 HOT posts fetch karne ka sahi code?",a:"praw.Reddit(...) → reddit.subreddit('worldnews').hot(limit=10)",src:"Reddit tutorial",
+c:"Sorting ke methods hain: <code>.hot()</code>, <code>.new()</code>, <code>.top()</code>, <code>.rising()</code>. Question mein 'hot' poocha hai, isliye <code>.hot(limit=10)</code> sahi hai.",
+trap:"Option (c) mein .new() tha, jo newest posts deta hai, hot nahi. Option (b) mein requests ke saath new.json tha, wo bhi galat hai."},
+{w:2,n:5,type:"MSQ",t:"cred",q:"Tweet ke kaunse features 'linguistic' category mein aate hain?",a:"Negative emotion words ki presence, Pronouns ki presence",src:"L9 (TweetCred features)",
+c:"Tweets ke features do tarah ke hote hain: <b>User/source features</b> (followers, friends, follower-friend ratio, kitni lists mein hai, verified, account age) aur <b>Tweet/message features</b> (length, words, ?, !, emoticons, URL). Message features ke andar <b>linguistic</b> features woh hain jo shabdon ki language se aate hain: pronouns, swear words, positive/negative emotion words.",
+trap:"Followers user feature hai. Smiley emoticon/symbol feature hai, linguistic nahi."},
+{w:2,n:6,type:"MCQ",t:"sna",q:"Social media par network analysis kyun karte hain?",a:"Individuals/entities ke beech social structure aur relationships samajhne ke liye",src:"L9 (diffusion network), L21",
+c:"L9 mein dikhaya gaya ki Hurricane Sandy wala rumor network mein ek hour mein kaise faila (nth hour vs n+1th hour). Nodes = users, edges = retweet/follow/mention. Isse pata chalta hai ki kaun central hai aur information kaise flow hoti hai."},
+{w:2,n:7,type:"MCQ",t:"cred",q:"Misinformation ka example kaunsa hai?",a:"Bina evidence ke tweet ki ek vaccine brand severe side effects deta hai",src:"L9, L10",
+c:"Misinformation ka matlab hai false ya unverified content jo fail jaata hai. Lecture ke examples: Ebola hoax (namak ka paani), Boston mein 8 saal ke bachche ki death ka rumour, $1 per RT, Sandy mein shark ki photo, Virginia Beach McDonald's flooded, London zoo ke jaanwar bhaage, Mexico mein shootout ki fake tweets. Jis option mein credible source cite hua ho, wo misinformation nahi hai."},
+{w:2,n:8,type:"MCQ",t:"tools",q:"MongoDB: salary ≥ 60000 wale employees?",a:"db.employees.find({ \"salary\": { $gte: 60000 } })",src:"L14 (MongoDB)",
+c:"Operators yaad rakho: <code>$gt</code> (&gt;), <code>$gte</code> (≥), <code>$lt</code> (&lt;), <code>$lte</code> (≤), <code>$ne</code> (≠), <code>$in</code>. MongoDB ek <b>non-relational, document-based</b> DB hai, jismein data <b>collections</b> mein rehta hai. Data dekhne ke liye <b>RoboMongo</b>, aur MySQL ke liye <b>phpMyAdmin</b>.",
+trap:"'greater than OR EQUAL' likha ho to $gte. Sirf $gt chuna to 60000 wala record chhoot jaayega."},
+{w:2,n:9,type:"MCQ",t:"tools",q:"User 12345 ke 5 most recent posts ki SQL query?",a:"SELECT * FROM posts WHERE user_id = 12345 ORDER BY post_date DESC LIMIT 5;",src:"L13 (MySQL)",
+c:"'Most recent' ka matlab hai date ke hisaab se <b>DESC</b> (nayi pehle). Sort <b>post_date</b> par karna hai, post_id par nahi. L13 mein tweet_id ko PRIMARY KEY banaya gaya tha, aur <code>INSERT IGNORE</code> duplicate primary key wali row ko skip kar deta hai."},
+{w:2,n:10,type:"MCQ",t:"tools",q:"Facebook Graph API kya hai?",a:"API jo user data, interactions aur connections ki wide range tak access deti hai",src:"L6, L7",
+c:"Facebook apna saara data <b>graph</b> ki tarah store karta hai: objects (user, photo, post, page) <b>nodes</b> hain, aur connections (friendship, likes, comments) <b>edges</b> hain. Har node ki ek unique numeric ID hoti hai. Isiliye API ka naam Graph API hai (W11 Q6 bhi yahi tha). Access <b>access token</b> se milta hai, jo OAuth se generate hota hai. Short-lived token jaldi expire hota hai (demo mein 38 minute bache the), aur App ID + App Secret se use extend kar sakte hain."},
+
+// ---------------- WEEK 3 ----------------
+{w:3,n:1,type:"MCQ",t:"privacy",q:"'Privacy bahut important, khud ko victim maante hain, future ke baare mein pessimistic, federal agency chahte hain' kaunsi Westin category hai?",a:"Fundamentalists",src:"L11, L15 (Alan Westin)",
+c:"Westin ki 3 categories, US data se: <b>Fundamentalists ≈ 25%</b> (personal info bilkul nahi dete, privacy ko le kar strict), <b>Pragmatists ≈ 60%</b> (situation dekh ke decide karte hain, fayda zyada to share kar dete hain), <b>Unconcerned ≈ 15%</b> (chocolate bar ke badle password bhi de denge).",
+trap:"Percentages par seedha MCQ aa sakta hai, 25 / 60 / 15 yaad rakho."},
+{w:3,n:2,type:"MSQ",t:"cred",q:"TweetCred credibility model kaunse features use karta hai?",a:"Saare chaar: Tweet links, Tweet author, Tweet network, Tweet metadata",src:"L9 (TweetCred)",
+c:"TweetCred real-time mein <b>45 features</b> use karta hai, jo content, user, network/propagation aur links (WOT score, YouTube like/dislike ratio) se aate hain."},
+{w:3,n:3,type:"MCQ",t:"cred",q:"Cronbach's alpha kya measure karta hai?",a:"Questionnaire ki reliability / internal consistency",src:"L9 (inter-annotator agreement)",
+c:"Lecture mein har tweet ko <b>kam se kam 3 logon</b> ne annotate kiya tha. Annotators kitna agree karte hain (inter-annotator agreement) ye <b>Cronbach's α</b> se naapte hain. <b>α ≥ ~0.7</b> ho to data reliable maana jaata hai. Formula Numericals tab mein hai."},
+{w:3,n:4,type:"NAT",t:"cred",q:"5 tweets ka NDCG@5: ranking TW5(2), TW1(2), TW3(0), TW2(1), TW4(1)",a:"≈ 0.975 (closest option)",src:"L9 (NDCG metric)",
+c:"<b>NDCG</b> (Normalized Discounted Cumulative Gain) batata hai ki ranking kitni achhi hai: NDCG = DCG / IDCG, jahan IDCG ideal ranking ka DCG hai. Lecture mein TweetCred ki ranking quality isi se naapi gayi thi. Quiz ki official solution ne thoda alag formula use kiya tha. Standard formula se 0.973 aata hai aur quiz wale formula se ~0.96–0.975, dono case mein closest option 0.975 hai. Pura solution Numericals tab mein hai.",
+trap:"Options mein 0.5 aur 0.513 jaise values distractors hain. NDCG hamesha 0 se 1 ke beech hota hai, aur achhi ranking 1 ke paas hoti hai."},
+{w:3,n:5,type:"MCQ",t:"privacy",q:"Privacy in India report: kitne % logon ne apne default settings change kiye?",a:"50%",src:"L11 (Privacy in India: Attitudes and Awareness V2.0)",
+c:"Is study mein: <b>20 interviews, 4 focus group discussions, 10,427 survey respondents, 83 questions</b>, ek state chhod ke poore India se. Gender: ~67% male, ~32% female."},
+{w:3,n:6,type:"MCQ",t:"privacy",q:"Report mein Focus Group Discussion (FGD) ka purpose?",a:"Group discussion karwa ke qualitative insights lena",src:"L11",
+c:"Teen methods yaad rakho: <b>Interviews</b> = one-on-one; <b>FGD</b> = group discussion, jisse qualitative data milta hai; <b>Survey</b> = quantitative data, bade sample par."},
+{w:3,n:7,type:"MCQ",t:"privacy",q:"'Privacy word sunke kya dimaag mein aata hai' ka most common answer?",a:"Information privacy",src:"L15 (4 forms of privacy)",
+c:"Privacy ke 4 forms: <b>Information privacy</b> (data/internet, is course ka focus), <b>Communication privacy</b> (phone/email), <b>Territorial privacy</b> (ghar, sheher, desh), <b>Bodily privacy</b> (shareer; CCTV iska example hai)."},
+{w:3,n:8,type:"MCQ",t:"cred",q:"Response-time CDF graph se sahi inference?",a:"82% users ko <6 sec, 99% ko <10 sec",src:"L9 (TweetCred response time)",
+c:"<b>CDF padhna</b>: point (x, y) ka matlab hai ki fraction y ki value ≤ x hai. Graph mein x=6 par F≈0.82 hai aur x=10 par ≈0.99–1.0. Ye skill bahut questions mein lagi hai: W8 Q3, W9 Q5 aur Q10, W10 Q3 aur Q5.",
+trap:"Galat x value par mat padhna: 2 sec par F lagbhag 0 hai."},
+{w:3,n:9,type:"MCQ",t:"privacy",q:"Likert scale kya hai?",a:"Surveys/questionnaires mein rating scale",src:"L15 (MTurk 1–7 Likert)",
+c:"L15 ke face-matching study mein Mechanical Turk workers ne pictures ke pairs ko <b>1–7 Likert scale</b> par rate kiya tha, aur har pair ko kam se kam 5 Turkers ne dekha. TweetCred ka score bhi 1–7 scale par hai."},
+{w:3,n:10,type:"MCQ",t:"cred",q:"TweetCred kya hai?",a:"Real-time web-based system jo Twitter content ki credibility automatically evaluate karta hai",src:"L9",
+c:"TweetCred ek <b>Chrome browser extension</b> hai jo har tweet ke saath <b>1–7</b> ka credibility score dikhata hai. User agree/disagree karke feedback de sakta hai, aur us feedback se model update hota hai. Iska Facebook version <b>Facebook Inspector (FBI)</b> hai (L10).",
+trap:"Options mein 'app-based' aur 'web-based' ka fark hai. Sahi answer web-based hai."},
+
+// ---------------- WEEK 4 ----------------
+{w:4,n:1,type:"MCQ",t:"privacy",q:"Latanya Sweeney ki k-anonymity research kis challenge ko address karti hai?",a:"Data ko anonymise karna bina uski utility khoye",src:"L15",
+c:"Sweeney ne <b>medical data</b> (ethnicity, diagnosis, …) ko <b>voter list</b> (naam, address, …) se join kiya. Dono mein common the <b>ZIP code + birth date + gender</b>. Ye 3 fields milke US ki ~87% population ko uniquely identify kar dete hain. Inhe <b>quasi-identifiers</b> kehte hain. Iska solution k-anonymity hai."},
+{w:4,n:2,type:"MCQ",t:"tools",gap:true,q:"Sales statistics ke liye kaunsa data structure?",a:"NumPy array",src:"numpy tutorial",
+c:"<code>np.array</code> vectorised operations deta hai, jaise <code>np.sum</code>, <code>np.mean</code>, <code>np.max</code>, <code>np.where</code>, aur ye Python loops se tez hai.",
+trap:"'numpy list' naam ki koi cheez nahi hai, <code>np.list</code> exist hi nahi karta."},
+{w:4,n:3,type:"MCQ",t:"tools",gap:true,q:"calculate_total_sales ka code?",a:"sales_array = np.array(sales_list); total_sales = np.sum(sales_array)",src:"numpy tutorial",
+c:"[1200,1500,1300,1400,1800,1600] ka sum = <b>8800</b>."},
+{w:4,n:4,type:"MCQ",t:"tools",gap:true,q:"calculate_maximum_sales ka code?",a:"np.array(...) phir np.max(...)",src:"numpy tutorial",
+c:"Same list ka max = <b>1800</b>. <code>np.concatenate</code> wale options galat hain."},
+{w:4,n:5,type:"MCQ",t:"tools",gap:true,q:"12 months array se July–December nikaalna?",a:"expenses_array[6:]",src:"numpy tutorial",
+c:"Index 0 se shuru hota hai: Jan = 0, …, Jul = <b>6</b>. <code>[6:]</code> = index 6 se end tak = Jul–Dec."},
+{w:4,n:6,type:"MCQ",t:"tools",gap:true,q:"Kaunse months mein expenses > 1600?",a:"np.where(expenses_array > 1600)[0] + 1",src:"numpy tutorial",
+c:"<code>np.where</code> ek tuple return karta hai, isliye <code>[0]</code> se indices nikalte hain. Indices 0-based hain, isliye <b>+1</b> karke month number banta hai. Answer: months <b>5, 11, 12</b> (1800, 1700, 1900)."},
+{w:4,n:7,type:"MCQ",t:"tools",gap:true,q:"Pehle quarter ka average?",a:"np.mean(expenses_array[:3])",src:"numpy tutorial",
+c:"Quarter = 3 months, yaani <code>[:3]</code>. (1200+1500+1300)/3 = <b>1333.33</b>."},
+{w:4,n:8,type:"MCQ",t:"tools",gap:true,q:"pandas groupby('Category').agg(sum, mean) ka output?",a:"None of the above (Electronics: 2130, 532.5)",src:"pandas tutorial",
+c:"Electronics: 500+600+550+480 = <b>2130</b>, mean 532.5. Clothing: 40+35+30 = 105, mean 35. Home: 100+80+90 = 270, mean 90. Options mein Electronics 1630 / 543.33 likha tha, jo galat hai.",
+trap:"Code output wale questions mein khud mentally calculate karo, options par bharosa mat karo."},
+{w:4,n:9,type:"MCQ",t:"privacy",q:"k-anonymity ka primary goal?",a:"Specific individuals ko unke records se link karna mushkil banana",src:"L15",
+c:"<b>k-anonymity</b>: har record quasi-identifiers par kam se kam <b>k−1 doosre records</b> jaisa dikhna chahiye, yaani har group ka size ≥ k. Iske liye generalisation (ZIP 130** jaisa) aur suppression use hote hain. Numericals tab mein ek table se k nikaalne ka practice hai."},
+{w:4,n:10,type:"MCQ",t:"tools",gap:true,q:"np.sin(time) plot karne wale matplotlib code ka output?",a:"Sine wave ka plot",src:"matplotlib tutorial",
+c:"<code>np.linspace(0, 2π, 1000)</code> 0 se 2π tak 1000 points banata hai. <code>np.sin</code> lagane par ek poora sine cycle aata hai. Code mein koi error nahi hai."},
+
+// ---------------- WEEK 5 ----------------
+{w:5,n:1,type:"MSQ",t:"police",q:"OSN police aur residents ke beech public communication kaise improve karte hain?",a:"Saare chaar: actionable info & collective action, mutual accountability, fear/victimisation samajhna, authorities se contact",src:"L17 (Bangalore City Police study)",
+c:"L17 ke conclusions: (1) <b>Actionable information</b>, (2) residents ki <b>opinion</b>, (3) <b>Mutual accountability</b> (police bhi accountable aur citizens bhi), (4) <b>Fear and anxiety</b> samajhna, needs aur wants ke 'trees' ke through."},
+{w:5,n:2,type:"MSQ",t:"police",q:"Actionable information ke examples?",a:"Road par traffic issue ka post, khule potholes ka post",src:"L17",
+c:"<b>Actionable</b> matlab aisi information jis par police turant action le sake: pothole, gaadi kharab, traffic jam, kisi jagah police nahi hai.",
+trap:"Celebration ya festival ki post (Azaadi ka Amrit Mahotsav) par koi action nahi lena hota, isliye wo actionable nahi hai."},
+{w:5,n:3,type:"MCQ",t:"police",q:"'Saturday evening. Time – between 5.30 pm and 6pm' kaunsa actionable info hai?",a:"Temporal data",src:"L17",
+c:"<b>Temporal</b> = time ki information, <b>Spatial</b> = location ki information (circle between Freedom Park…). Agar ye details post mein hi hon to police ko alag se poochhna nahi padta."},
+{w:5,n:4,type:"MCQ",t:"police",q:"'Dear Sir, Request to take action…' aur 'Kudos to the Banasawadi Traffic Police…' kis type ki communication hain?",a:"Formal and Informal",src:"L17 (communication style)",
+c:"Lecture mein posts ka <b>style</b> 2 categories mein tha: formal aur informal. 'Dear Sir, request…' formal hai, 'Kudos… An ANGEL in disguise' informal hai. Police ki taraf se posts almost hamesha formal hoti hain.",
+trap:"Order dhyan se dekho: pehla formal, doosra informal."},
+{w:5,n:5,type:"MCQ",t:"police",q:"Likhe text se emotional/psychological state kaise pehchaanoge?",a:"LIWC",src:"L18",
+c:"<b>LIWC</b> (Linguistic Inquiry and Word Count) text ko input leta hai aur psychological categories (positive/negative emotion, anxiety, anger, social, cognitive) ka score deta hai. <b>ANEW</b> dictionary bhi use hui thi. <b>K-means</b> clustering topics group karne ke liye tha aur <b>n-gram</b> words ki frequency ke liye."},
+{w:5,n:6,type:"MCQ",t:"police",q:"'ISRO launched Chandrayaan…' ka thematic content?",a:"ISRO dwara ki gayi activities aur research",src:"L18 (topical characteristics)",
+c:"<b>Topical/thematic analysis</b> ka matlab hai ki post kis baare mein hai, yaani subject matter. Emotion, grammar ya linguistic diversity alag dimensions hain."},
+{w:5,n:7,type:"MCQ",t:"police",q:"n-gram mein 'n' kya hai?",a:"Har n-gram mein words ki sankhya",src:"L18, L25 (NLTK)",
+c:"1-gram (unigram) = ek word, bigram = 2 words saath mein ('take action'), trigram = 3 words. NLTK mein <code>ngrams(tokens, 2)</code> likhte hain. Police ke posts mein unigrams 'rules, safety, violations' aaye, aur citizens ke posts mein 'please take action'.",
+trap:"n words ki ginti hai, characters ki nahi."},
+{w:5,n:8,type:"MCQ",t:"police",q:"Valence 0.75, arousal 0.85 (−1 se 1 scale) ka matlab?",a:"Positive sentiment, high emotional intensity",src:"L18",
+c:"<b>Valence</b> sentiment ki direction hai (positive ya negative). <b>Arousal</b> intensity hai (emotion kitna strong hai). Dono high hain to excited/positive."},
+{w:5,n:9,type:"NAT",t:"police",q:"3 posts ki engagement (likes, comments, shares). Kis post mein highest variability hai?",a:"Post 1",src:"Stats (L18 engagement)",
+c:"Har post ka apne teen numbers ka SD nikaalo: Post 1 (120, 30, 15), mean 55 → SD ≈ 46.4. Post 2 (80, 45, 20), mean 48.33 → SD ≈ 24.6. Post 3 (100, 25, 10), mean 45 → SD ≈ 39.4. Isliye Post 1 sabse variable hai. (Quiz solution ka method alag tha, par answer wahi aata hai.)"},
+{w:5,n:10,type:"MCQ",t:"police",q:"'Absolutely disgusted by the state of our local park!…' kaunsa post aur sentiment hai?",a:"Citizen-initiated and negative",src:"L18",
+c:"L18 ki finding: <b>citizen-initiated threads mein negative affect zyada</b> hota hai, kyunki log complaint karte hain. Police jab thread mein join karti hai to <b>anxiety kam</b> hoti hai (0.001 vs 0.003), kyunki police loop close kar deti hai."},
+
+// ---------------- WEEK 6 ----------------
+{w:6,n:1,type:"NAT",t:"sna",q:"A–B, A–C, B–D, C–D (4-cycle): sabse zyada betweenness kiska?",a:"Sabka same (har node = 0.5; normalised 1/6)",src:"L21 (SNA tutorial)",
+c:"Ye graph ek square hai jo poori tarah symmetric hai. Har opposite pair (A–D, B–C) ke beech 2 shortest paths hain, isliye har beech wale node ko ½ milta hai. Normalised value = 0.5 / ((n−1)(n−2)/2) = 0.5/3 = 1/6.",
+trap:"Symmetric graph (cycle, complete graph) mein har node ki saari centralities equal hoti hain."},
+{w:6,n:2,type:"MCQ",t:"sna",q:"Indegree centrality kya measure karti hai?",a:"Followers ya incoming connections ke base par popularity",src:"L21",
+c:"Twitter par <b>A → B</b> ka matlab hai A, B ko follow karta hai. <b>In-degree</b> = followers, <b>out-degree</b> = following. L21 mein ek aur detail thi: self-loop in-degree aur out-degree dono mein count hota hai."},
+{w:6,n:3,type:"MCQ",t:"sna",q:"Betweenness centrality node ke baare mein kya batati hai?",a:"'One who is quickly approachable' (quiz key)",src:"L21",
+c:"L21: betweenness = us node se guzarne wale shortest paths ki ginti. Aisa node <b>bridge/broker</b> hota hai jiske through baaki log jaldi pahunch sakte hain, isliye quiz key ne 'quickly approachable' chuna. <b>Closeness</b> = 'sabke paas hai' (sabse kam total distance). <b>Eigenvector/PageRank</b> = 'influential' (important logon se connected).",
+trap:"Ye key thodi ajeeb hai, lekin exam mein same mapping rakhna: betweenness → quickly approachable/bridge, closeness → close to everyone."},
+{w:6,n:4,type:"MCQ",t:"link",q:"Link farming kya hai?",a:"Unethical/manipulative tarike se links tezi se badhana",src:"L20, L22",
+c:"PageRank mein jitne zyada in-links, utni higher rank. <b>Link farm</b> websites ka group hota hai jo ek doosre ko artificially link karte hain. Twitter par isi ka version hai: spammer hazaaron logon ko follow karta hai taaki wo follow back karein, uski in-degree badhe aur search mein uske tweets upar aayein."},
+{w:6,n:5,type:"MSQ",t:"link",q:"Search engines ke index ko spam karna kya kehlata hai?",a:"Spamdexing aur Spamexing (dono)",src:"L20",
+c:"L20 mein ye exact line hai: link farm 'spamming the index of search engine' hai, jise <b>spamdexing</b> ya <b>spamexing</b> kehte hain. Iski techniques: keyword stuffing, hidden text, link farms, cloaking.",
+trap:"Sirf 'Spamming' bahut general term hai, isliye galat hai."},
+{w:6,n:6,type:"MCQ",t:"link",q:"Clickbait headline ka best example?",a:"\"You Won't Believe What Happened Next! Click Here to Claim Your Prize!\"",src:"L19 (eCrimes)",
+c:"L19 mein clickbaiting ek eCrime hai: user ko aise link par click karwana jo legitimate nahi hai. Iske signs: curiosity gap, exaggeration, 'click here'."},
+{w:6,n:7,type:"MCQ",t:"link",q:"Twitter par 'social etiquette' kya maana jaata hai?",a:"Following back",src:"L20, L22",
+c:"Koi tumhe follow kare to tum bhi use follow kar lo, ise social etiquette maana jaata hai. Link farmers isi ka fayda uthate hain."},
+{w:6,n:8,type:"MCQ",t:"link",q:"Favour ka jawab favour se dene wala psychological principle?",a:"Reciprocity",src:"L20, L22",
+c:"L20: 'there is a high probability that if I follow you, you will follow me back.' L22 ke graph mein y-axis ka naam hi <b>fraction reciprocated in-links</b> tha."},
+{w:6,n:9,type:"MSQ",t:"sna",q:"Graph centrality measures kaunse hain?",a:"Saare chaar: Eigen, Degree, Betweenness, Closeness",src:"L21, L28 (Gephi)",
+c:"Degree = direct connections. Closeness = (n−1)/Σd. Betweenness = shortest paths through node. Eigenvector = important neighbours se connected hona. Gephi ye saari values compute kar deta hai."},
+{w:6,n:10,type:"MSQ",t:"link",q:"Figure mein spam targets kaun hain?",a:"A aur B",src:"L20 (spam targets/followers figure)",
+c:"L20 ki terminology: <b>S = spammer</b>. <b>Spam targets</b> = jinhe S follow karta hai (A, B). <b>Spam followers</b> = jo S ko follow karte hain (B, C). <b>Targeted follower</b> = jo target bhi hai aur follow back bhi karta hai (B). Lecture data: 82% spam followers spam targets ke saath overlap karte hain."},
+
+// ---------------- WEEK 7 ----------------
+{w:7,n:1,type:"MCQ",t:"tools",q:"\"Hello everyone!!!, Are you enjoying psosm course --- …\" se punctuation hatane ka sahi code?",a:"Option (c): punctuation set mein '-' aur '.' dono + no_punct = no_punct + char",src:"L25 (text processing)",
+c:"Do cheezein check karo: (1) <b>punctuation set complete hai</b>, yaani string mein jo '!' ',' '-' '.' hain wo set mein hain; (2) <b>accumulate ho raha hai</b>, yaani <code>no_punct = no_punct + char</code>. <code>no_punct = char</code> har baar result ko overwrite kar deta hai."},
+{w:7,n:2,type:"MCQ",t:"tools",q:"Counter(dict(zip(token, x))).most_common(2) kya karta hai?",a:"2 tuples ki descending sorted list deta hai: [('python', 5), ('nltk', 4)]",src:"L25 (Counter, most_common)",
+c:"L25 mein word frequency <code>Counter(all_tokens).most_common(25)</code> se nikaali gayi thi. <code>most_common(k)</code> hamesha highest count se lowest ki taraf sorted list of (item, count) tuples deta hai."},
+{w:7,n:3,type:"MCQ",t:"tools",q:"Stopword list mein se kaunsa stopword nahi hai?",a:"apple",src:"L25 (NLTK stopwords)",
+c:"Stopwords bahut common function words hote hain (the, and, to, for, while, again, further), jinhe analysis se pehle hata dete hain. 'apple' content word (noun) hai. NLTK mein: <code>from nltk.corpus import stopwords; stopwords.words('english')</code>."},
+{w:7,n:4,type:"MCQ",t:"phish",q:"Sample eBay mail ko phishing kya banata hai?",a:"All of the above: subject mein urgency, body mein regret wali info, phishing link",src:"L24",
+c:"L24 ka eBay example: subject <i>'eBay urgent notification from billing department'</i>, body <i>'We regret to inform you that your eBay account could be suspended…'</i>, aur link jo <b>kusi.org</b> par le jaata hai, eBay par nahi. Teen cheezein dekhni hain: <b>subject line, urgency, link</b>."},
+{w:7,n:5,type:"MCQ",t:"phish",q:"Lecture ke hisaab se kaunsa statement sahi?",a:"Younger participants phishing ke liye zyada vulnerable the",src:"L24 (Indiana Univ. social phishing study)",
+c:"L24 ka social phishing study (Indiana University, 2005, age 18–24): <b>freshmen</b> (sabse young) mein social aur control condition ka difference sabse zyada tha, yaani younger log zyada vulnerable the. Ek aur finding: emails <b>opposite gender</b> se aaye to success zyada thi."},
+{w:7,n:6,type:"MCQ",t:"phish",q:"Experiment mein independent variable kis group mein manipulate hota hai?",a:"Experimental group",src:"L24 (control vs experimental)",
+c:"L24 mein <b>control group</b> ko email ek unknown Indiana University sender se mila (16% phish hue). <b>Experimental/social group</b> ko email ek <b>friend</b> ke naam se mila (72% phish hue). Treatment experimental group ko diya jaata hai, control group baseline hota hai."},
+{w:7,n:7,type:"MCQ",t:"phish",q:"Privacy policies ke advantages?",a:"Both: informed decisions + regrettable disclosures avoid karna",src:"L23",
+c:"L23 ka research goal exactly yahi tha: users ko <b>informed decisions</b> lene mein help karna aur <b>regrettable online disclosures</b> avoid karwana. Problem ye hai ki log policies padhte nahi. Har website ki policy mahine mein ek baar padhne mein <b>244 hours/year</b> lagenge, jiski US mein national cost <b>$781 billion</b> hogi."},
+{w:7,n:8,type:"MCQ",t:"phish",q:"Figure mein kaunsa nudge hai (profile photos + 'these people can see')?",a:"Picture nudge",src:"L23",
+c:"3 nudges hain: <b>Picture/audience nudge</b> (jo log post dekh sakte hain unki profile photos dikhata hai), <b>Timer nudge</b> (10 second ka countdown, cancel karne ka option), <b>Sentiment nudge</b> (post negative lage to warning deta hai). Study: Chrome extension, <b>21 participants</b> ne field study ki, <b>13</b> ne interview diya. Sentiment nudge ke baad post frequency 13 se 7 ho gayi."},
+{w:7,n:9,type:"MCQ",t:"phish",q:"Kaunsa social media nudge NAHI hai?",a:"Voice nudge",src:"L23",
+c:"Sirf teen nudges hain: Picture, Timer, Sentiment."},
+{w:7,n:10,type:"MCQ",t:"link",q:"Kiski in-degree aur out-degree dono high hoti hai?",a:"Top link farmers",src:"L22",
+c:"L22: top link farmers ki in-degree aur out-degree dono spammers aur random users se bahut zyada hoti hai, aur <b>in/out ratio ≈ 1</b>. Spammers bahut logon ko follow karte hain lekin unhe kam log follow back karte hain, isliye unki in-degree low aur out-degree high hoti hai. Random users ki dono low hoti hain."},
+
+// ---------------- WEEK 8 ----------------
+{w:8,n:1,type:"MSQ",t:"user",q:"Profile linking ke approaches?",a:"(a) common attributes compare karna, (b) same email/location/phone check karna",src:"L26",
+c:"L26 ke approaches: common attributes ki list banao (name, profile picture, workplace, URL) → unhe <b>syntactic / semantic / graph-based</b> tarike se compare karo → similarity high ho to same user. Saath mein <b>history</b> (purane usernames) bhi use hoti hai. <b>Self-identification</b>, jaise Twitter bio mein Tumblr link, sabse strong signal hai.",
+trap:"(c) mein 'Only' likha hai, isliye galat. (d) 'not possible' bhi galat hai, kyunki linking possible hai aur isi wajah se ye privacy risk hai."},
+{w:8,n:2,type:"MSQ",t:"user",q:"Username change par S1–S4 kaunse sahi?",a:"Saare S1, S2, S3, S4",src:"L26, L33",
+c:"Profile ka URL username se banta hai (twitter.com/username). Isliye sirf username change karne se purana link aur purane @mentions toot jaate hain, yaani <b>unreachability</b>. Benign reasons: space gain, trending event, anonymity paana ya khona, real-life events, boredom. Malicious reasons: obscured username promotion, <b>username squatting</b>."},
+{w:8,n:3,type:"MCQ",t:"user",q:"Attribute-change graph se sahi inference?",a:"Lagbhag 35% users ne profile picture kam se kam 3 baar change ki",src:"L26 (8M users, 2 months)",
+c:"Key rule: <b>k values = k−1 changes</b>. Profile picture mein 3 changes = 4 ya 5 values (yellow + dark red segments) ≈ 30–35%. Username bar sirf ~6–10% tak hai. Profile picture sabse zyada change hone wala attribute hai.",
+trap:"'Exactly 3 times' aur 'at least 3 times' alag cheezein hain, aur '3 values' ka matlab 2 changes hai."},
+{w:8,n:4,type:"MCQ",t:"sna",q:"Whisper users ka clustering coefficient low kyun?",a:"Whisper users strangers se interact karte hain jo aapas mein interact nahi karte",src:"L27",
+c:"L27 table (Whisper / Facebook / Twitter): avg degree <b>9.47</b> / 1.78 / 3.93; clustering <b>0.033</b> / 0.059 / 0.048; avg path length <b>4.28</b> / 10.13 / 5.52; assortativity <b>−0.011</b>. High degree, low clustering, short path aur assortativity ≈ 0 ka matlab hai <b>random graph</b>, jismein strong ties nahi hote."},
+{w:8,n:5,type:"MCQ",t:"sna",q:"Gephi ka primary purpose?",a:"Network visualization and analysis",src:"L21, L28",
+c:"Gephi open-source tool hai. Input: GraphML/GML, ya CSV (node file mein <b>id</b> column, edge file mein <b>source, target</b> aur optional <b>type</b>). Layouts: Fruchterman-Reingold, ForceAtlas. Statistics: degree, diameter, <b>modularity</b> (communities). Data Laboratory tab mein tables, aur export SVG/PDF/PNG mein."},
+{w:8,n:6,type:"MSQ",t:"user",q:"Username change behaviour study karna kyun useful hai?",a:"Saare chaar: unique, homogeneous, restricted length, publicly available",src:"L26",
+c:"L26: username <b>universally unique</b> hai, <b>publicly available</b> hai (private nahi kar sakte), <b>length restricted</b> hai (Twitter par 15 characters), aur collect karna aasaan hai."},
+{w:8,n:7,type:"MCQ",t:"sna",q:"Twitter graph mein node ki in-degree?",a:"Followers ki sankhya",src:"L20, L21",
+c:"L20: agar link B → A hai to 'B is A's follower' aur 'A is B's following'. In-degree = followers."},
+{w:8,n:8,type:"MSQ",t:"basics",q:"Kaunse anonymous social networks hain?",a:"Saare chaar: Secret, 4chan, Yik Yak, Blind",src:"L27",
+c:"L27 ki list: <b>4chan, Whisper, Secret, Yik Yak, Wickr</b>. Blind workplace ka anonymous app hai."},
+{w:8,n:9,type:"MCQ",t:"sna",gap:true,q:"Scale-free network mein kya hota hai?",a:"All of the above: power-law degree distribution, Zipf's law, Pareto principle",src:"L30, L33 (Pareto) + SNA",
+c:"P(k) ∝ k<sup>−γ</sup> (γ aam taur par 2–3): zyadatar nodes ke kam links hote hain aur kuch hubs ke bahut zyada. Lectures mein ye baar-baar aaya: Foursquare mayorships 'skewed, heavy tail', username change mein <b>20% users ne 85% changes kiye</b>, aur Whisper mein 80% users ne 10 se kam posts kiye."},
+{w:8,n:10,type:"MCQ",t:"sna",gap:true,q:"Average friends 300, lekin zyadatar ke 50–200 hain. Aisa kyun?",a:"Kuch logon ke bahut zyada friends (outliers) hain jo average ko upar kheench rahe hain",src:"Stats",
+c:"Right-skewed data mein <b>mean &gt; median</b> hota hai. Example: 50, 80, 100, 120, 150, 150, 170, 180, 200, 1800 ka mean 300 hai aur median 150. Power-law data ke liye median better summary hai."},
+
+// ---------------- WEEK 9 ----------------
+{w:9,n:1,type:"MSQ",t:"lbsn",q:"Location-based services kaunsi hain?",a:"Saare chaar: Foursquare, Yelp, Gowalla, Uber",src:"L29",
+c:"L29 mein inka zikr hai: Foursquare, Yelp, Gowalla, Facebook check-in, Twitter geo-location. Jis service ka core function location par chalta hai, wo LBS hai, aur Uber bhi isme aata hai."},
+{w:9,n:2,type:"MCQ",t:"lbsn",gap:true,q:"Pearson aur Spearman mein difference?",a:"Pearson linear relationship assess karta hai, Spearman monotonic",src:"Stats (L30 mein correlation 0.78)",
+c:"Pearson actual values par kaam karta hai aur straight line ka fit dekhta hai. Spearman <b>ranks</b> par Pearson lagata hai, yaani sirf ye dekhta hai ki ek badhe to doosra bhi badhe. Dono hamesha −1 se +1 ke beech hote hain. L30 mein mayorships aur tips per city ka correlation <b>0.78</b> tha.",
+trap:"Option (b) 'Pearson range ke bahar ja sakta hai' galat hai. Isliye 'All of the above' bhi galat ho jaata hai."},
+{w:9,n:3,type:"MCQ",t:"lbsn",gap:true,q:"Ek dataset ordinal/rank hai, doosra continuous. Kaunsa coefficient?",a:"Spearman's rank correlation",src:"Stats",
+c:"Ordinal data mein gaps meaningful nahi hote, isliye Pearson valid nahi hai. Spearman mein dono ko ranks mein badal ke correlate karte hain: ρ = 1 − 6Σd² / (n(n²−1))."},
+{w:9,n:4,type:"MSQ",t:"lbsn",q:"Kaunse open text fields hain jinki validity system enforce nahi karta?",a:"Venue location, User home city",src:"L30, L32",
+c:"L32: user home city ek optional open text field hai (≤100 chars). Venue ka city/address bhi open text hai (<b>30 aur 127 chars</b>), saath mein map par pin. Isliye inme junk entries aati hain, jaise 'heart' ya samundar ke beech ki location. Ye invalid/<b>non-GI</b> hain aur inhe saaf karna padta hai.",
+trap:"Tips aur dones activities hain, location fields nahi."},
+{w:9,n:5,type:"MCQ",t:"lbsn",q:"Figure 2 (per-city mayorships/tips/dones CDF) se inference?",a:"Distributions bahut skewed hain, kuch cities mein 100 tak mayorships/tips/dones",src:"L30",
+c:"L30: 'distributions are very skewed, with a few cities having as many as 100 mayorships, tips and dones'. Pareto/power law. Mayorships aur tips per city ka correlation 0.78. Tips mein top cities: New York, Jakarta, São Paulo. Dones mein: New York, Chicago, San Francisco."},
+{w:9,n:6,type:"MCQ",t:"lbsn",q:"Scatter plot aur bar chart mein key difference?",a:"Scatter do numerical variables ka relation dikhata hai, bar chart categorical data ka frequency/distribution",src:"L31 (Highcharts)",
+c:"L31 mein Highcharts se bar chart banaya gaya tha (top 5 users ke posts, 4 din). Library: <code>python-highcharts</code>, chart type options mein set hota hai."},
+{w:9,n:7,type:"MSQ",t:"lbsn",q:"Foursquare par publicly available data?",a:"Mayorships, Tips, Dones (check-ins nahi)",src:"L29",
+c:"<b>Check-ins sirf friends dekh sakte hain</b>, ye private hain. Mayorships, tips aur dones <b>public</b> hain. Isi public data se paper ne home city infer kiya. Mayor = jisne venue par <b>last 60 days</b> mein sabse zyada check-in kiye."},
+{w:9,n:8,type:"MCQ",t:"lbsn",q:"Fat vs sugar intake, alag-alag size ke circles wala plot?",a:"Bubble plot",src:"L31 / viz",
+c:"Bubble plot = scatter + teesra variable jo <b>size</b> se dikhaya jaata hai. Agar sab points same size ke hon to scatter plot hai."},
+{w:9,n:9,type:"MCQ",t:"lbsn",q:"LBSN ki primary characteristic?",a:"Users doosron se connect karke apni physical location aur activities share karte hain",src:"L29",
+c:"LBSN = social network + location layer (check-in, tips, venues). Examples: Foursquare, Gowalla, Swarm."},
+{w:9,n:10,type:"MSQ",t:"lbsn",q:"Fig 4 (time between activities) aur Fig 5 (distance) ke inferences?",a:"Saare chaar (a, b, c, d) sahi",src:"L30 (We Know Where You Live)",
+c:"Fig 4: ~50% users ka <b>minimum</b> gap ≤ 1 hour hai; ~50% ka average gap ≥ <b>450 hours</b>; ~80% ka maximum gap &gt; <b>167 hours</b> (~1 week). Fig 5: <b>36%</b> users ka average aur max displacement 0 km hai; <b>70%</b> ka average ≤ 150 km; <b>10%</b> ka max ≥ <b>6000 km</b>. Fig 6: users ka return time 24 hours ke multiples mein hota hai, yaani daily pattern."},
+
+// ---------------- WEEK 10 ----------------
+{w:10,n:1,type:"MSQ",t:"lbsn",q:"'Beware What You Share' ke baare mein true statements?",a:"(a), (b), (c): 3 networks, sirf Foursquare nahi, open text fields 30/127 chars",src:"L32",
+c:"Paper ne <b>Foursquare, Google+, Twitter</b> teeno study kiye. Home city inference accuracy: <b>67% (Foursquare), 72% (Google+), 82% (Twitter)</b>. 50 km ke andar: 78.5%, 64%, 87%. Twitter sabse accurate tha kyunki geo-tagged tweets mein exact lat/long hota hai."},
+{w:10,n:2,type:"MCQ",t:"lbsn",q:"Valid AGI kya hai?",a:"Valid Ambiguous Geographical Information",src:"L32",
+c:"Teen categories: <b>UGI</b> = unambiguous (jaise 'New Delhi' ya lat/long), <b>AGI</b> = ambiguous ('near Taj Mahal', 'Springfield'), <b>non-GI</b> = location hi nahi ('heart'), plus empty. Foursquare user home city: ~95% valid UGI."},
+{w:10,n:3,type:"MSQ",t:"lbsn",q:"Valid UGI quality figure se inferences?",a:"(a) Foursquare ~80% city level, (d) Google+ ~80% education city level",src:"L32 (Fig 1)",
+c:"Foursquare users aur venues: <b>~80% city level</b>, 9.6% / 7.4% state ya country level. Google+ places lived ~79.6% aur Twitter user location ~62.5% city level. Google+ mein address coordinate level par tha.",
+trap:"Twitter ka ~60% bar <b>City</b> level par hai, District par nahi."},
+{w:10,n:4,type:"MCQ",t:"user",q:"Username paper ke overall conclusion se kya true hai?",a:"Bahut baar change karne wale log thode kam hain, kam baar change karne walon se",src:"L33",
+c:"Abstract: 'few favor a username by repeatedly choosing it'. Frequent changers chhota group hain (20%), rare changers bada group (80%)."},
+{w:10,n:5,type:"MCQ",t:"user",q:"Username change frequency CDF se inference?",a:"20% users short intervals mein frequently change karte hain, 80% lambe gap ke baad rarely",src:"L33",
+c:"Pareto: <b>20% users ne 85% username changes</b> kiye (12,648 out of 14,880). Ek user ne 14 months mein 113 baar change kiya, aur wo bot nikla. ~20% changes pichhle change ke ek din ke andar hue.",
+trap:"Pairing ulti mat karna: frequent ke saath short interval, rare ke saath long interval."},
+{w:10,n:6,type:"MCQ",t:"user",q:"Paper ka sahi observation?",a:"All of the above: how/why study, zyadatar naye names unrelated, cognitive load nahi",src:"L33",
+c:"<b>65% users ne naya username purane se unrelated chuna, 35% ne baad mein purana wapas use kiya</b>. Unrelated hone ki wajah: purana naam yaad rakhne ka koi cognitive load nahi hota."},
+{w:10,n:7,type:"MCQ",t:"boston",q:"Boston blasts ke baare mein kya true hai?",a:"Twin blasts, April 15, 2013, 18:50 GMT",src:"L9, L34",
+c:"Boston: <b>15 April 2013, 18:50 GMT</b>, finish line par twin blasts, <b>3 killed, 264 injured</b>, pehli image 4 minute ke andar aayi.",
+trap:"4 killed galat hai (3 killed sahi hai), aur 2009 bhi galat hai. 2009 Hudson River plane wala incident tha."},
+{w:10,n:8,type:"MCQ",t:"boston",q:"Diye gaye tweets mein kya depicted hai?",a:"All of the above: dono fake, (a) fake charity profile, (b) bachche ke marne ka rumour",src:"L34",
+c:"(a) <b>@_BostonMarathon</b> (fake account): 'For every retweet we will donate $1' → ~50,000+ RTs. (b) <b>@HopeForBoston</b>: 'R.I.P. to the 8 year-old boy… running for the Sandy Hook kids', jo false rumour tha."},
+{w:10,n:9,type:"MSQ",t:"boston",q:"Paper ke major contributions?",a:"(a) temporal/source/user attributes se characterisation, (b) virality ke liye linear regression, (c) suspended profiles ka graph analysis",src:"L34",
+c:"Numbers: <b>7.9M tweets</b> (data collection blast ke 45 min baad shuru hua). Viral content: <b>29% rumour/fake, 51% generic, 20% true</b>. ~<b>75% fake tweets mobile se</b>. 32,000 naye accounts, 19% suspended/deleted, 6,000+ suspended profiles. Regression ka R² ≈ <b>0.7</b>."},
+{w:10,n:10,type:"MCQ",t:"boston",q:"Hours-after-blast vs tweets figure kya dikhata hai?",a:"Temporal distribution",src:"L9, L34",
+c:"Spikes real-world events ke saath aaye: blast ke 1 hour baad, suspects ki photos release hone par, aur manhunt khatam hone par. Time-based graph = temporal. Map wala graph = spatial."},
+
+// ---------------- WEEK 11 ----------------
+{w:11,n:1,type:"MCQ",t:"tools",q:"'API rules/protocols hai… programming language formal language hai…' True/False?",a:"True",src:"L6",
+c:"API = do software ke beech ka contract ('tunnel'). Programming language = instructions likhne ki language (Python). Python code API ko call karta hai."},
+{w:11,n:2,type:"MSQ",t:"cred",q:"Tweet content ke features kaunse hain?",a:"Presence of pronouns, Self words (I, my, mine)",src:"L9",
+c:"Content/tweet features tweet ke text se aate hain. No. of followers = user feature. No. of retweets = propagation feature. L18 mein bhi 'I' sabse frequent pronoun tha, kyunki citizens ki posts self-driven thi."},
+{w:11,n:3,type:"MSQ",t:"link",q:"Link farming mein sabse zyada kaun engage karte hain?",a:"Saare chaar: highly active, legitimate, popular users, bloggers & experts",src:"L22",
+c:"L22 ka surprising result: top 100,000 link farmers zyadatar spammers <b>nahi</b> the. 76% accounts active the, <b>235 verified</b> the, aur 100 random accounts mein se <b>86 real</b> nikle (business, internet marketing, social media). Obama, Britney Spears jaise accounts bhi link farming ecosystem ka hissa the. Inhe <b>social capitalists</b> kehte hain."},
+{w:11,n:4,type:"MSQ",t:"user",q:"Username creation behaviour kaunse hain?",a:"Static behaviour patterns, Temporal behaviour patterns",src:"L26",
+c:"L26 ke feature buckets: <b>Creation</b> → static (similar length, choice aur arrangement of characters) + temporal (length ka evolution, characters ka evolution). <b>Reuse</b> → occasional ya frequent reuse. Total ~56 features, SVM se ~76% accuracy."},
+{w:11,n:5,type:"MSQ",t:"user",q:"Username reuse behaviour kaunse hain?",a:"Occasional reuse, Frequent reuse",src:"L26, L33",
+c:"Reuse ka matlab hai purane username par wapas jaana. Jab tak naam free rehta hai, koi aur use le sakta hai (squatting). Kuch groups ek doosre ke saath usernames exchange bhi karte the (Peshawar_sms example)."},
+{w:11,n:6,type:"MCQ",t:"tools",q:"Isse 'Graph' API kyun kehte hain?",a:"Social connections ko graph data structure ki tarah represent karta hai",src:"L6, L7",
+c:"Nodes (user, page, post, photo) + edges (friends, likes, comments) + fields. Request ka format: <code>GET /{user-id}/friends</code>."},
+{w:11,n:7,type:"MCQ",t:"privacy",q:"Sweeney: do unrelated datasets ko link karke identity nikaalna kya kehlata hai?",a:"Re-identification",src:"L15, L17",
+c:"L17 mein PK ne re-identification explain kiya: unidentified dataset (jaise dating site) + identified dataset (jaise Facebook) ko jodne se user pehchana jaata hai. Example: Massachusetts Governor William Weld ka medical record."},
+{w:11,n:8,type:"MCQ",t:"tools",q:"Twitter par API key ka primary purpose?",a:"Development ke liye Twitter APIs ko authenticate aur access karna",src:"L11, L12",
+c:"L12: app banao → consumer key + secret → access token + access token secret. L11 ki warning: ye keys kisi ko share mat karo, warna doosra tumhare naam se data collect karega. Har app par rate limits lagti hain."},
+{w:11,n:9,type:"MCQ",t:"link",q:"SEO ke context mein link farming ka purpose?",a:"Bahut saare low-quality backlinks banake search algorithm ko manipulate karna",src:"L20",
+c:"High-quality, relevant backlinks banana white-hat SEO hai. Link farming black-hat SEO hai, aur pakde jaane par search engine penalise karta hai."},
+{w:11,n:10,type:"MCQ",t:"basics",q:"'Viral trends rapidly spread' kaunsa V hai?",a:"Velocity",src:"L2",
+c:"W1 Q9 jaisa hi hai. Velocity ke examples: Facebook par har 60 sec mein 3.3–3.5M posts, Twitter par ~420,000 tweets, YouTube par 400 hours ka video upload."}
+];
+const MOCK = [
+// MCQ
+{type:"mcq",q:"Twitter ka pehli baar crisis management mein use kis incident mein hua tha?",opts:["Boston Marathon blast, 2013","US Airways plane landing in the Hudson River, 2009","Hurricane Sandy, 2012","Chennai floods, 2015"],ans:1,exp:"L3/L16: 2009 mein @jkrums ka tweet 'There's a plane in the Hudson…' aaya tha, first responders ke pahunchne se bhi pehle."},
+{type:"mcq",q:"Lecture ke hisaab se kaunsa V '5th V' hai jo baad mein add hua?",opts:["Veracity","Variety","Value","Volume"],ans:2,exp:"Pehle 4 V's the (volume, velocity, variety, veracity). Value 5th V hai."},
+{type:"mcq",q:"Facebook aur Twitter ki network type kramashah kya hai?",opts:["Unidirectional, bidirectional","Bidirectional, unidirectional","Dono bidirectional","Dono unidirectional"],ans:1,exp:"Facebook par friendship tabhi banti hai jab doosra accept kare (bidirectional). Twitter par kisi ko bhi follow kar sakte ho (unidirectional)."},
+{type:"mcq",q:"Jis social network mein content kuch time baad khud delete ho jaata hai, use kya kehte hain?",opts:["Anonymous","Ephemeral","Location-based","Microblog"],ans:1,exp:"Ephemeral social networks, jaise Snapchat."},
+{type:"mcq",q:"Foursquare par kisi venue ka 'mayor' kaun banta hai?",opts:["Jisne venue par pehla check-in kiya","Jisne last 60 days mein sabse zyada check-ins kiye","Jisne sabse zyada tips likhe","Venue ka owner"],ans:1,exp:"L16/L29: last 60 days mein sabse zyada check-ins."},
+{type:"mcq",q:"Westin ke US surveys mein 'Pragmatists' approximately kitne % the?",opts:["15%","25%","60%","80%"],ans:2,exp:"Fundamentalists 25%, Pragmatists 60%, Unconcerned 15%."},
+{type:"mcq",q:"Lecture mein MongoDB ka data dekhne ke liye kaunsa tool bataya gaya?",opts:["phpMyAdmin","RoboMongo","Gephi","Highcharts"],ans:1,exp:"phpMyAdmin MySQL ke liye hai, RoboMongo MongoDB ke liye."},
+{type:"mcq",q:"Hurricane Sandy study mein fake/real images ka ground truth kahan se liya gaya?",opts:["Mechanical Turk","The Guardian","Twitter Trust and Safety","Snopes"],ans:1,exp:"L9: The Guardian ne fake aur true images ki list publicly distribute ki thi (10,350 tweets with fake images)."},
+{type:"mcq",q:"Hurricane Sandy fake-image classification mein highest accuracy (97.65%) kis combination se mili?",opts:["Naive Bayes + user features","Decision tree + tweet features","Decision tree + user features","SVM + network features"],ans:1,exp:"L9: tweet features ne user features se better kaam kiya, aur decision tree best tha."},
+{type:"mcq",q:"Inter-annotator agreement ke liye Cronbach's alpha ki generally acceptable value kitni hai?",opts:["≥ 0.3","≥ 0.5","≥ 0.7","Exactly 1"],ans:2,exp:"L9: lagbhag 0.7 ya usse zyada ho to data reliable maana jaata hai."},
+{type:"mcq",q:"Facebook Inspector (FBI) kya hai?",opts:["Facebook ka internal police team","TweetCred jaisa tool jo Facebook posts ko malicious/credible ke liye check karta hai","Facebook Graph API ka debugger","Ek anonymous network"],ans:1,exp:"L10: same architecture, Chrome aur Firefox extension, supervised learning."},
+{type:"mcq",q:"CCTV camera kis form ki privacy ko sabse directly affect karta hai?",opts:["Information privacy","Communication privacy","Territorial privacy","Bodily privacy"],ans:3,exp:"L15: bodily privacy (khud ki physical presence)."},
+{type:"mcq",q:"Acquisti ke offline–online experiment mein kitne % participants sahi Facebook profile se match hue?",opts:["6.3%","10.5%","27%","38%"],ans:3,exp:"98 students mein se 38% match hue. 6.3% / 10.5% online–online experiment ke numbers hain, aur 27% SSN wala hai."},
+{type:"mcq",q:"Bangalore City Police Facebook study mein average response time kitna tha?",opts:["4 minutes","30 hours","211 hours","7 days"],ans:1,exp:"L17: average 30 hrs, max 211 hrs, min 4 min."},
+{type:"mcq",q:"Jab police citizen-initiated threads mein comment karti thi, to citizens ki anxiety par kya asar hua?",opts:["Badh gayi","Kam ho gayi","Koi change nahi","Measure nahi hui"],ans:1,exp:"L18: anxiety 0.001 (CPC) vs 0.003 (Cc). Police loop close kar deti hai."},
+{type:"mcq",q:"DiGiorno Pizza ne #WhyIStayed ko apne product ke liye use kiya. Ye kaunsa eCrime/issue hai?",opts:["Clickbaiting","Hashtag hijacking","Impersonation","Link farming"],ans:1,exp:"L19: popular lekin unrelated hashtag ko product bechne ke liye use karna. Coca-Cola #RoyalBaby bhi example tha."},
+{type:"mcq",q:"'@spam' paper ke hisaab se Twitter par spam URLs ka click-through rate kitna tha?",opts:["0.013%","0.13%","1.3%","13%"],ans:1,exp:"L20: 0.13%, jo email spam se zyada hai, kyunki post tumhare followed accounts se aati hai."},
+{type:"mcq",q:"Top link farmers ka in-degree/out-degree ratio lagbhag kitna hota hai?",opts:["≈ 0","≈ 1","≫ 1 (celebrity jaisa)","Negative"],ans:1,exp:"L22: ratio ≈ 1, normal users jaisa, isliye inhe pakadna mushkil hai."},
+{type:"mcq",q:"Har website ki privacy policy mahine mein ek baar padhne mein ek US user ko saal mein kitna time lagega?",opts:["24 hours","81 hours","244 hours","781 hours"],ans:2,exp:"L23: 244 hours/year. National opportunity cost $781 billion."},
+{type:"mcq",q:"Facebook nudge study mein timer nudge kitne seconds ka delay deta tha?",opts:["5","10","30","60"],ans:1,exp:"L23: 'You have 10 seconds to cancel your post'."},
+{type:"mcq",q:"Indiana University social phishing study mein 'social' (friend ke naam se email) condition ka success rate kitna tha?",opts:["16%","38%","72%","90%"],ans:2,exp:"L24: control 16%, social 72%."},
+{type:"mcq",q:"User ke mental model aur system model ke beech ke gap ko kya kehte hain?",opts:["Semantic barrier","Syntactic gap","Privacy paradox","Digital divide"],ans:0,exp:"L24 (MIT thesis): jitna bada semantic barrier, utna mushkil phishing se bachna."},
+{type:"mcq",q:"Whisper par lagbhag kitne % whispers delete hue (Twitter ke ~4% ke comparison mein)?",opts:["4%","10%","18%","55%"],ans:2,exp:"L27: 18% deleted. 55% wala number un whispers ka hai jinhe koi reply nahi mila."},
+{type:"mcq",q:"Whisper network ki assortativity −0.011 aur clustering kam hai. Iska matlab?",opts:["Scale-free hub network","Random graph jaisa","Bahut strong communities","Small closed groups"],ans:1,exp:"L27: high degree, low clustering, short path aur assortativity ≈ 0 ka matlab random graph."},
+{type:"mcq",q:"'Beware What You Share' mein home city ki sabse zyada inference accuracy kis network par thi?",opts:["Foursquare (67%)","Google+ (72%)","Twitter (82%)","Sabka equal"],ans:2,exp:"L32: geo-tagged tweets mein exact lat/long hota hai, isliye Twitter sabse accurate tha."},
+{type:"mcq",q:"Username change study mein kitne % users ne naya username purane se unrelated chuna?",opts:["20%","35%","65%","85%"],ans:2,exp:"L33: 65% unrelated, 35% ne purana naam baad mein dobara use kiya."},
+{type:"mcq",q:"Boston paper mein data collection blast ke kitni der baad shuru hua tha?",opts:["Turant","4 minutes","45 minutes","9 hours"],ans:2,exp:"L34: 45 minutes baad. Lekin us beech ke tweets baad mein retweet hue, isliye wo bhi dataset mein aa gaye."},
+{type:"mcq",q:"Boston fake tweets ka lagbhag kitna hissa mobile devices se post hua?",opts:["~25%","~50%","~75%","~95%"],ans:2,exp:"L9/L34: ~75–76% fake content mobile se aaya."},
+{type:"mcq",q:"NLTK mein 'course' aur 'courses' ko ek hi base word mein badalne ki process?",opts:["Tokenization","Stemming","POS tagging","Stopword removal"],ans:1,exp:"L25: PorterStemmer use hua (certification → certif)."},
+{type:"mcq",q:"Gephi mein CSV se edges import karne ke liye kaunse columns zaroori hain?",opts:["id, label","source, target","from, weight","node1, node2, time"],ans:1,exp:"L28: edge list mein source aur target, optional type (directed/undirected). Node file mein 'id' column."},
+// MSQ
+{type:"msq",q:"Foursquare par kaunsa data publicly available hai? (multiple)",opts:["Mayorships","Tips","Dones","Check-ins"],ans:[0,1,2],exp:"Check-ins sirf friends dekh sakte hain. Baaki teeno public hain (L29)."},
+{type:"msq",q:"TweetCred ke baare mein sahi statements? (multiple)",opts:["Score 1 se 7 tak hota hai","Chrome browser extension hai","User feedback se model update hota hai","Sirf user (profile) features use karta hai"],ans:[0,1,2],exp:"TweetCred 45 features use karta hai jo content, user, links aur network sab se aate hain, sirf user features se nahi."},
+{type:"msq",q:"Suspended Boston accounts ke interaction graph mein kaunse structures mile? (multiple)",opts:["Single links","Closed community","Star topology","Self loops"],ans:[0,1,2,3],exp:"L34: chaaron structures mile."},
+{type:"msq",q:"Lecture mein bataye gaye phishing ke variants? (multiple)",opts:["Whaling (CEOs)","Vishing (phone)","Smishing (SMS)","Social phishing"],ans:[0,1,2,3],exp:"L24: saare chaar, plus context-aware phishing."},
+{type:"msq",q:"L18 (police Facebook pages) mein kaunse tools/methods use hue? (multiple)",opts:["n-gram analysis","K-means clustering","LIWC","PageRank"],ans:[0,1,2],exp:"PageRank link farming ka topic hai, police wale analysis ka nahi. ANEW dictionary bhi use hui thi."},
+{type:"msq",q:"Username ko profile linking ke liye kyun chuna gaya? (multiple)",opts:["Universally unique","Publicly available","Length restricted","Hamesha real name hota hai"],ans:[0,1,2],exp:"L26: username real name ho, ye zaroori nahi."},
+{type:"msq",q:"Facebook nudge study mein kaunse metrics measure kiye gaye? (multiple)",opts:["Privacy settings mein changes","Cancelled/edited posts","Post frequency","Friend count"],ans:[0,1,2],exp:"L23: settings changes, cancelled/edited posts, post frequency, topic sensitivity."},
+{type:"msq",q:"Sweeney ke attack mein kaunse quasi-identifiers medical data aur voter list dono mein common the? (multiple)",opts:["ZIP code","Birth date","Gender","Diagnosis"],ans:[0,1,2],exp:"L15: diagnosis sirf medical data mein tha."},
+// NAT
+{type:"nat",q:"Undirected graph: A–B, A–C, B–C, C–D, D–E. Node C ki betweenness centrality (unnormalised) kitni hai?",ans:4,tol:0,exp:"C se guzarne wale pairs: A–D, A–E, B–D, B–E, yaani 4."},
+{type:"nat",q:"Same graph mein node D ki closeness centrality, (n−1)/Σd formula se? (3 decimals tak)",ans:0.667,tol:0.005,exp:"D se distances 2, 2, 1, 1, sum = 6. 4/6 = 0.667."},
+{type:"nat",q:"Same graph mein node C ka local clustering coefficient? (3 decimals tak)",ans:0.333,tol:0.005,exp:"Neighbours A, B, D. Unke beech sirf A–B link hai, yaani 1 out of 3 possible. 1/3 = 0.333."},
+{type:"nat",q:"Ek undirected network mein 6 nodes aur 9 edges hain. Density kitni hai?",ans:0.6,tol:0.005,exp:"2·9 / (6·5) = 18/30 = 0.6."},
+{type:"nat",q:"Star network: 1 centre + 6 leaves. Centre ki raw betweenness?",ans:15,tol:0,exp:"Leaf pairs C(6,2) = 15, aur sab centre se guzarte hain."},
+{type:"nat",q:"PageRank: A→B, A→C, B→C, C→A. N = 3, d = 0.85, initial PR = 1/3, PR(p) = (1−d)/N + d·Σ PR(q)/L(q). Ek iteration ke baad PR(C)? (3 decimals tak)",ans:0.475,tol:0.003,exp:"0.05 + 0.85·(1/3 ÷ 2 + 1/3 ÷ 1) = 0.05 + 0.85·0.5 = 0.475."},
+{type:"nat",q:"Ranking relevances [3, 2, 0, 1] hain. NDCG@4, DCG = Σ rel_i / log₂(i+1) se? (3 decimals tak)",ans:0.985,tol:0.01,exp:"DCG = 3 + 2/1.585 + 0 + 1/2.322 = 3 + 1.262 + 0.431 = 4.693. IDCG [3, 2, 1, 0] = 3 + 1.262 + 0.5 = 4.762. NDCG = 0.985."},
+{type:"nat",q:"Spearman ρ jab rank differences d = 2, −1, 0, −1 hon (n = 4)?",ans:0.4,tol:0.005,exp:"Σd² = 4 + 1 + 0 + 1 = 6. ρ = 1 − 6·6/(4·15) = 1 − 36/60 = 0.4."},
+{type:"nat",q:"Ek spammer ne 400 accounts ko follow kiya aur 100 ne follow back kiya. Reciprocity percentage?",ans:25,tol:0,exp:"100/400 = 25%."},
+{type:"nat",q:"Fake-news classifier: TP = 30, FP = 10, FN = 10. F1 score? (2 decimals tak)",ans:0.75,tol:0.005,exp:"Precision = 30/40 = 0.75, Recall = 30/40 = 0.75, isliye F1 = 0.75."},
+{type:"nat",q:"Usernames 'sonu' aur 'sona' ke bigram sets ka Jaccard similarity? (2 decimals tak)",ans:0.5,tol:0.005,exp:"sonu = {so, on, nu}, sona = {so, on, na}. Intersection 2, union 4, isliye 0.5."}
+];
+
+(function () {
+  const store = {
+    get(k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } },
+    set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  };
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;" }[c]));
+
+  // ---------- tabs ----------
+  const tabs = [...document.querySelectorAll('nav.tabs [role="tab"]')];
+  const valid = tabs.map(t => t.dataset.tab);
+  function show(name, scroll) {
+    if (!valid.includes(name)) name = "start";
+    tabs.forEach(t => t.setAttribute("aria-selected", String(t.dataset.tab === name)));
+    valid.forEach(id => { document.getElementById(id).hidden = id !== name; });
+    store.set("psosm-tab", name);
+    if (scroll) window.scrollTo({ top: 0 });
+  }
+  tabs.forEach(t => t.addEventListener("click", () => show(t.dataset.tab, true)));
+  const fromHash = (location.hash || "").replace("#", "");
+  show(valid.includes(fromHash) ? fromHash : (store.get("psosm-tab") || "start"), false);
+
+  // ---------- reveal buttons ----------
+  document.querySelectorAll(".reveal").forEach(b => b.addEventListener("click", () => {
+    const p = b.nextElementSibling; p.hidden = !p.hidden;
+    b.textContent = p.hidden ? "Answer dikhao" : "Answer chhupao";
+  }));
+
+  // ---------- decoder ----------
+  const list = document.getElementById("decoderList");
+  const chipsBox = document.getElementById("weekChips");
+  const weeks = [...new Set(QZ.map(q => q.w))];
+  let activeWeek = store.get("psosm-week") || 0;
+  const pillFor = q => {
+    let s = q.type === "MSQ" ? '<span class="pill msq">MSQ</span>' : q.type === "NAT" ? '<span class="pill nat">NAT</span>' : '<span class="pill">MCQ</span>';
+    if (q.gap) s += ' <span class="pill gap">PDF mein nahi</span>';
+    return s;
+  };
+  function renderDecoder() {
+    chipsBox.innerHTML = '<button class="chip" data-w="0" aria-pressed="' + (activeWeek === 0) + '">All weeks</button>' +
+      weeks.map(w => '<button class="chip" data-w="' + w + '" aria-pressed="' + (activeWeek === w) + '">Week ' + w + '</button>').join("");
+    chipsBox.querySelectorAll(".chip").forEach(c => c.addEventListener("click", () => {
+      activeWeek = Number(c.dataset.w); store.set("psosm-week", activeWeek); renderDecoder();
+    }));
+    let html = "";
+    weeks.filter(w => activeWeek === 0 || w === activeWeek).forEach(w => {
+      const qs = QZ.filter(q => q.w === w);
+      const srcs = [...new Set(qs.map(q => q.src.split(" (")[0]))].slice(0, 4).join(" · ");
+      html += '<div class="weekhead"><h3>Quiz Week ' + w + '</h3><span class="src">' + esc(srcs) + '</span></div>';
+      qs.forEach(q => {
+        html += '<details class="dq"><summary><span class="qn">Q' + q.n + '</span><span>' + esc(q.q) + ' ' + pillFor(q) + '</span></summary><div class="body">' +
+          '<div class="ans">✓ ' + esc(q.a) + '</div>' +
+          '<div class="src">Source: ' + esc(q.src) + '</div>' +
+          '<p>' + q.c + '</p>' +
+          (q.trap ? '<div class="trap"><b>Trap</b>' + q.trap + '</div>' : "") +
+          '</div></details>';
+      });
+    });
+    list.innerHTML = html;
+  }
+  renderDecoder();
+  document.getElementById("expandAll").addEventListener("click", () => list.querySelectorAll("details").forEach(d => d.open = true));
+  document.getElementById("collapseAll").addEventListener("click", () => list.querySelectorAll("details").forEach(d => d.open = false));
+
+  // ---------- mock test ----------
+  const mockList = document.getElementById("mockList");
+  const prog = document.getElementById("mockProgress");
+  const scoreEl = document.getElementById("mockScore");
+  let answers = store.get("psosm-mock") || {};
+  let submitted = false;
+  const typeLabel = { mcq: '<span class="pill">MCQ</span>', msq: '<span class="pill msq">MSQ</span>', nat: '<span class="pill nat">NAT</span>' };
+
+  function renderMock() {
+    mockList.innerHTML = MOCK.map((q, i) => {
+      let body = "";
+      if (q.type === "nat") {
+        body = '<label class="small" for="nat' + i + '">Tumhara answer</label><input class="natin" id="nat' + i + '" data-i="' + i + '" inputmode="decimal" autocomplete="off" value="' + esc(answers[i] ?? "") + '">';
+      } else {
+        const kind = q.type === "mcq" ? "radio" : "checkbox";
+        body = q.opts.map((o, j) => {
+          const checked = q.type === "mcq" ? answers[i] === j : Array.isArray(answers[i]) && answers[i].includes(j);
+          return '<label class="opt" id="opt' + i + '_' + j + '"><input type="' + kind + '" name="m' + i + '" id="m' + i + '_' + j + '" data-i="' + i + '" data-j="' + j + '"' + (checked ? " checked" : "") + '><span>' + esc(o) + '</span></label>';
+        }).join("");
+      }
+      return '<div class="mq" id="mq' + i + '"><div><span class="qn">Q' + (i + 1) + '</span> ' + typeLabel[q.type] + '</div><p>' + esc(q.q) + '</p>' + body + '<div class="fb" hidden></div></div>';
+    }).join("");
+    mockList.querySelectorAll("input").forEach(inp => inp.addEventListener("input", onAnswer));
+    updateProgress();
+  }
+  function onAnswer(e) {
+    const t = e.target, i = Number(t.dataset.i), q = MOCK[i];
+    if (q.type === "nat") answers[i] = t.value.trim();
+    else if (q.type === "mcq") answers[i] = Number(t.dataset.j);
+    else {
+      const sel = [...mockList.querySelectorAll('input[name="m' + i + '"]:checked')].map(x => Number(x.dataset.j));
+      answers[i] = sel;
+    }
+    store.set("psosm-mock", answers);
+    updateProgress();
+  }
+  function isAnswered(i) {
+    const a = answers[i];
+    return !(a === undefined || a === null || a === "" || (Array.isArray(a) && a.length === 0));
+  }
+  function updateProgress() {
+    const n = MOCK.filter((_, i) => isAnswered(i)).length;
+    prog.textContent = n + " / " + MOCK.length + " answered";
+  }
+  function correct(i) {
+    const q = MOCK[i], a = answers[i];
+    if (!isAnswered(i)) return false;
+    if (q.type === "mcq") return a === q.ans;
+    if (q.type === "msq") return a.length === q.ans.length && q.ans.every(x => a.includes(x));
+    const v = parseFloat(String(a).replace(",", ".").replace("%", ""));
+    return !isNaN(v) && Math.abs(v - q.ans) <= q.tol + 1e-9;
+  }
+  document.getElementById("mockSubmit").addEventListener("click", () => {
+    submitted = true;
+    let score = 0;
+    MOCK.forEach((q, i) => {
+      const ok = correct(i); if (ok) score++;
+      const box = document.getElementById("mq" + i);
+      box.classList.toggle("right", ok); box.classList.toggle("wrong", !ok);
+      if (q.type !== "nat") {
+        const corr = q.type === "mcq" ? [q.ans] : q.ans;
+        q.opts.forEach((_, j) => {
+          const el = document.getElementById("opt" + i + "_" + j);
+          const picked = document.getElementById("m" + i + "_" + j).checked;
+          el.classList.toggle("is-correct", corr.includes(j));
+          el.classList.toggle("is-wrong", picked && !corr.includes(j));
+        });
+      }
+      const fb = box.querySelector(".fb");
+      const ansText = q.type === "nat" ? String(q.ans) : (q.type === "mcq" ? q.opts[q.ans] : q.ans.map(j => q.opts[j]).join(" · "));
+      fb.innerHTML = '<div class="exp"><span class="verdict ' + (ok ? "ok" : "no") + '">' + (ok ? "Sahi." : (isAnswered(i) ? "Galat." : "Attempt nahi kiya.")) + '</span> Answer: <b>' + esc(ansText) + '</b>. ' + esc(q.exp) + '</div>';
+      fb.hidden = false;
+    });
+    const pct = Math.round(score / MOCK.length * 100);
+    scoreEl.hidden = false;
+    scoreEl.textContent = "Score: " + score + " / " + MOCK.length + " (" + pct + "%)";
+    scoreEl.style.color = pct >= 80 ? "var(--ok)" : pct >= 60 ? "var(--warn)" : "var(--bad)";
+    scoreEl.scrollIntoView({ block: "nearest" });
+  });
+  document.getElementById("mockReset").addEventListener("click", () => {
+    answers = {}; submitted = false; store.set("psosm-mock", answers);
+    scoreEl.hidden = true; renderMock();
+  });
+  renderMock();
+})();
+</script>
+
+</body></html>
