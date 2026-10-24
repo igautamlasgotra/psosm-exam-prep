@@ -1,0 +1,1074 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Wildlife Ecology Exam Kit</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;700&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: field-notebook — sticky tab strip, single reading column, week chips, quiz cards */
+:root{
+  --bg:#F2F4EE; --surface:#FFFFFF; --ink:#1B2620; --muted:#5A6A60; --line:#D6DDD3;
+  --accent:#1E6B4A; --accent-soft:#E1EEE6; --ochre:#9A6412; --ochre-soft:#F6ECD9;
+  --good:#1F7A3E; --good-soft:#E2F3E7; --bad:#B3261E; --bad-soft:#FBE4E2; --hl:#FCE9A6;
+  --f-display:"Zilla Slab", Georgia, serif; --f-body:"Source Sans 3", system-ui, -apple-system, Segoe UI, sans-serif; --f-mono:"JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121815; --surface:#1A221D; --ink:#E4EBE5; --muted:#9AAAA0; --line:#2E3A33;
+  --accent:#5FC08F; --accent-soft:#1E3328; --ochre:#E0A84E; --ochre-soft:#33291A;
+  --good:#6BD08E; --good-soft:#1B3324; --bad:#F2867D; --bad-soft:#3A1F1C; --hl:#4A3F14; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121815; --surface:#1A221D; --ink:#E4EBE5; --muted:#9AAAA0; --line:#2E3A33;
+  --accent:#5FC08F; --accent-soft:#1E3328; --ochre:#E0A84E; --ochre-soft:#33291A;
+  --good:#6BD08E; --good-soft:#1B3324; --bad:#F2867D; --bad-soft:#3A1F1C; --hl:#4A3F14; color-scheme:dark}
+*{box-sizing:border-box}
+mark,#notesBody li b,#notesBody td b{background:var(--hl);color:var(--ink);padding:0 3px;border-radius:3px}
+.imp h3{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.imp ul{margin-bottom:6px}
+.result{background:var(--accent-soft);border:1px solid var(--accent);border-radius:10px;padding:14px 16px;margin:12px 0}
+.result .big{font:700 28px var(--f-display)}
+.opt.picked{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+.wrap{max-width:860px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.top{padding-block:28px 12px}
+.eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(28px,5vw,40px);line-height:1.1;margin:.2em 0 .3em;text-wrap:balance}
+h2{font-family:var(--f-display);font-weight:700;font-size:26px;margin:28px 0 8px;text-wrap:balance}
+h3{font-family:var(--f-display);font-weight:500;font-size:20px;margin:22px 0 6px}
+.lede{color:var(--muted);max-width:65ch;margin:0}
+nav.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+nav.tabs .wrap{display:flex;gap:4px;overflow-x:auto;padding-block:8px}
+nav.tabs button{flex:0 0 auto;font:600 15px var(--f-body);color:var(--muted);background:transparent;border:0;border-radius:8px;padding:8px 14px;cursor:pointer}
+nav.tabs button[aria-selected="true"]{background:var(--accent-soft);color:var(--accent)}
+nav.tabs button:focus-visible,.chip:focus-visible,.opt:focus-visible,.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+main{padding-block:8px 64px}
+section.panel[hidden]{display:none}
+p,li{max-width:70ch}
+ul{padding-left:1.2em;margin:.4em 0}
+li{margin:.25em 0}
+.star{color:var(--ochre);font-weight:700}
+.trap{background:var(--ochre-soft);border-left:3px solid var(--ochre);padding:10px 14px;border-radius:0 8px 8px 0;margin:12px 0}
+.trap b{color:var(--ochre)}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:14px 0}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0}
+.chip{font:600 14px var(--f-body);border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.lec{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+code,.f{font-family:var(--f-mono);font-size:.92em;background:var(--accent-soft);color:var(--ink);padding:1px 5px;border-radius:4px}
+.formula{font-family:var(--f-mono);font-size:15px;background:var(--accent-soft);padding:10px 12px;border-radius:8px;overflow-x:auto;white-space:nowrap}
+.tbl{overflow-x:auto;margin:10px 0}
+table{border-collapse:collapse;font-size:15px;min-width:100%}
+th,td{border-bottom:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+td.num{font-variant-numeric:tabular-nums;font-family:var(--f-mono);font-size:14px}
+.solve{border-top:1px dashed var(--line);margin-top:10px;padding-top:10px}
+.solve b{color:var(--accent)}
+/* quiz */
+.qbar{position:sticky;top:calc(env(safe-area-inset-top,0px) + 54px);z-index:4;background:var(--bg);padding-block:8px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;border-bottom:1px solid var(--line)}
+.score{font:700 15px var(--f-mono);font-variant-numeric:tabular-nums}
+.btn{font:600 14px var(--f-body);border:1px solid var(--accent);background:transparent;color:var(--accent);border-radius:8px;padding:6px 12px;cursor:pointer}
+.btn.solid{background:var(--accent);color:var(--surface)}
+label.tog{display:flex;gap:6px;align-items:center;font-size:14px;color:var(--muted)}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:12px 0}
+.q .meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:6px}
+.tag{font:600 11px var(--f-body);letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.tag.msq{background:var(--ochre-soft);color:var(--ochre)}
+.tag.fix{background:var(--bad-soft);color:var(--bad)}
+.qt{font-weight:600;margin:0 0 8px}
+.opts{display:grid;gap:6px}
+.opt{display:flex;gap:10px;align-items:flex-start;text-align:left;width:100%;font:15px var(--f-body);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px 12px;cursor:pointer}
+.opt .k{font-family:var(--f-mono);color:var(--muted);flex:0 0 auto}
+.opt[aria-pressed="true"]{border-color:var(--accent)}
+.opt.ok{background:var(--good-soft);border-color:var(--good)}
+.opt.no{background:var(--bad-soft);border-color:var(--bad)}
+.opt:disabled{cursor:default;color:var(--ink)}
+.numrow{display:flex;gap:8px;flex-wrap:wrap}
+.numrow input{font:15px var(--f-mono);padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);width:160px}
+.fb{margin-top:10px;padding:10px 12px;border-radius:8px;font-size:15px}
+.fb.ok{background:var(--good-soft)} .fb.no{background:var(--bad-soft)}
+.fb .v{font-weight:700}
+.fb.ok .v{color:var(--good)} .fb.no .v{color:var(--bad)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.grid2>*{min-width:0}
+@media (prefers-reduced-motion:no-preference){.opt{transition:background .15s,border-color .15s}}
+</style>
+
+<header class="top wrap">
+  <div class="eyebrow">NPTEL · noc26_ge83 · IIT Kanpur · Dr. Ankur Awadhiya</div>
+  <h1>Wildlife Ecology Exam Kit</h1>
+  <p class="lede">Aapke 36 lecture transcripts aur 12 quiz solutions se banaya gaya. Har quiz question ko lecture se match kiya hai. <span class="star">★</span> ka matlab hai ki yeh concept quiz mein aa chuka hai.</p>
+</header>
+
+<nav class="tabs" aria-label="Sections"><div class="wrap" role="tablist">
+  <button role="tab" id="t-strategy" aria-selected="true" data-p="strategy">Exam strategy</button>
+  <button role="tab" id="t-imp" aria-selected="false" data-p="imp">IMP notes</button>
+  <button role="tab" id="t-notes" aria-selected="false" data-p="notes">Notes · W1–12</button>
+  <button role="tab" id="t-num" aria-selected="false" data-p="num">Numericals</button>
+  <button role="tab" id="t-quiz" aria-selected="false" data-p="quiz">Quiz retake</button>
+  <button role="tab" id="t-mock" aria-selected="false" data-p="mock">Mock tests</button>
+</div></nav>
+
+<main class="wrap">
+
+<!-- ================= STRATEGY ================= -->
+<section class="panel" id="p-strategy">
+  <h2>Marking kaise hoti hai</h2>
+  <div class="box">
+    <ul>
+      <li><b>Checking computer karta hai.</b> Paper computer-based hai, aur aapke response software ek answer key se match karta hai (key course instructor deta hai). Koi insaan aapki copy nahi padhta.</li>
+      <li><b>Negative marking nahi hoti</b>, NPTEL ka standard pattern yahi hai. Isliye koi bhi question khaali mat chhodna.</li>
+      <li><b>Final score</b> = 25% assignments (best 8 of 12) + 75% exam. Certificate ke liye dono mein minimum chahiye.</li>
+      <li><b>Assignments se questions repeat hote hain.</b> Week 12 ka quiz dekho: uske 10 mein se 10 questions Weeks 1, 2, 3, 6, 8, 9 aur 10 se seedhe repeat hue hain. Final exam mein bhi weekly quiz se kaafi questions aate hain, isliye har quiz question 100% pakka karna hai.</li>
+    </ul>
+  </div>
+
+  <h2>MSQ mein "saare 4 tick kar do" strategy</h2>
+  <p>Seedha jawab: <b>yeh strategy almost kabhi kaam nahi karti.</b> MSQ check karne ke teen common tareeke hain, aur teeno mein "all 4" ka result yeh hai:</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Marking rule</th><th>Saare 4 tick karne pe</th><th>Soch-samajh ke tick karne pe</th></tr></thead>
+    <tbody>
+      <tr><td>All-or-nothing (exact set match hona chahiye)</td><td>0 marks, jab tak answer khud "all four" na ho</td><td>Agar set sahi hai to full marks</td></tr>
+      <tr><td>Partial marks, par galat option tick kiya to 0 (GATE/JEE style)</td><td>0 marks, kyunki ek galat option bhi tick ho gaya</td><td>Jo options pakke hain sirf woh tick karo, partial marks mil jaayenge</td></tr>
+      <tr><td>Har option alag se judge hota hai</td><td>Sirf sahi options ke marks, galat wale cut jaayenge (≈50%)</td><td>Isse zyada, agar thoda bhi pata hai</td></tr>
+    </tbody>
+  </table></div>
+  <div class="trap"><b>Rule:</b> sirf woh options tick karo jo tumhe sahi lagte hain. Agar 2 pakke hain aur 1 doubtful, to doubtful ko tabhi tick karo jab lecture ki koi line yaad aa rahi ho. Kabhi blank mat chhodo. Exam ke start mein instructions screen pe MSQ ka rule likha hota hai, use 30 second dhyan se padhna.</div>
+  <p class="lec">Note: NPTEL ka MSQ partial-marking ka official document mujhe nahi mila. Upar ka analysis teeno common rules pe lagta hai, aur teeno mein "saare tick karo" haar jaata hai.</p>
+
+  <h2>Answer key mein galtiyan (Week 9)</h2>
+  <p>Aapki Week 9 PDF mein teen answers lecture se match nahi karte. Maine transcript se check kiya hai. <b>Exam mein lecture wala answer hi chunna:</b></p>
+  <div class="tbl"><table>
+    <thead><tr><th>Question</th><th>PDF key</th><th>Lecture ke hisaab se sahi</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><td>Theme of clean technology?</td><td>Migration of birds ✗</td><td><b>Water purification</b></td><td class="lec">L27, L36</td></tr>
+      <tr><td>Stalactite + stalagmite join → ?</td><td>Lagoon ✗</td><td><b>Column</b></td><td class="lec">L25</td></tr>
+      <tr><td>Preventive check (Malthus)?</td><td>Flood ✗</td><td><b>Foresight</b> (flood positive check hai)</td><td class="lec">L26, L36</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>Is kit ko kaise use karna hai</h2>
+  <ul>
+    <li><b>Step 1:</b> <b>IMP notes</b> padho. Isme sabse zyada aane wale topics aur confusing pairs hain (15 min).</li>
+    <li><b>Step 2:</b> <b>Notes</b> tab mein ek week padho, phir <b>Quiz retake</b> mein usi week ke apne MCQs do. Revise karne ke liye "Answer key" on kar sakte ho.</li>
+    <li><b>Step 3:</b> <b>Numericals</b> tab ke formulas aur solved examples padho.</li>
+    <li><b>Last round:</b> <b>Mock tests</b> do: Mock 1, Mock 2, aur MSQ + Numerical set. Yeh exam ki tarah Submit karne ke baad check hote hain.</li>
+  </ul>
+</section>
+
+<!-- ================= IMP NOTES ================= -->
+<section class="panel imp" id="p-imp" hidden>
+  <h2>IMP notes · must-know</h2>
+  <p>Exam se pehle yeh section 2–3 baar padhna. Yeh lecture transcripts se nikale gaye hain, aur unhi topics pe focus hai jahan se quiz mein questions aaye. <mark>Highlight</mark> wale terms exam mein options ki tarah aate hain. <span class="star">★</span> = yeh concept aapke quiz mein aa chuka hai.</p>
+
+  <h3>Sabse zyada repeat hone wale topics</h3>
+  <div class="tbl"><table><thead><tr><th>Topic</th><th>Kitni baar quiz mein</th><th>Ek line mein</th></tr></thead><tbody>
+    <tr><td>Succession (secondary, autogenic, lithosere, disclimax)</td><td class="num">6</td><td>Secondary = disturbance ke baad · autogenic = organisms khud soil badalte hain · lithosere ek xerosere hai · disclimax cattle/man se</td></tr>
+    <tr><td>Levels of organisation (cell, tissue, organ system)</td><td class="num">4</td><td>Cell = smallest unit · tissue = similar cells + ECM · organ system = organs ka group</td></tr>
+    <tr><td>Ecology definition / approaches</td><td class="num">5</td><td>"Interactions" · lab = experiments · field = direct observation · logos = study</td></tr>
+    <tr><td>Plastic debris sizes</td><td class="num">4</td><td>Macro &gt; 20 mm · meso 5–20 mm · micro &lt; 5 mm · 70% sink</td></tr>
+    <tr><td>Competition types</td><td class="num">4</td><td>Both harmed · exploitative = scramble · interference = contest</td></tr>
+    <tr><td>Stalactites / deterministic factor</td><td class="num">2 each</td><td>Roof se neeche = stalactite · death rate deterministic hai</td></tr>
+  </tbody></table></div>
+
+  <h3>Week 1 · Introduction <span class="lec">L1–3</span></h3>
+  <ul>
+    <li>Ecology = study of <mark>interactions</mark> that determine distribution and abundance ★ · <mark>oikos = household, logos = study</mark> ★</li>
+    <li>Approaches: <mark>theoretical</mark> (models) · <mark>laboratory</mark> (experiments ★) · <mark>field</mark> (direct observation ★)</li>
+    <li><mark>Theophrastus</mark>: Enquiry into Plants, father of botany ★ · <mark>Linnaeus</mark>: modern taxonomy ★ · <mark>Humboldt</mark>: biogeography ★ · <mark>Malthus</mark>: population ecology ★ · <mark>Darwin</mark>: natural selection ★</li>
+    <li><mark>Haeckel</mark> ne "ecology" coin kiya · <mark>Spencer</mark> ne "survival of the fittest" · <mark>Tansley</mark> ne ecosystem concept diya · <mark>Elton</mark> = father of animal ecology · <mark>Odum</mark> = Fundamentals of Ecology · <mark>Vernadsky</mark> = biogeochemical cycles</li>
+    <li>Genetic adaptation = <mark>inheritable fitness</mark> ★ · selection types: directional, <mark>stabilizing (birth weight)</mark>, disruptive</li>
+  </ul>
+
+  <h3>Week 2 · Structure &amp; biodiversity <span class="lec">L4–6</span></h3>
+  <ul>
+    <li>Hierarchical structures <mark>stable</mark> ★ hote hain · emergent: <mark>whole &gt; sum of parts</mark> ★</li>
+    <li><mark>Cell</mark> = smallest unit ★ · <mark>tissue</mark> = similar cells + ECM ★ · <mark>organ system</mark> ★ · sabse upar biosphere</li>
+    <li><mark>α</mark> = within ecosystem ★ · β = among ecosystems · γ = among geographies · richness = <mark>number of species</mark> ★</li>
+    <li>Gene polymorphic hai agar most common allele <mark>&lt; 95%</mark> · hotspot = high richness + endemism + threat</li>
+    <li>Use values: direct, indirect, <mark>option</mark> · non-use ★: existence, altruistic, <mark>bequest (future generations)</mark> ★</li>
+    <li>Simpson <mark>D = 1/ΣPᵢ²</mark> · Shannon <mark>H = −ΣPᵢ ln Pᵢ</mark></li>
+  </ul>
+
+  <h3>Week 3 · Interactions <span class="lec">L7–9</span></h3>
+  <ul>
+    <li><mark>Competition (−,−)</mark> ★ · amensalism (0,−) · commensalism (+,0) · <mark>protocooperation (+,+ non-obligatory: birds on giraffe)</mark> ★ · mutualism (+,+ obligatory)</li>
+    <li><mark>Exploitative = scramble</mark> ★ (resource consume karna) · <mark>interference = contest</mark> ★ (rokna, fight) · apparent = common predator ke through</li>
+    <li>Leech = <mark>ectoparasite</mark> ★ · Plasmodium = <mark>endoparasite</mark> ★ · <mark>ethology</mark> = animal behaviour ki study ★</li>
+    <li><mark>Allo-grooming</mark> = doosre ko groom karna ★ · penguin spacing = <mark>territorial</mark> ★ · Hamilton <mark>rB &gt; C</mark></li>
+  </ul>
+
+  <h3>Week 4 · Energetics <span class="lec">L10–12</span></h3>
+  <ul>
+    <li>Tree → birds → parasites → hyperparasites = <mark>inverted pyramid of numbers</mark> ★ · energy pyramid <mark>hamesha upright</mark></li>
+    <li><mark>GPP</mark> = photosynthesis se fix energy per time ★ · <mark>NPP = GPP − respiration</mark> ★ · compensation point: P = R</li>
+    <li>Glacial lake = <mark>oligotrophic</mark> ★ · detritus chain fallen leaves se shuru ★ · decomposer = dead material → soil ★</li>
+    <li>10% rule, upar jaate hue <mark>energy kam hoti hai</mark> ★ · plants ~1% · Haber process → <mark>nitrogen cycle</mark> ★ · primary nutrients N, P, K</li>
+  </ul>
+
+  <h3>Week 5 · Population <span class="lec">L13–15</span></h3>
+  <ul>
+    <li>Additions = <mark>natality + immigration</mark> ★ · replacement fertility <mark>&gt; 2</mark> ★</li>
+    <li><mark>Cover board → herpetofauna</mark> ★ · <mark>pan trap → pollinators</mark> ★ · <mark>pelt count = relative</mark> density (absolute nahi) ★</li>
+    <li><mark>Simple random</mark>: har combination ka equal chance ★ · <mark>systematic</mark>: har kth unit ★ · <mark>sampling frame</mark> = list of units ★</li>
+    <li>Capture–recapture ka first stage = <mark>capture, mark, release</mark> ★ · logistic curve = <mark>S-shaped</mark> ★</li>
+  </ul>
+
+  <h3>Week 6 · Community <span class="lec">L16–18</span></h3>
+  <ul>
+    <li><mark>Guild</mark> = similar resource use ★ · <mark>ecotone</mark> = transition zone ★ · abundance = number, biomass, cover ★</li>
+    <li><mark>IVI = RD + RF + RDo</mark> ★ · <mark>fundamental ≥ realised</mark> niche ★ · CDI = (y₁+y₂)/y · IS = 2c/(a+b)</li>
+    <li><mark>Resistance</mark> = bina badle tikna ★ · resilience = badal ke wapas aana</li>
+    <li><mark>Disclimax</mark> = cattle/man ★ · <mark>lithosere ⊂ xerosere</mark> ★ · <mark>secondary</mark> = disturbance ke baad ★ · <mark>autogenic</mark> = organisms khud ★</li>
+  </ul>
+
+  <h3>Week 7 · Distribution <span class="lec">L19–21</span></h3>
+  <ul>
+    <li>Estuary = <mark>fresh + saline ka meeting zone</mark> ★ (high/intermediate/low salinity) · mangroves = <mark>high salinity + inundation</mark> ★</li>
+    <li><mark>Pneumatophores</mark> = hawa ke liye upar ugti roots ★ · raat ki neeche aati thandi hawa = <mark>hill wind</mark> ★ · flamingos = food + safe breeding ★</li>
+    <li><mark>Transplant → potential range</mark> ★ · <mark>dispersal</mark> = birthplace se nayi jagah ★ · Gir lions = <mark>diffusion</mark> ★ · scarcity of food = <mark>push factor</mark> ★</li>
+    <li>Liebig: law of the minimum · Shelford: law of tolerance (narrowest range) · zebra mussel = jump dispersal</li>
+  </ul>
+
+  <h3>Week 8 · Threatened species <span class="lec">L22–24</span></h3>
+  <ul>
+    <li><mark>Dissection → Perforation → Fragmentation → Attrition</mark> ★ · degradation = <mark>quality kam hona</mark> ★</li>
+    <li>90% area loss aur z = 0.3 → species <mark>aadhi</mark> ★ · HIPPO mein <mark>pollination nahi</mark> ★ · reserve <mark>medium threat</mark> wale area mein ★</li>
+    <li><mark>Declining paradigm</mark> = habitat/competition/poaching ★ · <mark>small paradigm</mark> = Allee effect, chance deaths ★ · <mark>death rate = deterministic</mark> ★</li>
+    <li>Roads = <mark>mortality sources + barriers</mark> ★ · forest → mine → lake = <mark>replacement</mark> ★ · orthodox seeds ~5% moisture tak dry ho jaate hain, recalcitrant &gt;20% se neeche nahi</li>
+  </ul>
+
+  <h3>Week 9 · Human ecology <span class="lec">L25–27</span></h3>
+  <ul>
+    <li><mark>Anthropocene</mark> ★ · <mark>I = P × A × T</mark> · demographic transition: <mark>high–high → low–low</mark> ★</li>
+    <li>Malthus: <mark>population GP, food AP</mark> ★ · preventive = <mark>foresight</mark>, late marriage, celibacy, moral restraint · positive = vice, misery, famine, flood</li>
+    <li>3 pillars: <mark>environmental, economic, social</mark> ★ (trans-boundary nahi) · clean tech ka theme: <mark>water purification</mark></li>
+    <li><mark>Stalactite</mark> = roof se neeche ★ · stalagmite = floor se upar · dono mil ke <mark>column</mark></li>
+  </ul>
+
+  <h3>Week 10 · Ecology of change <span class="lec">L28–30</span></h3>
+  <ul>
+    <li><mark>70% plastic sink</mark> hota hai ★ · <mark>macro &gt; 20 mm</mark> ★ · <mark>meso 5–20 mm</mark> ★ · micro &lt; 5 mm</li>
+    <li><mark>Petrogenic</mark> = mineral oil se ★ · pyrogenic = burning se · <mark>Deepwater Horizon = accidental</mark> ★ · Gulf War = intentional</li>
+    <li><mark>Bioaccumulation</mark> = absorb &gt; loss ★ · biomagnification = food chain mein upar badhna · <mark>acute</mark> = short exposure ★</li>
+    <li>Normal community + ek disturbance = <mark>recovery</mark> ★ · disease, weeds, livestock = <mark>disturbed community</mark> ★ · <mark>maladaptation</mark> vulnerability badhata hai ★</li>
+  </ul>
+
+  <h3>Week 11 · Applied ecology <span class="lec">L31–33</span></h3>
+  <ul>
+    <li><mark>R + G = M + F</mark> ★ · F = <mark>yield to fishery</mark> ★ · <mark>MSY sigmoid ke mid-point (K/2) pe</mark> ★ · K ke paas growth slow ★</li>
+    <li><mark>Ludwig's ratchet → harvesting rate badhta hai</mark> ★ · absolute abundance = <mark>actual number</mark> ★</li>
+    <li>Biocontrol ka risk: <mark>predator khud pest ban sakta hai</mark> ★ (mongoose) · ecotoxicology: <mark>population → biosphere</mark> levels ★</li>
+    <li><mark>Root zone treatment = phytoremediation</mark> ★ (Phragmites) · bald eagle mein DDT se eggshell patli hui</li>
+  </ul>
+
+  <h3>Confusing pairs</h3>
+  <div class="tbl"><table><thead><tr><th>Yeh</th><th>vs</th><th>Woh</th></tr></thead><tbody>
+    <tr><td>Exploitative = scramble (resource kha jaana)</td><td>vs</td><td>Interference = contest (rokna, fight)</td></tr>
+    <tr><td>Protocooperation (+,+ zaroori nahi)</td><td>vs</td><td>Mutualism (+,+ zaroori)</td></tr>
+    <tr><td>Resistance (badlo hi mat)</td><td>vs</td><td>Resilience (badal ke wapas aao)</td></tr>
+    <tr><td>Autogenic (andar ke organisms se)</td><td>vs</td><td>Allogenic (bahar ke forces se)</td></tr>
+    <tr><td>Primary succession (bare rock, lava)</td><td>vs</td><td>Secondary succession (fire ke baad, tez)</td></tr>
+    <tr><td>Fundamental niche (potential)</td><td>vs</td><td>Realised niche (competition ke baad, chhota ya barabar)</td></tr>
+    <tr><td>Migration (regular, seasonal)</td><td>vs</td><td>Dispersal (birthplace se nayi jagah)</td></tr>
+    <tr><td>Valley breeze (din, upar)</td><td>vs</td><td>Hill wind (raat, neeche)</td></tr>
+    <tr><td>Declining population paradigm</td><td>vs</td><td>Small population paradigm</td></tr>
+    <tr><td>Deterministic (birth/death rate)</td><td>vs</td><td>Stochastic (fire, disease, environmental variation)</td></tr>
+    <tr><td>Bioaccumulation (ek organism ke andar)</td><td>vs</td><td>Biomagnification (food chain mein upar)</td></tr>
+    <tr><td>Acute (short exposure)</td><td>vs</td><td>Chronic (long exposure)</td></tr>
+    <tr><td>Petrogenic (oil se)</td><td>vs</td><td>Pyrogenic (burning se) / Biogenic</td></tr>
+    <tr><td>Mitigation (sources kam, sinks badhao)</td><td>vs</td><td>Adaptation (impact ke saath adjust karo)</td></tr>
+    <tr><td>Positive checks (vice, misery, flood)</td><td>vs</td><td>Preventive checks (foresight, late marriage)</td></tr>
+    <tr><td>Stalactite (roof se)</td><td>vs</td><td>Stalagmite (floor se)</td></tr>
+    <tr><td>Orthodox seeds (~5% tak dry ho jaate hain)</td><td>vs</td><td>Recalcitrant (oily, &gt;20% moisture chahiye)</td></tr>
+    <tr><td>Auto-grooming (khud ko)</td><td>vs</td><td>Allo-grooming (doosre ko)</td></tr>
+    <tr><td>Ectoparasite (leech)</td><td>vs</td><td>Endoparasite (Plasmodium)</td></tr>
+    <tr><td>Restoration (original state)</td><td>vs</td><td>Rehabilitation (value badhao) / Replacement (naya habitat)</td></tr>
+  </tbody></table></div>
+</section>
+
+<!-- ================= NOTES ================= -->
+<section class="panel" id="p-notes" hidden>
+  <div class="chips" id="weekChips" role="group" aria-label="Choose week"></div>
+  <div id="notesBody"></div>
+</section>
+
+<!-- ================= NUMERICALS ================= -->
+<section class="panel" id="p-num" hidden>
+  <h2>Numericals · saare formulas</h2>
+  <p>Course mein numericals mainly L13–L14 (population), L5 (diversity indices), L10–L11 (energy), L16/L18 (community) aur L22 (species-area) se hain. Quiz mein yeh aaye the: species-area (z = 0.3), replacement fertility, importance value aur R + G = M + F. Saare numbers maine code chala ke check kiye hain.</p>
+
+  <h3>1 · Capture–recapture (Lincoln–Petersen) <span class="lec">L13, L14</span></h3>
+  <div class="formula">m / n = M / N &nbsp;⇒&nbsp; N = (M × n) / m</div>
+  <p class="lec">M = pehli baar mark kiye gaye animals · n = second sample mein kitne pakde · m = second sample mein marked kitne the · N = total population</p>
+  <div class="box"><b>Lecture example (striped hyena, camera traps):</b> pehle sample mein 50 photos, second mein 50 photos, jinme 20 pehle wale individuals the.
+    <div class="solve">N = 50 × 50 / 20 = <b>125 hyenas</b>. Natural body marks (tiger stripes, lion whisker/vibrissae pattern, hyena stripes, chital spots) "mark" ka kaam karte hain.</div></div>
+  <div class="trap"><b>Assumptions:</b> marked animals randomly mix ho jaate hain aur marks girte nahi. Removal method ki assumptions alag hain: no immigration/emigration, no birth/death, aur trapped animals permanently remove kiye jaate hain. Capture–recapture ka first stage = <b>capture, mark and release</b> ★</div>
+
+  <h3>2 · Population change <span class="lec">L13, L35</span></h3>
+  <div class="formula">N(t+1) = N(t) + B + I − D − E</div>
+  <p>Additions = <b>natality + immigration</b> ★. Losses = mortality + emigration. Natural increase = B − D. Net migration = I − E.</p>
+  <div class="box">N = 500, B = 60, I = 20, D = 40, E = 10 <div class="solve">N(t+1) = 500 + 60 + 20 − 40 − 10 = <b>530</b></div></div>
+  <p>Rates "per 1000" mein hote hain: <b>CBR</b> = annual live births per 1000 individuals; <b>CDR</b> = deaths per 1000; <b>GFR</b> = births per 1000 females of reproductive age; <b>ASFR</b> = births per 1000 females of a specific age class; <b>TFR</b> = average births per female over her reproductive life; <b>juvenile mortality</b> = juvenile deaths per 1000 live births.</p>
+  <div class="box">Population 1500 hai aur saal mein 45 births hue. CBR? <div class="solve">45 / 1500 × 1000 = <b>30 per 1000</b></div></div>
+  <div class="trap"><b>Replacement level fertility:</b> population ko grow karne ke liye TFR <b>2 se zyada</b> hona chahiye ★, kyunki 1 male + 1 female ko replace karne ke liye 2 offspring chahiye.</div>
+
+  <h3>3 · Geometric growth with R₀ <span class="lec">L14</span></h3>
+  <div class="formula">N(t+1) = R₀ · N(t) &nbsp;&nbsp; R₀ = N(t+1) / N(t)</div>
+  <p>R₀ &gt; 1 ka matlab population badh rahi hai, R₀ &lt; 1 ghat rahi hai, aur R₀ = 1 constant hai. Lecture example: 5 billion se 7 billion hua to R₀ = 7/5 = 1.4.</p>
+  <div class="box">R₀ = 1.5, N₀ = 10 <div class="solve">Gen 1 = 15 · Gen 2 = 22.5 · Gen 3 = <b>33.75</b> · Gen 9 ≈ <b>384</b> (exponential, J-shaped)</div></div>
+
+  <h3>4 · Logistic growth <span class="lec">L14, L31</span></h3>
+  <div class="formula">dN/dt = r · N · (K − N) / K</div>
+  <p>Iska graph S-shaped (sigmoid) ★ hota hai, jisme teen phases hain: lag → log → stationary. Population K (carrying capacity) ke paas pahunchti hai to growth slow ho jaati hai ★. Sabse tez growth N = K/2 pe hoti hai, aur wahi MSY ka point hai ★.</p>
+  <div class="box"><b>Lecture example:</b> K = 100, N = 25, maximum addition dN/dt = 10. r kya hoga?
+    <div class="solve">10 = r × 25 × (100 − 25)/100 ⇒ r = 10 × 100 / (25 × 75) = <b>0.533</b></div></div>
+  <div class="box">K = 500, N = 100, dN/dt = 40 <div class="solve">r = 40 × 500 / (100 × 400) = <b>0.5</b></div></div>
+  <div class="box"><b>MSY:</b> N = K/2 pe dN/dt = rK/4. Agar r = 0.4 aur K = 1000 hai: <div class="solve">MSY = 0.4 × 1000 / 4 = <b>100 per unit time</b></div></div>
+
+  <h3>5 · Sustainable yield (fishery) <span class="lec">L31, L36</span></h3>
+  <div class="formula">S₂ = S₁ + R + G − M − F &nbsp;⇒ sustainable (S₂ = S₁): R + G = M + F</div>
+  <p>R = recruitment (naye individuals) · G = growth of survivors · M = natural mortality · F = <b>yield to fishery</b> ★ (fishing se nikaala gaya total weight)</p>
+  <div class="box">R = 20 t, G = 30 t, M = 15 t. Sustainable catch F kitna? <div class="solve">F = R + G − M = <b>35 t</b></div></div>
+  <div class="trap"><b>Ludwig's ratchet</b> ke hisaab se harvesting rate hamesha <b>badhta</b> hai ★. Achhe saal mein log zyada pakadte hain, aur bure saal mein subsidy maangte hain.</div>
+
+  <h3>6 · Species–area relation <span class="lec">L22, L36</span></h3>
+  <div class="formula">S = c · A^z &nbsp;⇒&nbsp; S₂ / S₁ = (A₂ / A₁)^z</div>
+  <div class="box"><b>Quiz ★:</b> area 90% kam ho gaya (A₂ = 0.1 A₁) aur z = 0.30 hai.
+    <div class="solve">S₂/S₁ = 0.1^0.3 = 0.501 ⇒ <b>half species bachti hain</b>, 1/10 nahi.<br>z = 0.15 lene pe: 0.1^0.15 = 0.708, yaani ~29% species loss.<br>Lecture: tropical forest ~1.8% per year kam ho raha hai, z = 0.15 lo to ~0.27% species per year jaati hain. 10 million species ka 0.27% ≈ <b>27,000 species per year</b>.</div></div>
+
+  <h3>7 · Diversity indices <span class="lec">L5</span></h3>
+  <div class="formula">Pᵢ = nᵢ / N &nbsp;·&nbsp; Simpson D = 1 / Σ Pᵢ² &nbsp;·&nbsp; E = D / D_max</div>
+  <div class="formula" style="margin-top:6px">Shannon H = − Σ Pᵢ · ln Pᵢ &nbsp;·&nbsp; E = H / H_max &nbsp;(H_max = ln S)</div>
+  <div class="trap"><b>Trap:</b> is course mein Simpson index ka version <b>D = 1/ΣPᵢ²</b> padhaya gaya hai (inverse Simpson). Kai books 1 − ΣPᵢ² use karti hain. Exam mein is course ka version use karna. Shannon mein log natural log (ln, base e) hai. D_max tab hota hai jab saari species equal hon, aur tab D_max = S.</div>
+  <div class="box">3 species, counts 50, 30, 20 (N = 100)
+    <div class="solve">P = 0.5, 0.3, 0.2 · ΣP² = 0.25 + 0.09 + 0.04 = 0.38 ⇒ <b>D = 2.63</b>, E = 2.63/3 = <b>0.88</b><br>H = −(0.5 ln 0.5 + 0.3 ln 0.3 + 0.2 ln 0.2) = <b>1.03</b>, H_max = ln 3 = 1.099, E = <b>0.94</b><br>4 equal species ke liye: D = 4, H = ln 4 = 1.386</div></div>
+
+  <h3>8 · Community: RD, RF, RDo, IVI <span class="lec">L16</span></h3>
+  <div class="formula">RD = n(x)/Σn × 100 · RF = freq(x)/Σfreq × 100 · RDo = basal area(x)/Σ basal area × 100</div>
+  <div class="formula" style="margin-top:6px">Importance Value (IVI) = RD + RF + RDo &nbsp;(max = 300) ★</div>
+  <div class="box">10 quadrats hain. A: 60 trees, 8 quadrats mein present, basal area 30 · B: 30 trees, 6 quadrats, 15 · C: 10 trees, 2 quadrats, 5
+    <div class="tbl"><table><thead><tr><th>Sp</th><th>RD %</th><th>Freq %</th><th>RF %</th><th>RDo %</th><th>IVI</th></tr></thead><tbody>
+      <tr><td>A</td><td class="num">60.0</td><td class="num">80</td><td class="num">50.0</td><td class="num">60.0</td><td class="num"><b>170.0</b></td></tr>
+      <tr><td>B</td><td class="num">30.0</td><td class="num">60</td><td class="num">37.5</td><td class="num">30.0</td><td class="num">97.5</td></tr>
+      <tr><td>C</td><td class="num">10.0</td><td class="num">20</td><td class="num">12.5</td><td class="num">10.0</td><td class="num">32.5</td></tr>
+    </tbody></table></div>
+    <p class="lec">Frequency = (jin quadrats mein species mili / total quadrats) × 100. RF = 80/160 × 100 = 50.</p></div>
+
+  <h3>9 · Community Dominance Index &amp; Index of Similarity <span class="lec">L16, L18</span></h3>
+  <div class="formula">CDI = (y₁ + y₂) / y × 100 &nbsp;&nbsp;·&nbsp;&nbsp; IS = 2c / (a + b)</div>
+  <p class="lec">y₁, y₂ = do sabse abundant species · y = total abundance · a, b = dono communities mein species ki ginti · c = dono mein common species</p>
+  <div class="grid2">
+    <div class="box">y₁ = 40, y₂ = 30, total = 100 <div class="solve">CDI = <b>70%</b></div></div>
+    <div class="box">a = 20, b = 30, c = 10 <div class="solve">IS = 20 / 50 = <b>0.4</b></div></div>
+  </div>
+
+  <h3>10 · Energy flow &amp; efficiencies <span class="lec">L10, L11</span></h3>
+  <div class="formula">Exploitation = Iₙ/Pₙ₋₁ · Assimilation = Aₙ/Iₙ · Net production = Pₙ/Aₙ · Gross production = Pₙ/Iₙ</div>
+  <div class="formula" style="margin-top:6px">Ecological efficiency = (Iₙ/Pₙ₋₁)(Aₙ/Iₙ)(Pₙ/Aₙ) = Pₙ/Pₙ₋₁</div>
+  <div class="box"><b>Lecture example:</b> Kanha mein chital har saal 10,000 kg biomass produce karte hain, aur tiger usme se 100 kg khata hai. <div class="solve">Exploitation efficiency = 100/10000 = <b>1%</b></div></div>
+  <div class="box"><b>10% rule:</b> sunlight 100,000 J → grass 1,000 J (plants ~1%) → herbivore 100 J → carnivore 10 J → top carnivore 1 J.<div class="solve">Har transfer pe 10% aage jaata hai aur 90% respiration aur incomplete digestion mein lose hota hai. Food chain mein upar jaate hue <b>energy kam hoti hai</b> ★</div></div>
+  <div class="formula">NPP = GPP − Respiration ★ &nbsp;·&nbsp; NPP = APAR × LUE &nbsp;·&nbsp; Productivity = production / time</div>
+  <div class="box">GPP = 40 cal, R = 15 cal ⇒ NPP = <b>25 cal</b>. Plant ne 1000 cal intercept kiye aur 40 cal fix kiye ⇒ gross efficiency = <b>4%</b>. 1 ton biomass 2 saal mein ban gaya ⇒ productivity = <b>0.5 t/yr</b>.</div>
+
+  <h3>11 · Doubling time &amp; Hamilton's rule <span class="lec">L26, L9</span></h3>
+  <div class="formula">P(t) = P₀ e^(kt) &nbsp;⇒&nbsp; t_d = ln 2 / k ≈ 0.693 / k</div>
+  <div class="box">k = 0.02 per year ⇒ t_d = 0.693/0.02 = <b>34.7 years</b></div>
+  <div class="formula">Kin selection favoured when r · B &gt; C</div>
+  <div class="box">r: sibling 0.5 · nephew 0.25 · cousin 0.125. Haldane ki line: "life for <b>2 siblings, 4 nephews or 8 cousins</b>" break-even hai. 3 siblings bachaye to r × B = 0.5 × 3 = 1.5 &gt; 1 (apni life), yaani trait favoured hai.</div>
+
+  <h3>12 · Sampling statistics <span class="lec">L14</span></h3>
+  <div class="formula">mean μ = Σx/n · SD σ = √(Σ(x−μ)²/n) · SE = σ/√n · Range = max − min · CV = σ/μ × 100%</div>
+  <div class="box">Corbett chital group sizes. Core zone: mean 25.2, σ = 1.249, SE = 0.395, range 4, CV ≈ <b>5%</b>. Buffer zone: mean 20.7, σ = 11.385, SE = 3.6, range 37, CV ≈ <b>55%</b>.<div class="solve">Buffer zone fragmented hai aur wahan human influence zyada hai, isliye group sizes mein variation zyada hai. Sambar density example: 18 beats ka sum 101 tha, to 101/18 = <b>5.61 per km²</b>.</div></div>
+  <div class="trap"><b>Line transect:</b> perpendicular distance = d·sinθ (d = animal tak ki distance, θ = angle). Precision ka matlab measurements ek doosre ke paas hain. Accuracy ka matlab measurements true value ke paas hain. Agar method precise hai par accurate nahi, to use calibrate karna padta hai.</div>
+</section>
+
+<!-- ================= QUIZ ================= -->
+<section class="panel" id="p-quiz" hidden>
+  <h2>Quiz retake</h2>
+  <p>Aapke bheje hue NPTEL assignments ke saare 120 MCQs, bilkul same question aur same option order mein, sahi answer ke saath. Week 9 ke teen answers lecture ke hisaab se theek kiye gaye hain. Week ke saare questions ke answers select karo, phir neeche <b>Submit</b> dabao. Uske baad score, answer key aur explanation dikhenge. Sirf revise karna ho to <b>"Answer key"</b> on kar do, saare sahi answers seedhe highlight ho jaayenge.</p>
+  <div class="chips" id="setChips" role="group" aria-label="Choose week"></div>
+  <div class="qbar">
+    <span class="score" id="score">0 / 0</span>
+    <button class="btn" id="resetBtn" type="button">Reset</button>
+    <label class="tog"><input type="checkbox" id="keyMode"> Answer key</label>
+  </div>
+  <div id="quizBody"></div>
+</section>
+
+<!-- ================= MOCK ================= -->
+<section class="panel" id="p-mock" hidden>
+  <h2>Mock tests</h2>
+  <p>Yeh naye questions hain jo maine aapke lecture transcripts se banaye hain, quiz se alag. Har mock mein saare weeks ke MCQ, MSQ aur numerical questions hain. Exam ki tarah saare answers mark karo, phir neeche <b>Submit</b> dabao. Uske baad score, sahi answers aur lecture reference dikhenge.</p>
+  <div class="chips" id="mockChips" role="group" aria-label="Choose mock"></div>
+  <div class="qbar">
+    <span class="score" id="mscore">Attempted 0 / 0</span>
+    <span class="score" id="mtimer">00:00</span>
+    <button class="btn" id="mreset" type="button">Restart</button>
+  </div>
+  <div id="mockBody"></div>
+</section>
+
+</main>
+
+<script>
+const W = n => "W" + n;
+/* ---------- NOTES ---------- */
+const NOTES = {
+1:{t:"Introduction", l:"L1–L3", h:`
+<h3>Ecology ki definition <span class="lec">L1</span></h3>
+<ul><li>Greek: <b>oikos = household</b>, <b>logos = study</b> ★. Term <b>Ernst Haeckel</b> ne coin kiya.</li>
+<li>Definition 1: scientific study of interactions among organisms and their environment.</li>
+<li>Definition 2: scientific study of the <b>interactions</b> that determine the distribution and abundance of organisms ★ (fill-in-the-blank mein "interactions" aata hai, "dynamics" ya "statics" nahi).</li></ul>
+<h3>Teen approaches <span class="lec">L1</span></h3>
+<ul><li><b>Theoretical:</b> equations aur models (Lotka–Volterra, exponential/logistic growth).</li>
+<li><b>Laboratory:</b> hypothesis banao aur experiments se test karo ★ (jaise transplant experiments).</li>
+<li><b>Field:</b> natural surroundings mein direct observation ★ (jaise langur–chital association).</li></ul>
+<h3>Itihaas ke log <span class="lec">L2</span></h3>
+<div class="tbl"><table><thead><tr><th>Person</th><th>Kis cheez ke liye yaad rakhna hai</th></tr></thead><tbody>
+<tr><td>Theophrastus (371–287 BC)</td><td>Father of Botany. <b>"Enquiry into Plants"</b> ★ likhi. Organisms aur environment ke rishte ko describe karne wala pehla insaan.</td></tr>
+<tr><td>Carolus Linnaeus</td><td>Binomial nomenclature (Panthera tigris). <b>Father of modern taxonomy</b> ★</td></tr>
+<tr><td>Thomas Robert Malthus</td><td>Population GP mein, food AP mein badhta hai. <b>Population ecology</b> ko influence kiya ★</td></tr>
+<tr><td>Alexander von Humboldt</td><td><b>Father of Biogeography</b> ★. South America mein botanical geography pe quantitative kaam.</td></tr>
+<tr><td>Darwin &amp; Wallace</td><td><b>Theory of evolution and natural selection</b> ★</td></tr>
+<tr><td>Herbert Spencer</td><td>"Survival of the fittest" term coin kiya.</td></tr>
+<tr><td>Ernst Haeckel</td><td>"Ecology" term coin kiya.</td></tr>
+<tr><td>Vladimir Vernadsky</td><td>Biogeochemical cycles ke baare mein sabse pehle socha.</td></tr>
+<tr><td>Arthur Tansley</td><td>British Ecological Society ke founder.</td></tr>
+<tr><td>Charles Elton</td><td>Father of animal ecology. Invasive species study ke pioneer.</td></tr>
+<tr><td>G. E. Hutchinson</td><td>Interspecific competition. "Treatise on Limnology" likha.</td></tr>
+<tr><td>Lotka &amp; Volterra</td><td>Predator–prey aur competition equations.</td></tr>
+<tr><td>Eugene P. Odum</td><td>"Fundamentals of Ecology" likhi.</td></tr>
+</tbody></table></div>
+<h3>Ecology &amp; Evolution <span class="lec">L3</span></h3>
+<ul><li>Evolution = genetic adaptation of organisms to their environment. <b>Genetic adaptation = inheritable fitness</b> ★</li>
+<li>Fitness = ek organism ki future generations mein descendants chhodne ki ability, doosre organisms ke relative. Fitness environment-specific aur species-specific hoti hai, long-term mein measure hoti hai, aur poore organism pe lagti hai (sirf size ya speed jaise ek trait pe nahi). Sirf high reproductive rate kaafi nahi hai, progeny ka survive karna bhi zaroori hai.</li>
+<li>Natural selection ke 5 steps: <b>variation → overpopulation → struggle for existence → survival of the fittest → change in gene pool</b>. Example: peppered moth (lichen ke saath aur bina).</li>
+<li>Selection ke types: <b>directional</b> (beak size), <b>stabilizing</b> (human birth weight), <b>disruptive</b> (Galápagos birds, dono extremes favoured).</li>
+<li>Coevolution: do species ek doosre ke changes ke hisaab se evolve karti hain (hummingbird ki beak aur flower ki length).</li></ul>`},
+2:{t:"Ecological structure", l:"L4–L6", h:`
+<h3>Levels of organisation <span class="lec">L4</span></h3>
+<ul><li>Hora aur Tempus watchmakers ki kahani: hierarchy evolution mein isliye aati hai kyunki hierarchical structures <b>stable</b> ★ hote hain.</li>
+<li><b>Emergent principle:</b> whole &gt; sum of parts ★. Whole mein woh properties hoti hain jo parts mein akele nahi hoti (fire ants, termite mounds).</li>
+<li>Sequence: sub-cellular organelle → <b>cell</b> (smallest unit of life ★) → <b>tissue</b> (similar cells + extracellular matrix, same origin ★) → organ → <b>organ system</b> (organs ka group jo milke kaam kare ★) → organism → population → community → ecosystem → biome → biosphere.</li>
+<li>Species = "groups of actually or potentially interbreeding natural populations, reproductively isolated from other such groups" ★</li>
+<li>Biome = similar environment wali communities (tundra, desert). Biosphere = sabse upar ka level (lithosphere + hydrosphere + atmosphere jo life support karte hain).</li></ul>
+<h3>Biodiversity <span class="lec">L5–L6</span></h3>
+<ul><li>Levels: <b>genetic</b> (phyla se lekar families, species, populations, individuals tak genetic information ★; polymorphism = most common allele &lt; 95%; heterozygosity), <b>species</b>, aur <b>ecosystem</b>.</li>
+<li><b>Species richness = number of species</b> ★. Species evenness = individuals species mein kaise distributed hain.</li>
+<li>Species accumulation curve time ke saath badhti hai aur phir flat ho jaati hai. Simpson aur Shannon indices Numericals tab mein hain.</li>
+<li><b>α</b> = diversity within an ecosystem ★ · <b>β</b> = among ecosystems · <b>γ</b> = among geographies.</li>
+<li>Hotspot = high species richness + high endemism + high threat.</li>
+<li>Kuch areas mein zyada diversity kyun hoti hai (5 hypotheses): evolutionary speed, area/habitat complexity, interspecific interactions, ambient energy, intermediate disturbance.</li></ul>
+<h3>Economic value <span class="lec">L6</span></h3>
+<div class="tbl"><table><thead><tr><th>Use values</th><th>Non-use values ★</th></tr></thead><tbody>
+<tr><td>Direct (seedha use)</td><td>Existence (sirf exist karne ki value)</td></tr>
+<tr><td>Indirect (ecosystem services)</td><td>Altruistic (doosron ke liye)</td></tr>
+<tr><td>Option (future mein use ka option)</td><td><b>Bequest</b> = future generations ke liye chhodna ★</td></tr></tbody></table></div>
+<ul><li>Non-use value = woh value jo resource use na ho tab bhi hoti hai ★. Total Economic Value = use + non-use.</li>
+<li>Valuation ke tareeke: market price (revealed willingness to pay), imputed WTP (replacement cost, damage cost avoided), aur contingent valuation (logon se poochna).</li></ul>
+<div class="trap"><b>Trap:</b> Option value use value hai, non-use nahi. Bequest aur existence mein confuse mat hona: bequest = future generations ke liye.</div>`},
+3:{t:"Ecological interactions", l:"L7–L9", h:`
+<h3>Interactions ki table <span class="lec">L7</span></h3>
+<ul><li><b>Intraspecific</b> = same species ke andar · <b>Interspecific</b> = different species ke beech ★</li>
+<li>Harmonious (positive) = kisi ko harm nahi hota. Inharmonious = kisi ek ko bhi harm ho.</li></ul>
+<div class="tbl"><table><thead><tr><th>Interaction</th><th>Effect</th><th>Example</th></tr></thead><tbody>
+<tr><td>Competition</td><td>− / − ★ (dono harmed)</td><td>Penguins, blackbucks</td></tr>
+<tr><td>Amensalism</td><td>0 / −</td><td>Animals ke chalne se grass trample hona</td></tr>
+<tr><td>Predation / parasitism</td><td>+ / −</td><td>Pitcher plant; leech = <b>ectoparasite</b> ★; Plasmodium vivax = <b>endoparasite</b> ★ (host ke andar)</td></tr>
+<tr><td>Neutralism</td><td>0 / 0</td><td>Pure examples bahut kam hain</td></tr>
+<tr><td>Commensalism</td><td>+ / 0</td><td>Skin bacteria; buffaloes ke saath egrets</td></tr>
+<tr><td>Protocooperation</td><td>+ / + (zaroori nahi, non-obligatory)</td><td><b>Birds on giraffe</b> ★, cleaner fish, hermit crab + sea anemone</td></tr>
+<tr><td>Mutualism</td><td>+ / + (obligatory)</td><td>Ruminants ke rumen microbes, legumes mein Rhizobium</td></tr>
+</tbody></table></div>
+<ul><li>Colonies (coral reef, filamentous algae) aur societies (bee hive, ant colony, wolf pack: division of labour) intraspecific harmonious hain. Intraspecific competition aur cannibalism (black widow, praying mantis) intraspecific inharmonious hain.</li></ul>
+<h3>Competition ke types <span class="lec">L8</span></h3>
+<div class="tbl"><table><thead><tr><th>Exploitative = scramble</th><th>Interference = contest ★</th></tr></thead><tbody>
+<tr><td>Limited resource ko seedha consume karna, taaki doosron ke liye kam bache ★</td><td>Doosron ko resource use karne se rokna (aggression, fighting)</td></tr>
+<tr><td>Direct contact nahi hota</td><td>Direct contact ya conflict hota hai</td></tr>
+<tr><td>Carrying capacity K ko affect karta hai; relation non-linear</td><td>Per-individual rate of increase ko affect karta hai; relation linear</td></tr>
+<tr><td>Same field mein grazing karte deer; sunlight ke liye canopy trees</td><td>Territoriality (intra); allelopathy (inter)</td></tr></tbody></table></div>
+<ul><li><b>Apparent competition:</b> do prey species ka ek common predator ho (chital aur sambar ka tiger). Chital badhe to tiger badhega, aur phir sambar zyada khaya jaayega.</li></ul>
+<h3>Behavioural ecology <span class="lec">L9</span></h3>
+<ul><li>Animal behaviour ki scientific study = <b>ethology</b> ★. Behavioural ecology = animal behaviour ka evolutionary basis jo ecological pressures se aata hai.</li>
+<li>Cost–benefit approach. Group living: foraging aur predation se protection jaise benefits hain, par food ke liye competition aur disease jaise costs bhi.</li>
+<li>Langur–chital = asymmetric mutualism/protocooperation (langur upar se fruits girata hai, dono ek doosre ko alarm calls dete hain).</li>
+<li>Kin selection: <b>Hamilton's rule rB &gt; C</b>. Haldane ke hisaab se 2 siblings, 4 nephews ya 8 cousins. Ground squirrel ki alarm call iska example hai.</li>
+<li>Territoriality: ek defended space. Nesting penguins ki doori = <b>territorial spacing</b> ★. Food zyada ho to territory size chhota ho jaata hai.</li>
+<li>Ethogram ke steps: site describe karo → behaviours define karo → scan sampling + focal animal study → time budget. <b>Auto-grooming</b> = khud ko groom karna. <b>Allo-grooming</b> = kisi doosre ko groom karna (jaise doosre bird ke sir se tick nikal ke khana) ★</li></ul>`},
+4:{t:"Ecological energetics", l:"L10–L12", h:`
+<h3>Food chains &amp; webs <span class="lec">L10</span></h3>
+<ul><li><b>Autotroph</b> apna food khud banata hai (photo- ya chemo-autotroph). <b>Heterotroph</b> apna food nahi bana sakta aur doosre sources ke organic carbon pe depend karta hai ★</li>
+<li>Producers ke baad pehla trophic level <b>herbivores</b> ka hai ★ (primary consumers). Grass → grasshopper → frog → snake → hawk mein hawk <b>consumer + carnivore</b> hai ★</li>
+<li><b>Decomposer</b> dead material ko soil mein badalta hai aur nutrients recycle karta hai ★. Detritivores detritus khaate hain aur use microbes ke liye expose karte hain.</li>
+<li>Grazing chain do tarah ki hoti hai: predator chain (upar size badhta hai) aur parasitic chain (upar size ghatta hai). <b>Detritus chain</b>: fallen leaves → detritivores → small fish → large fish ★. Yeh chains chhoti hoti hain.</li>
+<li>Food web = interlocking food chains. Trophic cascade: Yellowstone mein wolves aaye, deer ka behaviour badla, plants wapas aaye, phir berries, bears aur birds bhi.</li></ul>
+<h3>Ecological pyramids <span class="lec">L10</span></h3>
+<div class="tbl"><table><thead><tr><th>Pyramid</th><th>Shape</th></tr></thead><tbody>
+<tr><td>Numbers</td><td>Upright; <b>inverted</b>: tree → birds → parasites → hyperparasites ★; <b>spindle</b>: tree → frugivorous birds → hawk, phytoplankton → zooplankton → fish → sea lion; <b>dumbbell</b> bhi ho sakta hai</td></tr>
+<tr><td>Energy</td><td>Hamesha <b>upright</b></td></tr>
+<tr><td>Biomass</td><td>Upright, ya inverted (ocean mein)</td></tr></tbody></table></div>
+<ul><li>Standing crop = kisi trophic level pe total <b>dried</b> biomass. 10% rule aur efficiencies Numericals tab mein hain. Food chain mein upar jaate hue energy <b>kam hoti hai</b> ★</li></ul>
+<h3>Primary production <span class="lec">L11</span></h3>
+<ul><li><b>GPP</b> = photosynthesis se per unit time fix hui energy ★. <b>NPP</b> = GPP minus respiration loss per unit time ★</li>
+<li>Compensation point: photosynthesis = respiration (subah jaldi aur shaam ko). NPP = APAR × LUE (satellite se nikaal sakte hain).</li>
+<li>Lakes: <b>oligotrophic</b> (kam nutrients; <b>glacial lakes</b> ★) → mesotrophic → eutrophic → hypereutrophic. Secchi depth turbidity naapta hai; zyada eutrophic lake mein Secchi depth kam hoti hai.</li>
+<li>Nutrients ke sources: dust, bird droppings, upwelling, rivers. Limiting nutrient: ocean mein <b>iron fertilization</b>. CO₂ fertilization.</li></ul>
+<h3>Nutrient cycles <span class="lec">L12</span></h3>
+<ul><li>Macronutrients bade amount mein chahiye, micronutrients chhote amount mein. Essential nutrient ka koi substitute nahi hota.</li>
+<li>Biogeochemical cycle = chemical ka biotic aur abiotic compartments ke beech ka pathway. Haber process (industrial N-fixation) <b>nitrogen cycle</b> ★ ko affect karta hai.</li>
+<li>Carbon ke pools: atmosphere, rocks, oceans, fossil fuels. Water, phosphorus aur sulphur cycles bhi.</li>
+<li>Kuczera curve: deforestation ya fire ke baad streamflow pehle girta hai, phir dheere dheere recover hota hai.</li></ul>`},
+5:{t:"Population ecology", l:"L13–L15", h:`
+<h3>Parameters &amp; density <span class="lec">L13</span></h3>
+<ul><li>N(t+1) = N + B + I − D − E. Additions = <b>natality + immigration</b> ★</li>
+<li><b>Absolute density</b> naapne ke tareeke: total count (census), sampling (quadrats, capture–recapture), removal method.</li>
+<li><b>Relative density</b> naapne ke tareeke: traps, faecal pellets, vocalisation counts, <b>pelt counts</b> ★, catch per unit effort. Isliye "pelt count absolute density ka measure NAHI hai".</li>
+<li>Sampling frame = <b>list of sampling units</b> ★. Plot shapes: circular, rectangular, strip, topographic unit.</li></ul>
+<div class="tbl"><table><thead><tr><th>Sampling</th><th>Pehchaan</th></tr></thead><tbody>
+<tr><td>Simple random ★</td><td>Har possible combination ka chance barabar hota hai (lottery)</td></tr>
+<tr><td>Systematic ★</td><td>Har kth unit lo, random start 1 se k ke beech</td></tr>
+<tr><td>Stratified</td><td>Population ko strata mein baanto</td></tr>
+<tr><td>Multistage, PPS</td><td>Stages mein sampling; probability proportional to size</td></tr></tbody></table></div>
+<ul><li>Demographic terms: age pyramid, CBR, CDR, GFR, ASFR, TFR, replacement level fertility (&gt;2 ★), juvenile mortality, life expectancy. Physiological longevity (best conditions mein) vs ecological longevity (actual field conditions mein).</li></ul>
+<h3>Field methods <span class="lec">L14</span></h3>
+<ul><li>Herpetofauna (reptiles + amphibians) ke methods: opportunistic encounters, visual encounter survey (rock flipping), patch/adaptive cluster sampling, audio strip transect (male frogs ki calls), pitfall/funnel traps, <b>cover board survey → herpetofauna</b> ★, breeding site survey, larvae sampling, camera traps.</li>
+<li><b>Pan traps → pollinator insects</b> ★. Coloured pans (pehli wali yellow thi, aphids ke liye) mein water + soap hota hai, soap surface tension kam karta hai.</li>
+<li>Natural marks se photographic capture–recapture hota hai. Agar population chhoti hai to har individual ko naam do (tigers); badi hai to mark-recapture use karo.</li></ul>
+<h3>Growth models <span class="lec">L14</span></h3>
+<ul><li>Exponential growth (J-shaped). <b>Logistic growth S-shaped</b> ★ hota hai: lag → log → stationary phase.</li>
+<li>Lotka–Volterra: dV/dt = rV − αVP aur dP/dt = βVP − qP. Iska result predator aur prey ke cycles hote hain. Do competing herbivores mein se koi bhi apna K nahi pahunchta.</li></ul>
+<h3>Population studies <span class="lec">L15</span></h3>
+<ul><li>Problems of <b>dynamics</b> (population time ke saath kaise badalti hai) vs <b>statics</b> (equilibrium kis cheez pe depend karta hai).</li>
+<li>Extrinsic agents: weather, predators, parasites, disease, food, shelter. Intrinsic agents: physiological aur behavioural changes.</li>
+<li>Locust: solitary ↔ (transient) ↔ gregarious. Favourable weather se density badhti hai, gregarisation hota hai aur swarms bante hain. Bura weather, predators ya disease aaye to wapas solitary.</li></ul>`},
+6:{t:"Community ecology", l:"L16–L18", h:`
+<h3>Community nature <span class="lec">L16</span></h3>
+<ul><li>Community = ek area mein rehne wali different species ki populations ka assemblage. <b>Ecotone</b> = woh transition zone jahan do communities milti hain ★ (sharp ya diffuse ho sakta hai).</li>
+<li>Abundance ko number of individuals, biomass ya cover ★ mein express kar sakte hain. Species richness = number of species ★. Dominance abundance ke hisaab se ranking hai (number, basal area).</li>
+<li>Importance value = RD + RF + RDo ★ (sab add hote hain, multiply nahi).</li>
+<li>Theories: <b>organismic</b> (Clements: community ek superorganism hai), <b>individualistic/continuum</b>, aur <b>Hubbell's neutral theory</b> (species functionally equivalent hain; random births aur deaths).</li>
+<li><b>Guild</b> = species ka group jo resources ko similar tareeke se use karta hai ★ (jaise fruit-eating birds). Inke beech competition zyada hota hai.</li>
+<li>Niche = species ki needs ka multidimensional description. <b>Fundamental niche ≥ realised niche</b> ★ (realised = post-competitive). Isliye answer "a or b" hai.</li>
+<li>Association: contingency table se positive ya negative pata chalta hai. Accidental species (rare, chance invaders ya relicts) vs indifferent species.</li></ul>
+<h3>Succession <span class="lec">L17</span></h3>
+<ul><li>Bare rock → crustose lichens → foliose lichens → moss → grass → shrub → forest.</li>
+<li>Sere ke types: <b>hydrosere</b> (water), <b>xerosere</b> (dry; <b>lithosere = rock pe ★</b>, psammosere = sand pe), <b>halosere</b> (saline marsh).</li>
+<li>Pioneer species hardy hote hain aur bahut saare seeds/spores chhodte hain. Climax community: diversity high, food web complex, GPP ≈ R.</li>
+<li>Climax ke types: <b>climatic</b> (climate se control), <b>edaphic</b> (soil se), <b>catastrophic</b> (fire, flood se), aur <b>disclimax</b> (insaan ya domestic animals ke disturbance se, jaise Tindni village mein cattle ★).</li>
+<li><b>Primary succession</b>: pehle se kabhi occupied nahi raha area (lava rock). <b>Secondary succession</b>: severe disturbance ke baad ★. Forest fire ke baad herbaceous → shrub → woodland → climax ★. Secondary tez hoti hai kyunki soil aur seeds pehle se maujood hote hain. Cyclic succession: recurring events.</li>
+<li><b>Autogenic</b> = jo organisms pehle se present hain woh khud soil badalte hain ★. <b>Allogenic</b> = external forces se.</li>
+<li>7 stages: nudation → migration → ecesis → aggregation → competition → reaction → stabilization. Climax theories: monoclimax, polyclimax, climax pattern.</li></ul>
+<h3>Organization &amp; stability <span class="lec">L18</span></h3>
+<ul><li>Keystone species ka role uski numbers se kahin zyada hota hai. Dominant species numerically abundant hoti hai. CDI Numericals tab mein hai.</li>
+<li>Stability ke do parts: <b>resistance</b> = disturbance ke saamne bina badle tike rehna ★ (inertia), aur <b>resilience</b> = disturbance ke baad recover karna. Resilience mein elasticity (wapas aane ki speed) aur amplitude (kitna disturbance seh sakti hai) dekhte hain.</li>
+<li>Stability local ho sakti hai ya global. Kya diversity se stability badhti hai? Yeh abhi bhi debate hai. Lake Washington sewage case mein community recover ho gayi thi.</li></ul>
+<div class="trap"><b>Trap:</b> resistance mein community badalti hi nahi. Resilience mein badalti hai, phir wapas aati hai.</div>`},
+7:{t:"Distribution & abundance", l:"L19–L21", h:`
+<h3>Biogeography &amp; Indian habitats <span class="lec">L19</span></h3>
+<ul><li>Biogeography poochta hai ki kya kahan milta hai, aur kyun. Range = woh geographical area jahan species milti hai.</li>
+<li><b>Estuary</b> = freshwater aur saline water ka meeting zone ★. Species high, intermediate aur low salinity zones use karti hain ★</li>
+<li><b>Mangroves</b> high salinity aur partial/complete inundation wale areas ke liye adapted hain ★. <b>Pneumatophores</b> = roots jo hawa lene ke liye zameen se upar ki taraf ugti hain ★</li>
+<li><b>Rann of Kutch flamingos</b> paani mein food organisms aur safe breeding conditions ke liye aate hain ★</li>
+<li>Lagoon (Chilika) sea se sand bars se alag hota hai. Doosre habitats: alpine meadows, shola forests, sand dunes, floodplains.</li>
+<li>Din mein garam hawa valley se upar jaati hai = <b>valley breeze</b>. Raat mein hills se thandi, dense hawa valley ki taraf neeche aati hai = <b>hill wind</b> ★</li></ul>
+<h3>Things kahan kyun hain <span class="lec">L20</span></h3>
+<ul><li><b>Pull factors</b> organisms ko attract karte hain (food, achha climate). <b>Push factors</b> unhe bhagate hain (food ki <b>scarcity ★</b>, inhospitable climate).</li>
+<li>Doosre factors: dispersal, anthropogenic, aur habitat selection (innate + learnt: chipping sparrow pine vs oak).</li>
+<li><b>Transplant experiments se potential range</b> ★ pata chalti hai.</li>
+<li>Liebig's law of the minimum: rate us factor se limit hota hai jo sabse kam amount mein hai. Shelford's law of tolerance: distribution us factor se control hoti hai jiski tolerance range sabse narrow hai.</li>
+<li><b>Migration</b> = regular, seasonal movement, aksar fixed routes pe (demoiselle cranes). <b>Dispersal</b> = birthplace se nayi jagah jaana, survive aur reproduce karne ke liye ★</li>
+<li>Dispersal ke modes: <b>diffusion</b> (kai generations mein gradual, jaise Gir landscape mein lions ★), <b>jump dispersal</b> (badi doori jaldi, jaise ballast water mein zebra mussel), <b>secular dispersal</b> (evolutionary time mein diffusion).</li></ul>
+<h3>Push–pull detail <span class="lec">L21</span></h3>
+<ul><li>Sea urchins aur algae: urchins hata do to algae wapas aa jaati hain. Predator distribution control kar raha hai, yeh kehne ke liye 4 criteria hain (transplant + cage, inverse correlation, lethal damage, direct evidence).</li>
+<li>Prey se predator control hota hai: Drosophila pachea sirf ek cactus species ke saath milti hai. Pine rust gooseberries hata ke control hua.</li>
+<li>Allelopathy: grass bed se guzra paani apple seedlings ko maar deta hai. Peach replant problem. Grevillea robusta apne hi seedlings maarta hai.</li>
+<li>Acclimation tolerance badal deta hai. Treeline kai factors ke combination se banti hai.</li></ul>`},
+8:{t:"Threatened species", l:"L22–L24", h:`
+<h3>Threats <span class="lec">L22</span></h3>
+<ul><li><b>Declining population paradigm</b> ★: habitat sikud raha hai, competitors badh rahe hain, poaching ho rahi hai. Yahan sawaal hai ki population chhoti kyun ho rahi hai.</li>
+<li><b>Small population paradigm</b> ★: Allee effect, chance deaths. Yahan sawaal hai ki chhoti population extinct kyun ho jaati hai.</li>
+<li><b>Deterministic factors</b> (birth rate, <b>death rate ★</b>, population structure) bade populations pe act karte hain. <b>Stochastic factors</b> (demographic stochasticity, environmental variation, catastrophes jaise forest fire, genetic processes jaise inbreeding) chhote populations pe.</li>
+<li><b>HIPPO</b> = Habitat loss, Invasive species, Pollution, (human) Population/overpopulation, Overharvesting. Isme <b>pollination nahi hai</b> ★</li>
+<li>Island biogeography: 90% area loss aur z = 0.3 pe species <b>aadhi</b> ★ hoti hain. ~27,000 species per year lose ho rahi hain.</li>
+<li>Habitat ke saath 4 cheezein ho sakti hain: <b>degradation</b> (kisi species ke liye habitat ki quality kam hona ★), <b>fragmentation</b> (landscape ka chhote isolated parcels mein toot jaana ★), <b>displacement</b> (wildlife ka sub-prime areas mein push hona), <b>loss</b>.</li>
+<li>Sequence: <b>Original → Dissection → Perforation → Fragmentation → Attrition</b> ★</li>
+<li>Roads, railways aur dams = <b>mortality sources + physical barriers</b> ★. Population Viability Analysis (PVA) batata hai ki population tikegi ya nahi.</li></ul>
+<h3>In-situ conservation <span class="lec">L23</span></h3>
+<ul><li>Reserve kahan banaayein: hotspots mein, triage ke hisaab se <b>medium threat</b> ★ wale areas mein (bahut zyada threat waale nahi, bahut kam waale bhi nahi), aur gap analysis se.</li>
+<li>Reserve design: bada chhote se behtar; ek bada several small (same total area) se behtar; paas-paas wale behtar; cluster linear se behtar; circular behtar; connected behtar.</li>
+<li>Management ke 5 tools: axe, cattle, plough, gun, fire.</li>
+<li>Options: <b>recovery</b> (nature ko apna kaam karne do), <b>rehabilitation/reclamation</b> (value badhao, original state zaroori nahi), <b>restoration</b> (original state wapas), <b>enhancement</b> (jaise waterholes banana), <b>replacement</b> (purani jagah naya habitat, jaise forest → mine → lake jahan migratory birds aate hain ★).</li></ul>
+<h3>Ex-situ conservation <span class="lec">L24</span></h3>
+<ul><li>Critically endangered species ke liye. Fayde: control, close observation, IVF. Nuksaan: costly, habitat nahi bachta, wild behaviours lose ho sakte hain, inbreeding ka risk.</li>
+<li>Zoo (Wildlife Protection Act) mein circus aur rescue centres included hain, par licensed dealer ka establishment nahi. Studbooks, Mysore zoo, behaviour enrichment.</li>
+<li>Botanical garden (Kirstenbosch). Seed bank: <b>orthodox</b> seeds drying/cold seh lete hain, <b>recalcitrant</b> nahi seh paate. Svalbard Global Seed Vault, cryopreservation.</li>
+<li>Genetic issues: alleles ki stochastic sampling, genetic variation ka erosion, pleiotropy, genotype–environment interaction.</li></ul>`},
+9:{t:"Human ecology", l:"L25–L27", h:`
+<h3>Impacts <span class="lec">L25</span></h3>
+<ul><li><b>Anthropocene</b> ★ = proposed epoch jab se insaan ka Earth ki geology aur ecosystems pe significant impact shuru hua (Trinity test 1945 ko start maana jaata hai).</li>
+<li><b>I = P × A × T</b> (impact = population × affluence × technology).</li>
+<li>Demographic transition: <b>high BR + high DR → low BR + low DR</b> ★ (5 stages).</li>
+<li>Caves: <b>stalactites</b> roof se neeche ki taraf ugte hain ★, <b>stalagmites</b> floor se upar. Dono mil jaayein to <b>column</b> ★ (PDF key mein "Lagoon" galat hai).</li></ul>
+<h3>Malthus <span class="lec">L26</span></h3>
+<ul><li>Population <b>geometric progression</b> mein badhti hai, food <b>arithmetic</b> mein ★</li>
+<li><b>Positive checks</b> (nature lagati hai): vice, misery, famine, war, disease, pestilence, <b>flood</b>.</li>
+<li><b>Preventive checks</b> (insaan khud lagata hai): <b>foresight ★</b>, late marriage, celibacy, moral restraint.</li>
+<li>Doubling time = ln 2 / k. Criticisms: growth exactly exponential nahi hai, technology aur nayi land ko ignore kiya, population wealth se juda hai, contraceptives consider nahi kiye.</li></ul>
+<div class="trap"><b>Trap:</b> "vice" aur "misery" positive checks hain, preventive nahi. PDF key ne "flood" ko preventive maana hai, jo galat hai.</div>
+<h3>Sustainable development <span class="lec">L27</span></h3>
+<ul><li>Definition: present ki needs poori karna bina future generations ki ability compromise kiye. Do concepts: needs (poor ko priority) aur limitations.</li>
+<li><b>3 pillars: environmental, economic, social</b> ★. Trans-boundary, industrial aur agricultural pillars nahi hain. Teeno milke triple bottom line.</li>
+<li>Weak sustainability (natural aur manufactured capital ek doosre ki jagah le sakte hain) vs strong (nahi le sakte). Agenda 21, 17 SDGs.</li>
+<li>EIA ke stages: screening → scoping → assessment → reporting → review (public consultation) → decision → monitoring/compliance/audit.</li>
+<li>Clean technology ke themes: renewable energy, <b>water purification</b> ★, air purification, sewage treatment, environmental remediation, solid waste management, energy conservation, appropriate technology. Haber process → nitrogen cycle ★</li></ul>`},
+10:{t:"Ecology of change", l:"L28–L30", h:`
+<h3>Disturbance &amp; oil spills <span class="lec">L28</span></h3>
+<ul><li>Normal community + ek large infrequent disturbance = <b>recovery</b> ★. Multiple disturbances hon to recover na kar paaye. Pehle se stressed ya <b>disturbed community</b> (disease, weeds, pollutants, livestock ★) shayad wapas na aaye.</li>
+<li>Oil spill origin ke hisaab se: natural (seep), <b>accidental (Deepwater Horizon ★)</b>, intentional (Gulf War).</li>
+<li>Hydrocarbons: <b>petrogenic</b> (seedha mineral oil se ★), <b>pyrogenic</b> (incomplete burning se), <b>biogenic</b> (biological processes se).</li>
+<li>Oil ka fate: spreading, evaporation, photo-oxidation, emulsification, dissolution, sedimentation.</li>
+<li>Sensitivity vs vulnerability: deep-water coral sensitive hai par vulnerable nahi; rocky-shore seaweed vulnerable hai par sensitive nahi.</li>
+<li><b>Acute toxicity</b> = single ya short-term exposure se ★. Chronic = lambe exposure se. Effects lethal ya sub-lethal ho sakte hain.</li>
+<li><b>Bioavailability</b> = chemical uptake ke liye kitna available hai. <b>Bioaccumulation</b> = tissue mein absorb hona usse tez jitna loss hota hai ★. <b>Biomagnification</b> = food chain mein upar concentration badhna (DDD 0.01 ppm se ~2500 ppm).</li>
+<li>Cleanup: contain &amp; scoop, in-situ burning, dispersants, kuch na karna, microbes + fertilizers.</li></ul>
+<h3>Plastics <span class="lec">L29</span></h3>
+<ul><li>Sea mein plastic: <b>15% float</b> karta hai, <b>15% shore pe</b> aata hai, <b>70% neeche sink</b> ★ hota hai.</li>
+<li>Size: <b>macro &gt; 20 mm</b> ★ (bottles, ghost nets) · <b>meso 5–20 mm</b> ★ (nurdles) · <b>micro &lt; 5 mm</b> (fragments, scrubbers).</li>
+<li>Impacts: ingestion, entanglement, bisphenol-A aur brominated flame retardants, hydrophobic toxins ka jamna, habitat change (hermit crab bottle cap ko shell bana leta hai). Bioplastics alternative hain.</li></ul>
+<h3>Climate change <span class="lec">L30</span></h3>
+<ul><li>Climate = 30 saal ka average. 5 components: hydrosphere, lithosphere, atmosphere, cryosphere, biosphere. Forcings → responses.</li>
+<li><b>Mitigation</b> = greenhouse gas ke sources kam karna ya sinks badhana. <b>Adaptation</b> = harm moderate karne ke liye adjust karna.</li>
+<li><b>Maladaptation</b> ★ = aisi adaptation jo vulnerability kam karne ke bajaye badha de.</li>
+<li>Impacts: range shift, vectorial capacity badhna, tawny owl mein green se brown allele frequency shift.</li></ul>`},
+11:{t:"Applied ecology", l:"L31–L33", h:`
+<h3>Optimum yield <span class="lec">L31</span></h3>
+<ul><li>Sequential megafaunal collapse: blue whale → fin → sei → minke → humpback.</li>
+<li>Sustainable: <b>R + G = M + F</b> ★. F = <b>yield to fishery</b> ★</li>
+<li><b>MSY sigmoid curve ke mid-point pe</b> ★ hota hai (K/2). K ke paas growth slow hoti hai kyunki population environmental limit ke paas hai ★</li>
+<li>Peruvian anchovy El Niño ke baad ~25 saal mein recover hui. Match–mismatch hypothesis. Tragedy of the commons.</li>
+<li><b>Ludwig's ratchet</b> → harvesting rate <b>badhta</b> ★ rehta hai. Top predator hatao to middle predator badh jaata hai.</li>
+<li><b>Absolute abundance</b> = actual number of individuals ★. Relative abundance mein CPUE aur trends dekhte hain.</li></ul>
+<h3>Biological control <span class="lec">L32</span></h3>
+<ul><li>Pest: controlled vs uncontrolled (excessive economic damage). Control ke tareeke: natural, pesticides, cultural (crop rotation), biological, IPM.</li>
+<li>Steps: heavy damage karne wala pest chuno (invasive alien ko preference) → uske home country mein specialist enemy dhoondho → introduce karo → monitor karo.</li>
+<li>Prickly pear (Australia) ko cactus moth ne control kiya.</li>
+<li><b>Risk:</b> introduce kiya predator khud pest ban sakta hai ★ (Indian mongoose; crane aur mongoose ki kahani).</li>
+<li>Eradication ke liye 6 factors chahiye: resources, clear authority, easy to kill, reintroduction rokna, detection, restoration plan.</li></ul>
+<h3>Ecotoxicology &amp; restoration <span class="lec">L33</span></h3>
+<ul><li>Ecotoxicology toxic chemicals ko <b>population, community, ecosystem aur biosphere</b> ★ levels pe study karta hai.</li>
+<li>Toxicants: pesticides, heavy metals, plasticizers, VOCs (formaldehyde), mycotoxins (aflatoxin). Bald eagle: DDT se eggshell patli hui, DDT ban ke baad population recover hui.</li>
+<li>Restoration ecology ke 4 principles: ecological integrity, informed choice, society/local community ka benefit aur engagement, long-term sustainability.</li>
+<li>Bioremediation (microbes). <b>Phytoremediation: root zone treatment plant</b> ★ (Phragmites) BOD aur TSS kam karta hai.</li></ul>`},
+12:{t:"Revision", l:"L34–L36", h:`
+<p>Week 12 mein revision ke teen lectures (L34–L36) hain. Week 12 ka assignment poori tarah purane quizzes se repeat hua tha:</p>
+<div class="tbl"><table><thead><tr><th>W12 question</th><th>Original</th></tr></thead><tbody>
+<tr><td>Stalactites</td><td>W9 Q9</td></tr><tr><td>Deterministic factor (death rate)</td><td>W8 Q8</td></tr><tr><td>Both harmed (competition)</td><td>W3 Q3</td></tr><tr><td>Ecology definition (interactions)</td><td>W1 Q1</td></tr><tr><td>Mesodebris 5–20 mm</td><td>W10 Q10</td></tr><tr><td>Tissue</td><td>W2 Q2</td></tr><tr><td>Secondary succession</td><td>W6 Q6</td></tr><tr><td>Organ system; fire → secondary succession; autogenic</td><td>W2 / W6 concepts</td></tr></tbody></table></div>
+<div class="trap"><b>Matlab:</b> examiner purane quiz questions dobara use karta hai. Practice tab mein saare 120 questions do-teen baar karo, jab tak har ek bina soche sahi na ho.</div>
+<h3>Last-minute one-liners</h3>
+<ul>
+<li>Oikos = household, logos = study. Haeckel ne "ecology" coin kiya, Spencer ne "survival of the fittest".</li>
+<li>Energy pyramid hamesha upright. Inverted pyramid of numbers: tree → birds → parasites → hyperparasites.</li>
+<li>Glacial lake = oligotrophic. Haber process = nitrogen cycle.</li>
+<li>Pan trap = pollinators. Cover board = herpetofauna. Pelt count = relative density (absolute nahi).</li>
+<li>Lithosere ek xerosere hai. Disclimax = cattle/man. Autogenic = organisms khud badalte hain.</li>
+<li>Transplant experiment = potential range. Lions across Gir = diffusion. Ballast-water mussel = jump dispersal.</li>
+<li>Triage ke hisaab se reserve medium threat wale area mein. HIPPO mein pollination nahi hai. Mine se bani lake = replacement.</li>
+<li>Plastic: 70% sink hota hai. Macro &gt;20 mm, meso 5–20 mm, micro &lt;5 mm. Deepwater Horizon = accidental. Petrogenic = mineral oil se.</li>
+<li>MSY mid-point (K/2) pe. R + G = M + F. Ludwig's ratchet → harvesting rate badhta hai. Root zone treatment = phytoremediation.</li>
+</ul>`}
+};
+
+/* ---------- QUIZ DATA ---------- */
+/* t: m = single, s = multiple select, n = numerical. a = correct index/indices, v = numerical value, tol = tolerance */
+const Q = [
+// Week 1
+{w:1,q:"Ecology is the scientific study of ______ that determine the distribution and abundance of organisms.",o:["statics","interactions","dynamics","habitat"],a:1,e:"Definition word-for-word yaad karo: interactions.",s:"L1"},
+{w:1,q:"Carolus Linnaeus is considered the father of:",o:["Biogeography","Modern taxonomy","Population ecology","Botanical geography"],a:1,e:"Binomial nomenclature unhone di. Biogeography = Humboldt.",s:"L2"},
+{w:1,q:"\"Enquiry into plants\" is a book written by",o:["Theophrastus","Linnaeus","Malthus","Humboldt"],a:0,e:"Theophrastus (371–287 BC), father of botany.",s:"L2"},
+{w:1,q:"Who amongst these is considered the father of Biogeography?",o:["Theophrastus","Linnaeus","Malthus","Humboldt"],a:3,e:"Alexander von Humboldt. South America mein botanical geography pe kaam kiya.",s:"L2"},
+{w:1,q:"Genetic adaptation refers to:",o:["High reproductive rate in one generation","Inheritable fitness","Physical strength of an individual","Short-term environmental comfort"],a:1,e:"Fitness tabhi kaam ki hai jab heritable ho.",s:"L3"},
+{w:1,q:"Thomas Robert Malthus influenced studies in:",o:["Community ecology","Marine ecology","Population ecology","Behavioural ecology"],a:2,e:"Population GP mein, food AP mein: population ecology.",s:"L2"},
+{w:1,q:"Which approach tests ecological ideas through experiments?",o:["Theoretical approach","Field approach","Laboratory approach","Descriptive approach"],a:2,e:"Laboratory approach: hypothesis + experiment.",s:"L1"},
+{w:1,q:"Which approach mainly depends on direct observation of organisms in natural surroundings?",o:["Laboratory approach","Historical approach","Theoretical approach","Field approach"],a:3,e:"Field approach (jaise langur–chital).",s:"L1"},
+{w:1,q:"In the Greek word root of Ecology, logos refers to",o:["household","preservation","environment","study"],a:3,e:"Oikos = household, logos = study.",s:"L1"},
+{w:1,q:"Charles Darwin is associated with:",o:["The theory of ecosystem formation","The theory of taxonomy","The theory of botanical geography","The theory of evolution and natural selection"],a:3,e:"Darwin aur Wallace.",s:"L2"},
+// Week 2
+{w:2,q:"Hierarchy emerges almost inevitably through a wide variety of evolutionary processes, for the simple reason that hierarchical structures are ______",o:["perfect","imperfect","stable","unstable"],a:2,e:"Hora aur Tempus watchmakers ki kahani.",s:"L4"},
+{w:2,q:"Which level is formed when similar cells and their extracellular matrix from the same origin together perform a specific function?",o:["Organ","Tissue","Organ system","Population"],a:1,e:"Tissue = similar cells + ECM, same origin.",s:"L4"},
+{w:2,q:"\"The diversity that exists within an ecosystem\" is",o:["alpha (α) biodiversity","beta (β) biodiversity","gamma (γ) biodiversity","delta (δ) biodiversity"],a:0,e:"α within, β among ecosystems, γ among geographies.",s:"L5"},
+{w:2,q:"\"Groups of actually or potentially interbreeding natural populations, which are reproductively isolated from other such groups\" is a definition of",o:["cells","species","ecosystems","biomes"],a:1,e:"Biological species concept.",s:"L4"},
+{w:2,q:"The emergent principle can be stated as",o:["Whole = sum of parts","Whole < sum of parts","Whole > sum of parts","None of these"],a:2,e:"Whole mein nayi properties hoti hain (fire ants, termite mounds).",s:"L4"},
+{w:2,q:"The smallest unit of life is the:",o:["Cell","Tissue","Organ","Organism"],a:0,e:"Cell: basic structural, functional aur biological unit.",s:"L4"},
+{w:2,q:"The diversity of genetic information present at the levels of phyla, families, species, populations and individuals is called:",o:["Ecosystem biodiversity","Species evenness","Genetic biodiversity","Species richness"],a:2,e:"Genetic biodiversity (polymorphism, heterozygosity).",s:"L5"},
+{w:2,q:"The value of leaving use and non-use values for future generations is called:",o:["Altruistic value","Option value","Existence value","Bequest value"],a:3,e:"Bequest = future generations ke liye. Option value use value hai.",s:"L6"},
+{w:2,q:"Value arising even though a resource is not being used is called:",o:["Direct value","Indirect value","Non-use value","Productive value"],a:2,e:"Non-use = existence + altruistic + bequest.",s:"L6"},
+{w:2,q:"Species richness refers to:",o:["The distribution of individuals among different species","The genetic variation within one population","The number of ecosystems in a biome","The number of species present"],a:3,e:"Richness = kitni species. Evenness = individuals ka distribution.",s:"L5"},
+// Week 3
+{w:3,q:"I observe a bird take a tick out of another bird's head and eat it. In the social context, this behaviour would be called",o:["tick hunting","auto grooming","allo grooming","foraging"],a:2,e:"Allo = doosre ko groom karna. Auto = khud ko.",s:"L9"},
+{w:3,q:"Leech is an example of",o:["endoparasite","herbivore predator","parasitoid","ectoparasite"],a:3,e:"Body ke bahar = ecto. Plasmodium = endo.",s:"L8"},
+{w:3,q:"An ecological interaction in which both participating organisms are harmed is called",o:["mutualism","commensalism","competition","neutralism"],a:2,e:"Competition (−,−).",s:"L7"},
+{w:3,q:"Interspecific interaction occurs between",o:["members of different species","members of the same species","two organisms that are both benefited","two organisms that remain unaffected"],a:0,e:"Inter = among, specific = species.",s:"L7"},
+{w:3,q:"The distance maintained by nesting penguins to avoid pecking from neighbours is related to",o:["herbivory","parasitoid pressure","prey switching","territorial spacing"],a:3,e:"Territoriality: defended space.",s:"L8/L9"},
+{w:3,q:"A parasite that lives inside the body of its host is called",o:["ectoparasite","endoparasite","predator","commensal"],a:1,e:"Endo = andar.",s:"L8"},
+{w:3,q:"Birds on giraffe are an example of",o:["colony","commensalism","protocooperation","allelopathy"],a:2,e:"Dono ko fayda hai par yeh zaroori nahi, isliye protocooperation.",s:"L7"},
+{w:3,q:"Competition in which organisms directly consume a limited resource so that less remains for others is called",o:["interference competition","exploitative competition","apparent competition","neutral competition"],a:1,e:"Exploitative = scramble.",s:"L8"},
+{w:3,q:"Interference competition is also known as",o:["apparent competition","contest competition","niche competition","exploitative competition"],a:1,e:"Interference = contest. Exploitative = scramble.",s:"L8"},
+{w:3,q:"The scientific study of animal behaviour is called",o:["behaviourism","ecology","ethology","prey-predator dynamics"],a:2,e:"Ethology.",s:"L9"},
+// Week 4
+{w:4,q:"Consider the food chain: Grass → Grasshopper → Frog → Snake → Hawk. In this food chain,",o:["hawk is producer","hawk is consumer and carnivore","hawk is consumer and herbivore","hawk is decomposer"],a:1,e:"Top consumer jo animals khata hai.",s:"L10"},
+{w:4,q:"Trees → Birds → Parasites → Hyperparasites represents",o:["upright pyramid of numbers","inverted pyramid of numbers","spindle pyramid of numbers","dumb-bell pyramid of numbers"],a:1,e:"Ek tree pe bahut birds, aur unpe usse bhi zyada parasites.",s:"L10"},
+{w:4,q:"Glacial lakes are typical examples of",o:["eutrophic lakes","hypereutrophic lakes","oligotrophic lakes","mesotrophic lakes"],a:2,e:"Nutrients kam = oligotrophic.",s:"L11"},
+{w:4,q:"In a grazing food chain, the first trophic level after producers is generally occupied by:",o:["Carnivores","Decomposers","Detritivores","Herbivores"],a:3,e:"Primary consumers = herbivores.",s:"L10"},
+{w:4,q:"Which statement correctly defines net primary production?",o:["Energy intercepted by producers from the Sun","Total energy lost during transfer between trophic levels","Gross primary production minus energy lost through respiration per unit time","Energy stored only in herbivore biomass"],a:2,e:"NPP = GPP − R.",s:"L11"},
+{w:4,q:"Which statement correctly defines gross primary production?",o:["Energy fixed through photosynthesis per unit time","Energy lost by organisms through respiration per unit time","Total number of producers in an ecosystem","Organic matter consumed by herbivores per unit time"],a:0,e:"GPP = photosynthesis se fix hui energy.",s:"L11"},
+{w:4,q:"Which chain best represents a detritus food chain?",o:["Fallen leaves → detritivores → small fish → large fish","Grass → chital → tiger","Rat → flea → parasitic protozoa","Phytoplankton → zooplankton → fish → sea lion"],a:0,e:"Detritus se start hoti hai.",s:"L10"},
+{w:4,q:"Grass → Grasshopper → Frog → Snake → Hawk. As we move up the food chain,",o:["available energy decreases","available energy increases","available energy remains same","available energy is zero everywhere"],a:0,e:"10% rule.",s:"L10"},
+{w:4,q:"Which statement correctly describes a decomposer?",o:["It only feeds on living plants","It consumes only primary consumers","It converts dead material into soil and recycles nutrients","It always occupies the quaternary trophic level"],a:2,e:"Lecture ki exact definition.",s:"L10"},
+{w:4,q:"Which description best defines a heterotroph?",o:["An organism that converts sunlight directly into inorganic nutrients","An organism that cannot produce its own food and depends on organic carbon from other sources","An organism that uses chemical reactions to manufacture minerals","An organism that occupies only the first trophic level"],a:1,e:"Hetero = doosre pe depend.",s:"L10"},
+// Week 5
+{w:5,q:"In population dynamics, which pair represents additions to an existing population?",o:["Mortality and emigration","Natality and immigration","Mortality and natality","Immigration and emigration"],a:1,e:"B + I add hote hain, D + E minus.",s:"L13"},
+{w:5,q:"Cover board surveys are typically used for sampling",o:["herpetofauna","fishes","large mammals","carnivores"],a:0,e:"Board ke neeche reptiles aur amphibians milte hain.",s:"L14"},
+{w:5,q:"Pan traps are used for sampling",o:["bees","butterflies","non-pollinator insects","pollinator insects"],a:3,e:"Coloured pans flowers jaise dikhte hain.",s:"L14"},
+{w:5,q:"A sampling procedure such that each possible combination of sampling units out of the population has the same chance of being selected is referred to as",o:["Simple random sampling","Systematic sampling","Stratified sampling","Multistage sampling"],a:0,e:"SRS (lottery).",s:"L13"},
+{w:5,q:"The minimum replacement level fertility for a population to grow should be greater than",o:["1","2","3","4"],a:1,e:"1 male + 1 female ko replace karna hai.",s:"L13"},
+{w:5,q:"A list of sampling units is called a:",o:["Sample","Sampling intensity","Sampling frame","Stratum"],a:2,e:"Sampling frame.",s:"L13"},
+{w:5,q:"In capture-recapture method, the first stage involves:",o:["Counting faecal pellets","Removing trapped animals permanently","Estimating bait consumption","Capturing, marking and releasing animals"],a:3,e:"Permanently remove karna removal method mein hota hai.",s:"L13"},
+{w:5,q:"The logistic growth equation, when plotted, appears",o:["I shaped","J shaped","S shaped","O shaped"],a:2,e:"Sigmoid. J-shaped exponential hai.",s:"L14"},
+{w:5,q:"______ employs a simple rule of selecting every kth unit starting with a number chosen at random from 1 to k as the random start.",o:["Simple random sampling","Systematic sampling","Stratified sampling","Multistage sampling"],a:1,e:"Systematic.",s:"L13"},
+{w:5,q:"Which of these is not a measure of absolute population density?",o:["total count","pelt count","capture-recapture method","removal method"],a:1,e:"Pelt count relative density ka measure hai.",s:"L13"},
+// Week 6
+{w:6,q:"A guild is a group of species that",o:["Occupy only one climax community","Have identical population size","Utilise resources in a similar way","Are confined to saline habitats"],a:2,e:"Guild = similar resource use.",s:"L16"},
+{w:6,q:"The climax near Tindni village is being controlled by disturbance by cattle. This is an example of",o:["climatic climax","edaphic climax","disclimax","catastrophic climax"],a:2,e:"Man ya domestic animals ka disturbance = disclimax.",s:"L17"},
+{w:6,q:"Species abundance may be expressed in terms of",o:["Climate, soil and slope","Number of individuals, biomass or cover","Hydrosere, xerosere and halosere","Resistance, resilience and stability"],a:1,e:"Number, biomass ya cover.",s:"L16"},
+{w:6,q:"Resistance refers to the ability of a community to",o:["Recover quickly after disturbance","Persist without change in the face of disturbance","Increase the number of pioneer species","Replace one seral stage with another"],a:1,e:"Recover karna = resilience.",s:"L18"},
+{w:6,q:"Importance value can be written as",o:["Relative density + Relative frequency × Relative dominance","Relative density × Relative frequency + Relative dominance","Relative density + Relative frequency + Relative dominance","Relative density × Relative frequency × Relative dominance"],a:2,e:"Teeno ka sum (max 300).",s:"L16"},
+{w:6,q:"Secondary succession refers to succession that occurs",o:["On newly exposed rock or sand surfaces","In a saline body such as a marsh","After severe disturbance or removal of a pre-existing community","Only when climate controls the final community"],a:2,e:"Jaise forest fire ke baad.",s:"L17"},
+{w:6,q:"Lithosere is an example of",o:["hydrosere","xerosere","psammosere","halosere"],a:1,e:"Rock = dry, isliye xerosere.",s:"L17"},
+{w:6,q:"A transition area where two communities meet and integrate is called",o:["Habitat","Niche","Ecotone","Sere"],a:2,e:"Ecotone.",s:"L16"},
+{w:6,q:"Which of these is correct?",o:["Fundamental niche > Realised niche","Fundamental niche = Realised niche","Fundamental niche < Realised niche","a or b"],a:3,e:"Realised niche kabhi fundamental se bada nahi ho sakta.",s:"L16"},
+{w:6,q:"Species richness refers to",o:["Number of species","Number of individuals of one species","Biomass of the dominant species","Basal area of all trees"],a:0,e:"Number of species.",s:"L16"},
+// Week 7
+{w:7,q:"In an estuary, species may use areas of",o:["high, intermediate, and low salinity","only high temperature and high fertility","only alpine wind and poor soil","only forest canopy and grassland patches"],a:0,e:"Estuary mein salinity ka gradient hota hai.",s:"L19"},
+{w:7,q:"The movement of individuals away from their place of birth or hatching or seed production into a new habitat or area to survive and reproduce is called",o:["translocation","migration","dispersal","drifting"],a:2,e:"Migration regular aur seasonal hoti hai. Yeh dispersal hai.",s:"L20"},
+{w:7,q:"Transplantation experiments are used to find",o:["potential range","effective range","actual range","economic range"],a:0,e:"Potential range.",s:"L20"},
+{w:7,q:"Pneumatophores are roots that",o:["move downward to store excess salts","spread into sand dunes to stop wind erosion","grow upward from the ground to obtain air","become thorns to reduce transpiration"],a:2,e:"Mangroves mein milti hain.",s:"L19"},
+{w:7,q:"At night, cooler and denser air from upper hill areas flows down towards the valley. This wind pattern is called",o:["valley breeze","hill wind","ocean breeze","estuary current"],a:1,e:"Valley breeze din mein upar jaati hai.",s:"L19"},
+{w:7,q:"Flamingos in the Rann of Kutch are associated with water bodies because they need",o:["high wind speeds and snow-covered slopes","food organisms in water and safe breeding conditions","dry deciduous leaves for summer feeding","tall coniferous trees for nesting"],a:1,e:"Food + safe breeding.",s:"L19"},
+{w:7,q:"Estuaries are specialized habitats because they contain",o:["only freshwater throughout the year","only saline water throughout the year","only dry land and thorny shrubs","a meeting zone of freshwater and saline water"],a:3,e:"Meeting zone.",s:"L19"},
+{w:7,q:"The movement of lions across the Gir landscape is an example of",o:["diffusion","secular dispersal","jump dispersal","drifting"],a:0,e:"Generations mein gradual movement = diffusion.",s:"L20"},
+{w:7,q:"Mangroves are adapted to areas that experience",o:["low salinity and permanent dryness","snow accumulation and alpine winds","deep desert sand with no water movement","high salinity and partial or complete inundation"],a:3,e:"High salinity + inundation.",s:"L19"},
+{w:7,q:"Scarcity of food is a",o:["chemical factor","demographic factor","push factor","pull factor"],a:2,e:"Organisms ko door bhagata hai, isliye push factor.",s:"L20"},
+// Week 8
+{w:8,q:"Which of these correctly represents the process of habitat fragmentation and loss?",o:["Original forest → Dissection → Perforation → Fragmentation → Attrition","Original forest → Dissection → Attrition → Fragmentation → Perforation","Original forest → Dissection → Perforation → Attrition → Fragmentation","Original forest → Dissection → Fragmentation → Perforation → Attrition"],a:0,e:"D-P-F-A.",s:"L22"},
+{w:8,q:"Habitat degradation means",o:["complete removal of all organisms from an area","legal declaration of a protected area","breaking a forest into administrative zones","reduction in habitat quality for a given species"],a:3,e:"Quality kam hona. Bahut zyada degrade ho to loss.",s:"L22"},
+{w:8,q:"When area is reduced by 90% and z is taken as 0.30, species richness approximately becomes",o:["one-tenth of the original","half of the original","double the original","unchanged"],a:1,e:"0.1^0.3 = 0.50.",s:"L22"},
+{w:8,q:"Breaking a natural landscape into small isolated parcels within human-dominated land is called",o:["habitat restoration","habitat fragmentation","ex-situ preservation","seed dormancy"],a:1,e:"Fragmentation.",s:"L22"},
+{w:8,q:"We prefer those areas for the creation of a conservation reserve where the level of threat is",o:["very high","medium","very low","non-existent"],a:1,e:"Triage: medium threat.",s:"L23"},
+{w:8,q:"A very small population moves towards extinction mainly because of Allee effect, chance deaths, and related small-population problems. This is best described as",o:["habitat displacement","small population paradigm","reserve design","biodiversity repository"],a:1,e:"Small population paradigm.",s:"L22"},
+{w:8,q:"A population becomes smaller because its habitat is shrinking, competitors are increasing, and poaching is removing individuals. This situation is best studied under",o:["declining population paradigm","small population paradigm","island biogeography model","cryopreservation strategy"],a:0,e:"Declining population paradigm.",s:"L22"},
+{w:8,q:"Which of these is a deterministic factor?",o:["environmental variation","forest fire","death rate","diseases"],a:2,e:"Birth/death rate deterministic hain. Baaki stochastic.",s:"L22"},
+{w:8,q:"Roads, railways, dams, and similar structures contribute to fragmentation because they may act as",o:["mortality sources and physical barriers","seed collection centres","botanical repositories","cryopreservation facilities"],a:0,e:"Mortality sources + barriers.",s:"L22"},
+{w:8,q:"The acronym HIPPO does not include",o:["habitat loss","invasive species","pollination","pollution"],a:2,e:"H-I-P-P-O: habitat, invasive, pollution, population, overharvesting.",s:"L22"},
+// Week 9
+{w:9,q:"A proposed epoch marked by significant human impact on Earth's geology and ecosystems is called?",o:["Holocene","Anthropocene","Pleistocene","Carboniferous"],a:1,e:"Anthropocene.",s:"L25"},
+{w:9,q:"According to Malthusian model,",o:["Population grows in geometric progression, food supply increases in arithmetic progression","Population grows in geometric progression, food supply increases in geometric progression","Population grows in arithmetic progression, food supply increases in arithmetic progression","Population grows in arithmetic progression, food supply increases in geometric progression"],a:0,e:"Pop GP, food AP.",s:"L26"},
+{w:9,q:"Which of these is not a pillar of sustainability?",o:["environmental sustainability","economic sustainability","trans-boundary sustainability","social sustainability"],a:2,e:"3 pillars: environmental, economic, social.",s:"L27"},
+{w:9,q:"The demographic transition sees a society move from",o:["high birth rate, low death rate to low birth rate, low death rate","low birth rate, high death rate to low birth rate, low death rate","high birth rate, high death rate to low birth rate, low death rate","high birth rate, high death rate to low birth rate, high death rate"],a:2,e:"High–high se low–low.",s:"L25/L26"},
+{w:9,q:"Which of the following is listed as a theme of clean technology?",o:["Water purification","Predator-prey control","Migration of birds","Food chain length"],a:0,fix:"PDF key: Migration of birds",e:"Lecture ke themes: renewable energy, water purification, air purification, sewage treatment, etc.",s:"L27"},
+{w:9,q:"When stalactites and stalagmites join together, they form a?",o:["Lagoon","Crevice","Terrace","Column"],a:3,fix:"PDF key: Lagoon",e:"Lecture: \"they will meet each other … the whole thing will be called a column.\"",s:"L25"},
+{w:9,q:"Which of these is a preventive check according to Malthus?",o:["foresight","vice","misery","flood"],a:0,fix:"PDF key: flood",e:"Preventive checks: foresight, late marriage, celibacy, moral restraint. Vice, misery aur flood positive checks hain.",s:"L26"},
+{w:9,q:"Which of these is a pillar of sustainability",o:["social sustainability","industrial sustainability","agricultural sustainability","trans-boundary sustainability"],a:0,e:"Social.",s:"L27"},
+{w:9,q:"In cave formations, the deposits growing downward from the roof are called?",o:["Stalagmites","Columns","Stalactites","Sediment bars"],a:2,e:"Yaad rakhne ki trick: stalac-TITE roof se TIGHT latakta hai.",s:"L25"},
+{w:9,q:"Industrial processes such as the Haber process affect which biogeochemical cycle?",o:["Carbon cycle only","Water cycle only","Nitrogen cycle","Phosphorus cycle only"],a:2,e:"Industrial nitrogen fixation.",s:"L12/L25"},
+// Week 10
+{w:10,q:"A community already affected by disease, weeds, pollutants, or livestock pressure is best described as which type of community?",o:["Pristine community","Climax community","Resistant community","Disturbed community"],a:3,e:"Disturbed community.",s:"L28"},
+{w:10,q:"When an organism absorbs a toxic substance into its tissues faster than it loses it, the process is called:",o:["Biomagnification","Bioavailability","Bioaccumulation","Biodegradation"],a:2,e:"Bioaccumulation ek organism ke andar hota hai. Biomagnification food chain mein upar jaate hue.",s:"L28"},
+{w:10,q:"What percentage of marine plastic debris is stated to sink to the ocean bottom?",o:["15%","30%","50%","70%"],a:3,e:"15% float, 15% shore, 70% sink.",s:"L29"},
+{w:10,q:"Hydrocarbons derived directly from mineral oils are called:",o:["Pyrogenic hydrocarbons","Biogenic hydrocarbons","Aromatic hydrocarbons","Petrogenic hydrocarbons"],a:3,e:"Pyrogenic = incomplete burning se.",s:"L28"},
+{w:10,q:"\"Any changes in natural or human systems that inadvertently increase vulnerability to climatic stimuli; an adaptation that does not succeed in reducing vulnerability but increases it instead\" is a definition for",o:["adaptation","mitigation","maladaptation","malmitigation"],a:2,e:"Maladaptation.",s:"L30"},
+{w:10,q:"A normal ecological community faces one large and infrequent disturbance and then returns close to its earlier condition. Which outcome is best represented?",o:["Long-term alteration","Recovery","Bioaccumulation","Habitat displacement"],a:1,e:"Recovery.",s:"L28"},
+{w:10,q:"Macrodebris in the context of plastic debris has fragments of size",o:["> 20 mm","5 - 20 mm","< 5 mm","< 1 mm"],a:0,e:"Macro > 20 mm.",s:"L29"},
+{w:10,q:"The Deepwater Horizon incident is classified by origin as which kind of oil spill?",o:["Natural","Accidental","Intentional","Biogenic"],a:1,e:"Accidental. Gulf War spill intentional tha.",s:"L28"},
+{w:10,q:"Harmful effects caused by a single or short-term exposure are called:",o:["Chronic toxicity","Acute toxicity","Sub-lethal exposure","Bioavailability"],a:1,e:"Acute.",s:"L28"},
+{w:10,q:"Mesodebris in the context of plastic debris has fragments of size",o:["> 20 mm","5 - 20 mm","< 5 mm","< 1 mm"],a:1,e:"Meso 5–20 mm (nurdles).",s:"L29"},
+// Week 11
+{w:11,q:"Which term refers to the total weight of organisms removed by fishing?",o:["Natural mortality","Recruitment","Growth","Yield to fishery"],a:3,e:"F = yield to fishery.",s:"L31"},
+{w:11,q:"Ludwig's ratchet predicts",o:["decreasing harvesting rate","constant harvesting rate","increasing harvesting rate","fluctuating harvesting rate"],a:2,e:"Ratchet ek hi direction mein ghoomta hai: upar.",s:"L31"},
+{w:11,q:"A deciduous forest in Madhya Pradesh was converted to a mine. After mining, the pits were filled with water and a lake was created, now visited by migratory birds. This is an example of",o:["recovery","restoration","enhancement","replacement"],a:3,e:"Original habitat ki jagah naya habitat ban gaya.",s:"L23"},
+{w:11,q:"Which of these is correct?",o:["The maximum sustainable yield is near the beginning of the sigmoidal curve.","The maximum sustainable yield is near the mid-point of the sigmoidal curve.","The maximum sustainable yield is near the end of the sigmoidal curve.","None of these."],a:1,e:"K/2.",s:"L31"},
+{w:11,q:"Which of these is correct?",o:["R + G = M + F","R + M = G + F","R + F = M + G","R + G + M + F = 0"],a:0,e:"Gains (R, G) = losses (M, F).",s:"L31"},
+{w:11,q:"In a logistic growth curve, growth is slow near carrying capacity mainly because the population is:",o:["very small","newly introduced","close to the environmental limit","free from competition"],a:2,e:"(K−N)/K → 0.",s:"L31"},
+{w:11,q:"What does absolute abundance measure?",o:["Relative catch per unit effort","Actual number of individuals present","Percentage change in population","Estimated trend in sightings"],a:1,e:"Actual number.",s:"L31"},
+{w:11,q:"A root zone treatment plant is an example of",o:["phytoremediation","biological control","biomagnification","bioaccumulation"],a:0,e:"Phragmites ke roots se.",s:"L33"},
+{w:11,q:"What is a major risk of introducing predators for pest control?",o:["The pest always becomes extinct immediately","The predator cannot reproduce under any condition","The predator reduces rainfall","The introduced predator may itself become a pest"],a:3,e:"Indian mongoose ka example.",s:"L32"},
+{w:11,q:"Ecotoxicology studies toxic chemicals mainly at which broader levels?",o:["Individual atoms and molecules only","Population, community, ecosystem, and biosphere levels","Market demand and harvesting cost only","Crop yield and storage levels only"],a:1,e:"Population se biosphere tak.",s:"L33"},
+// Week 12
+{w:12,q:"In cave formations, the deposits growing downward from the roof are called?",o:["Stalagmites","Columns","Stalactites","Sediment bars"],a:2,e:"Repeat: W9.",s:"L25"},
+{w:12,q:"Which of these is a deterministic factor?",o:["environmental variation","forest fire","death rate","diseases"],a:2,e:"Repeat: W8.",s:"L22"},
+{w:12,q:"An ecological interaction in which both participating organisms are harmed is called",o:["mutualism","commensalism","competition","neutralism"],a:2,e:"Repeat: W3.",s:"L7"},
+{w:12,q:"Ecology is the scientific study of ______ that determine the distribution and abundance of organisms.",o:["statics","interactions","dynamics","habitat"],a:1,e:"Repeat: W1.",s:"L1"},
+{w:12,q:"Mesodebris in the context of plastic debris has fragments of size",o:["> 20 mm","5 - 20 mm","< 5 mm","< 1 mm"],a:1,e:"Repeat: W10.",s:"L29"},
+{w:12,q:"Which level is formed when similar cells and their extracellular matrix from the same origin together perform a specific function?",o:["Organ","Tissue","Organ system","Population"],a:1,e:"Repeat: W2.",s:"L4"},
+{w:12,q:"Secondary succession refers to succession that occurs",o:["On newly exposed rock or sand surfaces","In a saline body such as a marsh","After severe disturbance or removal of a pre-existing community","Only when climate controls the final community"],a:2,e:"Repeat: W6.",s:"L17"},
+{w:12,q:"A group of organs working together to perform one or more functions is called?",o:["Tissue","Organ","Organism","Organ system"],a:3,e:"Digestive aur respiratory systems iske examples hain.",s:"L4"},
+{w:12,q:"After a forest fire, an incompletely destroyed forest develops through herbaceous, shrub and woodland stages toward a stable stage. This is best described as?",o:["Secondary succession","Climatic climax","Bioaccumulation","Species-area effect"],a:0,e:"Secondary.",s:"L17"},
+{w:12,q:"If organisms already present in an area change the soil conditions and thereby drive further community change, the succession is?",o:["Allogenic succession","Autogenic succession","Catastrophic succession","Seasonal succession"],a:1,e:"Auto = self.",s:"L17"},
+// Bonus (w:0) — written from lectures
+{w:0,t:"s",q:"Which of these are harmonious (positive) interactions? (Select all that apply)",o:["Protocooperation","Mutualism","Commensalism","Amensalism"],a:[0,1,2],e:"Harmonious ka matlab kisi ko harm nahi. Amensalism (0,−) mein harm hota hai.",s:"L7"},
+{w:0,t:"s",q:"Preventive checks according to Malthus include:",o:["Foresight","Late marriage","Celibacy","Famine"],a:[0,1,2],e:"Famine positive check hai.",s:"L26"},
+{w:0,t:"s",q:"Which are non-use values of biodiversity?",o:["Existence value","Altruistic value","Bequest value","Option value"],a:[0,1,2],e:"Option value use value hai.",s:"L6"},
+{w:0,t:"s",q:"Which are stochastic factors acting on small populations?",o:["Demographic stochasticity","Environmental variation","Catastrophes","Death rate"],a:[0,1,2],e:"Death rate deterministic hai.",s:"L22"},
+{w:0,t:"s",q:"Which are characteristics of interference (contest) competition?",o:["Direct contact or conflict","Territorial behaviour","Allelopathy","Consuming the resource so less remains"],a:[0,1,2],e:"Option 4 exploitative competition hai.",s:"L8"},
+{w:0,t:"s",q:"Which are measures of RELATIVE population density?",o:["Pelt counts","Faecal pellet counts","Counts of vocalisations","Capture–recapture"],a:[0,1,2],e:"Capture–recapture se absolute density milti hai.",s:"L13"},
+{w:0,t:"s",q:"Principles of reserve design say that, other things equal, it is better to have reserves that are:",o:["Larger","Circular","Connected by corridors","Linear in arrangement"],a:[0,1,2],e:"Cluster linear se behtar hai.",s:"L23"},
+{w:0,t:"s",q:"Which pyramids CAN be inverted?",o:["Pyramid of numbers","Pyramid of biomass","Pyramid of energy","None of these"],a:[0,1],e:"Energy pyramid hamesha upright hota hai.",s:"L10"},
+{w:0,t:"s",q:"Which are themes of clean technology mentioned in the lecture?",o:["Renewable energy","Water purification","Sewage treatment","Migration of birds"],a:[0,1,2],e:"Migration of birds clean technology ka theme nahi hai.",s:"L27"},
+{w:0,t:"s",q:"Which are types of seres?",o:["Hydrosere","Xerosere","Halosere","Ecotone"],a:[0,1,2],e:"Ecotone ek transition zone hai, sere nahi.",s:"L17"},
+{w:0,t:"s",q:"Which of these are positive checks (Malthus)?",o:["Vice","Misery","Pestilence","Moral restraint"],a:[0,1,2],e:"Moral restraint preventive check hai.",s:"L26"},
+{w:0,t:"s",q:"Which steps belong to natural selection (as taught)?",o:["Variation","Overpopulation","Struggle for existence","Acclimation"],a:[0,1,2],e:"Paanchon steps: variation, overpopulation, struggle, survival of fittest, change in gene pool.",s:"L3"},
+{w:0,t:"n",q:"Capture–recapture: 50 hyenas photographed in sample 1; in sample 2, 50 photographed of which 20 were already identified. Estimate N.",v:125,tol:0.5,e:"N = 50×50/20 = 125.",s:"L14"},
+{w:0,t:"n",q:"40 fish marked and released. Later 60 caught, 15 are marked. Population size?",v:160,tol:0.5,e:"40×60/15 = 160.",s:"L13"},
+{w:0,t:"n",q:"Logistic growth: K = 100, N = 25, dN/dt (max) = 10. Find r (2 decimals).",v:0.53,tol:0.01,e:"r = 10×100/(25×75) = 0.533.",s:"L14"},
+{w:0,t:"n",q:"R₀ = 1.5, N₀ = 10. Population after 3 generations?",v:33.75,tol:0.05,e:"10 × 1.5³ = 33.75.",s:"L14"},
+{w:0,t:"n",q:"Area reduced by 90%, z = 0.3. Fraction of species remaining (2 decimals)?",v:0.50,tol:0.02,e:"0.1^0.3 = 0.501.",s:"L22"},
+{w:0,t:"n",q:"Simpson index D = 1/ΣPᵢ² for proportions 0.5, 0.3, 0.2 (2 decimals)?",v:2.63,tol:0.02,e:"ΣP² = 0.38, so D = 2.63.",s:"L5"},
+{w:0,t:"n",q:"Shannon H = −ΣPᵢ ln Pᵢ for proportions 0.5, 0.3, 0.2 (2 decimals)?",v:1.03,tol:0.02,e:"0.347 + 0.361 + 0.322 = 1.03.",s:"L5"},
+{w:0,t:"n",q:"Community dominance index: most abundant 40, second 30, total 100. CDI (%)?",v:70,tol:0.5,e:"(40+30)/100 × 100 = 70%.",s:"L18"},
+{w:0,t:"n",q:"Index of similarity: community A has 20 species, B has 30, 10 are common. IS?",v:0.4,tol:0.01,e:"2×10/(20+30) = 0.4.",s:"L16"},
+{w:0,t:"n",q:"10% rule: producers store 1000 J. Energy reaching tertiary consumers (J)?",v:1,tol:0.01,e:"1000 → 100 → 10 → 1 (3 transfers).",s:"L10"},
+{w:0,t:"n",q:"GPP = 40 cal, respiration = 15 cal. NPP (cal)?",v:25,tol:0.01,e:"NPP = GPP − R.",s:"L11"},
+{w:0,t:"n",q:"Exponential growth k = 0.02 per year. Doubling time in years (1 decimal)?",v:34.7,tol:0.15,e:"ln 2 / 0.02 = 34.66.",s:"L26"},
+{w:0,t:"n",q:"N = 500, births 60, immigrants 20, deaths 40, emigrants 10. Next population?",v:530,tol:0.5,e:"500 + 60 + 20 − 40 − 10.",s:"L13"},
+{w:0,t:"n",q:"Fishery: recruitment 20 t, growth 30 t, natural mortality 15 t. Sustainable catch F (t)?",v:35,tol:0.01,e:"F = R + G − M.",s:"L31"},
+{w:0,t:"n",q:"Haldane: how many cousins (r = 0.125) must be saved to equal one's own life?",v:8,tol:0.01,e:"8 × 0.125 = 1.",s:"L9"},
+{w:0,t:"n",q:"45 live births in a population of 1500 in a year. Crude birth rate (per 1000)?",v:30,tol:0.01,e:"45/1500 × 1000.",s:"L13"},
+{w:0,t:"n",q:"Logistic, r = 0.4, K = 1000. Maximum sustainable yield (individuals per unit time)?",v:100,tol:0.5,e:"MSY = rK/4 at N = K/2.",s:"L31"},
+{w:0,t:"n",q:"Group sizes: SD = 1.249, mean = 25.2. Coefficient of variation (%) (1 decimal)?",v:4.96,tol:0.06,e:"1.249/25.2 × 100 = 4.96%.",s:"L14"},
+{w:0,t:"n",q:"Prey production 10,000 kg/yr, predator ingests 100 kg/yr. Exploitation efficiency (%)?",v:1,tol:0.01,e:"100/10000 × 100.",s:"L10"},
+{w:0,t:"n",q:"Importance value of species A: RD = 60, RF = 50, RDo = 60. IVI?",v:170,tol:0.01,e:"Sum = 170 (out of 300).",s:"L16"}
+];
+Q.forEach((x,i)=>{x.id=i; if(!x.t) x.t="m";});
+
+/* ---------- STATE ---------- */
+const store={get(k,d){try{const v=localStorage.getItem(k);return v===null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+let state={tab:store.get("we_tab","strategy"),week:store.get("we_week",1),set:store.get("we_set","1"),shuf:store.get("we_shuf",false)};
+
+/* ---------- TABS ---------- */
+const tabs=[...document.querySelectorAll("nav.tabs button")];
+function showTab(p){tabs.forEach(b=>b.setAttribute("aria-selected",String(b.dataset.p===p)));
+  document.querySelectorAll("section.panel").forEach(s=>s.hidden=(s.id!=="p-"+p));state.tab=p;store.set("we_tab",p);}
+tabs.forEach(b=>b.addEventListener("click",()=>{showTab(b.dataset.p);window.scrollTo({top:0})}));
+
+/* ---------- NOTES ---------- */
+const wc=document.getElementById("weekChips");
+for(let i=1;i<=12;i++){const b=document.createElement("button");b.className="chip";b.type="button";b.textContent="W"+i;b.title=NOTES[i].t;b.addEventListener("click",()=>showWeek(i));wc.appendChild(b);}
+function showWeek(i){state.week=i;store.set("we_week",i);
+  [...wc.children].forEach((c,j)=>c.setAttribute("aria-pressed",String(j+1===i)));
+  const n=NOTES[i];document.getElementById("notesBody").innerHTML=`<div class="eyebrow">Week ${i} · ${n.l}</div><h2 style="margin-top:4px">${n.t}</h2>${n.h}<p><button class="btn solid" type="button" id="goQuiz">Week ${i} ka quiz do →</button></p>`;
+  document.getElementById("goQuiz").addEventListener("click",()=>{showTab("quiz");pickSet(String(i));window.scrollTo({top:0})});}
+
+/* ---------- QUIZ ---------- */
+/* Mock tests: written from lecture transcripts. w:-1 = Mock 1, w:-2 = Mock 2 */
+const MOCK=[
+// ===== MOCK 1 =====
+{w:-1,q:"Who coined the term \"ecology\"?",o:["Herbert Spencer","Ernst Haeckel","Arthur Tansley","Charles Elton"],a:1,e:"Spencer ne \"survival of the fittest\" coin kiya, Tansley ne ecosystem concept diya.",s:"L2"},
+{w:-1,q:"The term \"survival of the fittest\" was given by",o:["Charles Darwin","Alfred Wallace","Herbert Spencer","Thomas Malthus"],a:2,e:"Herbert Spencer (1820–1903).",s:"L2"},
+{w:-1,q:"Who introduced the concept of the ecosystem?",o:["Arthur Tansley","Eugene Odum","Vladimir Vernadsky","G. E. Hutchinson"],a:0,e:"English botanist Arthur Tansley (1871–1955). Unhone British Ecological Society bhi found ki.",s:"L2"},
+{w:-1,q:"Who is called the father of animal ecology and a pioneer of the study of invasive species?",o:["Charles Elton","Ernst Haeckel","Lotka","Linnaeus"],a:0,e:"Charles Elton.",s:"L2"},
+{w:-1,q:"\"Fundamentals of Ecology\" was written by",o:["G. E. Hutchinson","Eugene P. Odum","Charles Elton","Theophrastus"],a:1,e:"Hutchinson ne Treatise on Limnology likha tha.",s:"L2"},
+{w:-1,q:"Who first thought of biogeochemical cycles?",o:["Vladimir Vernadsky","Alexander von Humboldt","Arthur Tansley","Charles Darwin"],a:0,e:"Vernadsky.",s:"L2"},
+{w:-1,q:"According to the lecture, fitness should be measured",o:["in a single generation","across several generations","only on body size","only on speed"],a:1,e:"Fitness long-term measure hai aur poore organism pe lagti hai.",s:"L3"},
+{w:-1,q:"Birth weight of human babies, where middle values are favoured, is an example of",o:["directional selection","stabilizing selection","disruptive selection","kin selection"],a:1,e:"Beak size = directional. Galápagos birds = disruptive.",s:"L3"},
+{w:-1,q:"Longer flowers and longer hummingbird beaks evolving together is an example of",o:["coevolution","convergent succession","allelopathy","apparent competition"],a:0,e:"Do species ek doosre ke changes ke hisaab se adapt karti hain.",s:"L3"},
+{w:-1,t:"s",q:"Which are steps in natural selection as taught in the course?",o:["Variation","Struggle for existence","Change in gene pool","Ecesis"],a:[0,1,2],e:"Ecesis succession ka stage hai.",s:"L3"},
+{w:-1,q:"Which is the highest level of ecological organisation?",o:["Biome","Ecosystem","Biosphere","Community"],a:2,e:"Biome → biosphere.",s:"L4"},
+{w:-1,q:"A gene is called polymorphic if the frequency of its most common allele is less than",o:["50%","75%","95%","99%"],a:2,e:"Arbitrary threshold 95%.",s:"L5"},
+{w:-1,t:"s",q:"A biodiversity hotspot has:",o:["High species richness","High endemism","High degree of threat","Low species richness"],a:[0,1,2],e:"Teeno ek saath.",s:"L6"},
+{w:-1,q:"According to the intermediate disturbance hypothesis, biodiversity is highest when disturbance is",o:["very high","intermediate","very low","absent"],a:1,e:"Bahut zyada disturbance se extinctions hoti hain. Bahut kam se kam competitive species bahar ho jaati hain.",s:"L6"},
+{w:-1,q:"Asking people how much they are willing to pay to conserve biodiversity is",o:["market price method","replacement cost","contingent valuation","damage cost avoided"],a:2,e:"Replacement cost aur damage cost avoided imputed WTP hain.",s:"L6"},
+{w:-1,t:"s",q:"Which of these are USE values of biodiversity?",o:["Direct value","Indirect value","Option value","Bequest value"],a:[0,1,2],e:"Bequest non-use value hai.",s:"L6"},
+{w:-1,q:"Microbes digesting cellulose in the stomach of ruminants is an example of",o:["commensalism","mutualism","protocooperation","parasitism"],a:1,e:"Dono ke liye zaroori (obligatory) hai.",s:"L7"},
+{w:-1,q:"Egrets feeding alongside grazing buffaloes is an example of",o:["commensalism","mutualism","amensalism","predation"],a:0,e:"Egret ko fayda hai, buffalo pe koi asar nahi.",s:"L7"},
+{w:-1,q:"Trampling of grass by moving animals is an example of",o:["competition","amensalism","commensalism","neutralism"],a:1,e:"Grass ko harm, animal pe koi effect nahi (0, −).",s:"L7"},
+{w:-1,t:"s",q:"Which of these are INTRASPECIFIC interactions?",o:["Colonies","Societies","Cannibalism","Mutualism"],a:[0,1,2],e:"Mutualism interspecific hai.",s:"L7"},
+{w:-1,q:"An increase in chital raises tiger numbers, which then eat more sambar. This is",o:["exploitative competition","apparent competition","interference competition","amensalism"],a:1,e:"Do prey species ka common predator ke through indirect competition.",s:"L8"},
+{w:-1,q:"Black widow and praying mantis are examples of",o:["parasitism","cannibalism","allelopathy","protocooperation"],a:1,e:"Same species ko khana.",s:"L8"},
+{w:-1,q:"The langur–chital association is described as",o:["parasitism","asymmetric mutualism / protocooperation","amensalism","interference competition"],a:1,e:"Langur zyada kaam karta hai, par chital ko zyada fayda milta hai.",s:"L9"},
+{w:-1,q:"In an ethogram study, observing only ONE individual continuously is called",o:["scan sampling","focal animal study","time budget","quadrat sampling"],a:1,e:"Scan sampling mein ek se doosre individual pe time intervals mein jaate hain.",s:"L9"},
+{w:-1,q:"Which ecological pyramid is always upright?",o:["Numbers","Biomass","Energy","None"],a:2,e:"Numbers aur biomass pyramids inverted ho sakte hain.",s:"L10"},
+{w:-1,q:"Phytoplankton → zooplankton → fish → sea lion gives which pyramid of numbers?",o:["Upright","Inverted","Spindle","Dumbbell"],a:2,e:"Phytoplankton zooplankton se kam hain (tez reproduce karte hain), isliye spindle.",s:"L10"},
+{w:-1,q:"Standing crop is",o:["total green biomass","total dried biomass at a trophic level","energy fixed per unit time","number of individuals"],a:1,e:"Dried biomass.",s:"L10"},
+{w:-1,q:"Re-introduction of wolves changing deer behaviour and reviving vegetation is an example of",o:["trophic cascade","biomagnification","ecological succession","apparent competition"],a:0,e:"Top predator ka effect neeche tak jaata hai.",s:"L10"},
+{w:-1,q:"Compensation point is when",o:["photosynthesis = respiration","GPP = 0","respiration = 0","NPP is maximum"],a:0,e:"Subah jaldi aur shaam ko hota hai.",s:"L11"},
+{w:-1,q:"Secchi depth is a measure of",o:["salinity","turbidity / transparency of water","dissolved oxygen","water temperature"],a:1,e:"Eutrophic lake mein Secchi depth kam hoti hai.",s:"L11"},
+{w:-1,q:"Adding iron salts to oceans to increase productivity is called",o:["upwelling","iron fertilization","eutrophication","bioremediation"],a:1,e:"Iron limiting nutrient hai.",s:"L11"},
+{w:-1,q:"Primary macronutrients for plants are",o:["N, P, K","Fe, Zn, Cu","B, Mo, Cl","C, H, O only"],a:0,e:"NPK fertilizer. Boron, copper, iron, zinc micronutrients hain.",s:"L12"},
+{w:-1,q:"The average lifespan of individuals in actual field conditions is",o:["physiological longevity","ecological longevity","life expectancy at birth","generation time"],a:1,e:"Physiological = best conditions mein.",s:"L13"},
+{w:-1,q:"Measurements that are close to each other but far from the true value are",o:["accurate but not precise","precise but not accurate","both precise and accurate","neither"],a:1,e:"Aise mein method ko calibrate karna padta hai.",s:"L13"},
+{w:-1,t:"s",q:"Assumptions of the removal method include:",o:["No immigration or emigration","No births or deaths during the study","Trapped animals are permanently removed","Marked animals mix randomly"],a:[0,1,2],e:"Option 4 capture–recapture ki assumption hai.",s:"L13"},
+{w:-1,q:"Lotka–Volterra predator–prey equations predict populations that",o:["grow exponentially forever","show cyclical oscillations","stay constant","go extinct immediately"],a:1,e:"Chital aur tiger ke cycles.",s:"L14"},
+{w:-1,q:"Lag phase → log phase → stationary phase describes",o:["exponential growth","logistic growth","Lotka–Volterra cycles","demographic transition"],a:1,e:"Sigmoid curve.",s:"L14"},
+{w:-1,q:"In locusts, high population density triggers",o:["solitarisation","gregarisation","diapause","migration stops"],a:1,e:"Solitary se gregarious phase, phir swarms.",s:"L15"},
+{w:-1,q:"\"The community behaves like a superorganism\" is the",o:["individualistic theory","organismic theory (Clements)","neutral theory","continuum theory"],a:1,e:"Clements.",s:"L16"},
+{w:-1,q:"Hubbell's neutral theory says species are",o:["functionally equivalent; abundance changes by random births and deaths","always in competition","superorganisms","mere coincidences"],a:0,e:"Organismic aur individualistic ke beech ki theory.",s:"L16"},
+{w:-1,q:"Rare species present as chance invaders or relicts of a previous community are",o:["indifferent species","accidental species","keystone species","dominant species"],a:1,e:"Accidental.",s:"L16"},
+{w:-1,q:"The first of the seven stages of succession is",o:["migration","ecesis","nudation","stabilization"],a:2,e:"Nudation → migration → ecesis → aggregation → competition → reaction → stabilization.",s:"L17"},
+{w:-1,q:"Succession on a lava flow that was never occupied before is",o:["primary succession","secondary succession","cyclic succession","allogenic succession"],a:0,e:"Pehle se kabhi occupied nahi tha.",s:"L17"},
+{w:-1,q:"A sere in a saline body such as a marsh is a",o:["hydrosere","xerosere","halosere","psammosere"],a:2,e:"Halo = salt.",s:"L17"},
+{w:-1,q:"A species whose role in the ecosystem is much larger than its numerical abundance is a",o:["dominant species","keystone species","accidental species","pioneer species"],a:1,e:"Keystone.",s:"L18"},
+{w:-1,q:"The speed with which a system returns to its original state is",o:["amplitude","elasticity","resistance","inertia"],a:1,e:"Amplitude = kitna disturbance seh sakta hai.",s:"L18"},
+{w:-1,t:"n",q:"80 animals marked. Second sample: 100 caught, 25 marked. Estimated population?",v:320,tol:0.5,e:"80 × 100 / 25 = 320.",s:"L13"},
+{w:-1,t:"n",q:"Simpson D = 1/ΣPᵢ² for 4 species with equal numbers?",v:4,tol:0.01,e:"Har P = 0.25, ΣP² = 0.25, D = 4 (= S).",s:"L5"},
+{w:-1,t:"n",q:"Index of similarity: A has 15 species, B has 25, 10 common. IS?",v:0.5,tol:0.01,e:"2×10/(15+25) = 0.5.",s:"L16"},
+{w:-1,t:"n",q:"Logistic: K = 200, N = 50, dN/dt = 15. r = ?",v:0.4,tol:0.01,e:"15 × 200 / (50 × 150) = 0.4.",s:"L14"},
+// ===== MOCK 2 =====
+{w:-2,q:"Biogeography mainly asks",o:["how energy flows","what is found where, and why","how genes mutate","how fast populations grow"],a:1,e:"Biogeography ka sawaal yahi hai.",s:"L19"},
+{w:-2,q:"The Chilika lagoon is separated from the Bay of Bengal by",o:["mangroves","sand bars","coral reefs","cliffs"],a:1,e:"Sand bars.",s:"L19"},
+{w:-2,q:"Shola forests (forest patches with grassland) are seen in",o:["Rajasthan","Karnataka / Tamil Nadu","Assam","Ladakh"],a:1,e:"Southern hills.",s:"L19"},
+{w:-2,q:"During the day, air rising from the valley up the slopes is called",o:["hill wind","valley breeze","sea breeze","katabatic flow"],a:1,e:"Raat mein hill wind neeche aati hai.",s:"L19"},
+{w:-2,q:"\"The rate of a biological process is limited by the factor present in least amount relative to requirement\" is",o:["Shelford's law of tolerance","Liebig's law of the minimum","Allen's rule","Gause's principle"],a:1,e:"Liebig.",s:"L20"},
+{w:-2,q:"Distribution is controlled by the factor with the narrowest range of tolerance, according to",o:["Liebig","Shelford","Humboldt","Hamilton"],a:1,e:"Shelford's law of tolerance.",s:"L20"},
+{w:-2,q:"Spread of zebra mussels in ships' ballast water is",o:["diffusion","jump dispersal","secular dispersal","migration"],a:1,e:"Kam samay mein badi doori.",s:"L20"},
+{w:-2,q:"The chipping sparrow (pine vs oak) experiment shows habitat selection is",o:["only innate","only learnt","both innate and learnt","random"],a:2,e:"Lab mein oak ke saath paale gaye birds oak prefer karne lage.",s:"L20"},
+{w:-2,q:"Regular, seasonal movement of animals along fixed routes (e.g. demoiselle cranes) is",o:["dispersal","migration","diffusion","emigration"],a:1,e:"Migration.",s:"L20"},
+{w:-2,q:"Removing sea urchins allowed algae to return. This shows",o:["a predator can restrict the distribution of its prey","algae are allelopathic","algae are pioneers","urchins are mutualists"],a:0,e:"Push factor ka example.",s:"L21"},
+{w:-2,q:"Drosophila pachea is found only where a particular cactus grows. This shows",o:["the prey/host governs the distribution of the other species","predation","allelopathy","jump dispersal"],a:0,e:"Prey se predator ki distribution control hoti hai.",s:"L21"},
+{w:-2,q:"Pine blister rust was controlled by eliminating",o:["pines","gooseberries","beetles","oaks"],a:1,e:"Fungus ki life cycle ka ek part gooseberries pe hota hai.",s:"L21"},
+{w:-2,q:"The peach replant problem is an example of",o:["allelopathy affecting members of its own species","apparent competition","mutualism","commensalism"],a:0,e:"Grevillea robusta bhi apne seedlings maarta hai.",s:"L21"},
+{w:-2,q:"Allee effect belongs to the",o:["declining population paradigm","small population paradigm","island biogeography model","gap analysis"],a:1,e:"Chhoti population ka extinction ki taraf jaana.",s:"L22"},
+{w:-2,q:"The conservative estimate of species lost per year from tropical forests (lecture) is about",o:["270","2,700","27,000","2,70,000"],a:2,e:"0.27% of 10 million.",s:"L22"},
+{w:-2,q:"Wildlife being pushed to sub-prime habitats like hills and rocky patches, out-competed by livestock, is",o:["habitat degradation","habitat displacement","habitat fragmentation","attrition"],a:1,e:"Displacement.",s:"L22"},
+{w:-2,q:"Population Viability Analysis (PVA) is used to",o:["count species in a hotspot","predict whether a population will persist or go extinct","measure NPP","value biodiversity"],a:1,e:"PVA.",s:"L22"},
+{w:-2,q:"Gap analysis identifies",o:["areas not represented in the existing protected area network","gaps in a food web","genetic gaps","time gaps in sampling"],a:0,e:"Wahan naye reserves banaye ja sakte hain.",s:"L23"},
+{w:-2,t:"s",q:"The five tools of habitat management include:",o:["Axe","Cattle","Fire","Net"],a:[0,1,2],e:"Axe, cattle, plough, gun aur fire.",s:"L23"},
+{w:-2,q:"Shifting a degraded habitat towards greater value but not necessarily to its original state is",o:["restoration","rehabilitation / reclamation","replacement","recovery"],a:1,e:"Restoration = original state.",s:"L23"},
+{w:-2,q:"Construction of waterholes in a reserve is",o:["enhancement","replacement","recovery","displacement"],a:0,e:"Habitat ki value badhana.",s:"L23"},
+{w:-2,q:"Under the Wildlife Protection Act, a \"zoo\" includes",o:["a circus and rescue centres","a licensed dealer's establishment","only government zoos","only aquaria"],a:0,e:"Licensed dealer included nahi hai.",s:"L24"},
+{w:-2,q:"Recalcitrant seeds",o:["can be dried to ~5% moisture","often have high oil and cannot survive drying below ~20% moisture","last more than 15 years","are grass and grain seeds"],a:1,e:"Orthodox seeds (grass, bamboo, grains) ~5% tak dry ho jaate hain.",s:"L24"},
+{w:-2,q:"Seeds whose natural lifespan does not exceed 3 years are",o:["microbiotic","mesobiotic","macrobiotic","orthodox"],a:0,e:"Meso = 3–15 years, macro = 15 se zyada.",s:"L24"},
+{w:-2,t:"s",q:"Disadvantages of ex-situ conservation include:",o:["High cost","Loss of some wild behaviours","Risk of inbreeding if poorly planned","It prevents habitat loss"],a:[0,1,2],e:"Ex-situ habitat loss ko nahi rokta.",s:"L24"},
+{w:-2,q:"In I = P × A × T, A stands for",o:["Area","Affluence","Agriculture","Adaptation"],a:1,e:"Population × affluence × technology.",s:"L25"},
+{w:-2,q:"The Trinity explosion of 1945 is suggested as the beginning of the",o:["Holocene","Anthropocene","Pleistocene","Industrial era"],a:1,e:"Anthropocene.",s:"L25"},
+{w:-2,q:"The definition \"development that meets the needs of the present without compromising future generations\" was given by",o:["the Brundtland Commission","Malthus","IPCC","Odum"],a:0,e:"Brundtland.",s:"L27"},
+{w:-2,q:"Weak sustainability assumes that natural and manufactured capital are",o:["substitutable","non-substitutable","both unnecessary","identical in well-being"],a:0,e:"Strong sustainability inhe non-substitutable maanti hai.",s:"L27"},
+{w:-2,q:"The first stage of Environmental Impact Assessment is",o:["scoping","screening","review","monitoring"],a:1,e:"Screening → scoping → assessment → report → review → decision → monitoring.",s:"L27"},
+{w:-2,q:"The Gulf War oil spill is classified as",o:["natural","accidental","intentional","biogenic"],a:2,e:"Jaan-boojh ke kiya gaya.",s:"L28"},
+{w:-2,q:"Hydrocarbons from incomplete burning of mineral oils are",o:["petrogenic","pyrogenic","biogenic","aromatic"],a:1,e:"Pyro = fire.",s:"L28"},
+{w:-2,q:"Deep-water coral with respect to oil spills is",o:["sensitive but not vulnerable","vulnerable but not sensitive","both","neither"],a:0,e:"Rocky-shore seaweed vulnerable hai par sensitive nahi.",s:"L28"},
+{w:-2,q:"Microdebris is plastic of size",o:["> 20 mm","5–20 mm","< 5 mm","> 1 m"],a:2,e:"Face-wash scrubbers bhi microdebris hain.",s:"L29"},
+{w:-2,q:"Resin granules that are intermediates in plastic production are called",o:["nurdles","ghost nets","microbeads only","bioplastics"],a:0,e:"Nurdles meso-debris hain.",s:"L29"},
+{w:-2,q:"The classical period for averaging climate is",o:["1 year","10 years","30 years","100 years"],a:2,e:"30 years.",s:"L30"},
+{w:-2,q:"Human intervention to reduce sources or enhance sinks of greenhouse gases is",o:["adaptation","mitigation","maladaptation","resilience"],a:1,e:"Mitigation.",s:"L30"},
+{w:-2,t:"s",q:"Which are mitigation options mentioned?",o:["Green energy","REDD / REDD+","Afforestation","Reactive adaptation"],a:[0,1,2],e:"Reactive adaptation, adaptation ka type hai.",s:"L30"},
+{w:-2,q:"The tawny owl colour shift with less snow is evidence of",o:["change in allele frequency due to climate change","biomagnification","jump dispersal","acclimation only"],a:0,e:"Climate change ke impacts theoretical nahi, real hain.",s:"L30"},
+{w:-2,q:"The match–mismatch hypothesis concerns",o:["timing of larval emergence vs food abundance","matching prey and predator sizes","matching species in two communities","gene matching"],a:0,e:"El Niño aur anchovy example.",s:"L31"},
+{w:-2,q:"Each fisherman maximising his own catch from the open ocean leads to",o:["tragedy of the commons","Ludwig's ratchet only","trophic cascade","MSY"],a:0,e:"Individual level pe rational hai, par sab milke resource khatam kar dete hain.",s:"L31"},
+{w:-2,q:"Prickly pear infestation in Australia was controlled using",o:["a moth (cactus moth)","mongoose","pesticides only","fire"],a:0,e:"Classic biological control.",s:"L32"},
+{w:-2,q:"Integrated Pest Management (IPM) means",o:["only pesticides","combining biological, cultural, mechanical, genetic and chemical methods","only biological control","no control"],a:1,e:"Maximum yield, minimum cost aur minimum impact.",s:"L32"},
+{w:-2,q:"DDT affected bald eagles mainly by",o:["thinning of eggshells","blindness","feather loss","increased fecundity"],a:0,e:"Calcium metabolism disrupt hua. DDT ban hone ke baad population recover hui.",s:"L33"},
+{w:-2,t:"s",q:"Principles of ecological restoration include:",o:["Maintain ecological integrity","Informed by the past and future","Benefit and engage society","Maximise short-term profit"],a:[0,1,2],e:"Chautha principle long-term sustainability hai.",s:"L33"},
+{w:-2,q:"Treating contaminated soil or water by stimulating microorganisms to degrade pollutants is",o:["bioremediation","biomagnification","bioaccumulation","biological control"],a:0,e:"Plants se kiya jaaye to phytoremediation kehte hain.",s:"L33"},
+{w:-2,t:"n",q:"Species–area: area halved (A₂ = 0.5 A₁), z = 0.3. Fraction of species remaining (2 decimals)?",v:0.81,tol:0.02,e:"0.5^0.3 = 0.812.",s:"L22"},
+{w:-2,t:"n",q:"Exponential growth rate k = 0.035 per year. Doubling time (years, 1 decimal)?",v:19.8,tol:0.15,e:"0.693 / 0.035 = 19.8.",s:"L26"},
+{w:-2,t:"n",q:"Fishery: R = 50 t, G = 40 t, M = 30 t. Sustainable F (t)?",v:60,tol:0.01,e:"F = R + G − M.",s:"L31"},
+{w:-2,t:"n",q:"CDI: most abundant 50, second 20, total abundance 140. CDI (%)?",v:50,tol:0.5,e:"(50+20)/140 × 100 = 50%.",s:"L18"}
+];
+MOCK.forEach(x=>{x.id=Q.length;if(!x.t)x.t="m";Q.push(x);});
+
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function typeTag(q){return q.t==="s"?'<span class="tag msq">Multiple select</span>':q.t==="n"?'<span class="tag msq">Numerical</span>':'<span class="tag">Single correct</span>';}
+function srcLabel(q){return q.w>0?`W${q.w} · ${q.s}`:q.w===0?`Practice · ${q.s}`:`Mock ${-q.w} · ${q.s}`;}
+function corrText(q){return q.t==="n"?String(q.v):q.t==="s"?q.a.map(i=>esc(q.o[i])).join(", "):esc(q.o[q.a]);}
+function fbHTML(q,ok){return `<span class="v">${ok?"Sahi!":"Galat."}</span> ${ok?"":"Sahi answer: "+corrText(q)+". "}${esc(q.e)} <span class="lec">(${q.s}${q.fix?" · "+esc(q.fix)+", lecture se correct kiya":""})</span>`;}
+function card(q,idx){const d=document.createElement("div");d.className="q";
+  d.innerHTML=`<div class="meta"><span class="lec">Q${idx+1} · ${srcLabel(q)}</span>${typeTag(q)}${q.fix?'<span class="tag fix">Key corrected</span>':''}</div><p class="qt">${esc(q.q)}</p>`;return d;}
+function optButtons(q){const box=document.createElement("div");box.className="opts";
+  q.o.forEach((t,oi)=>{const b=document.createElement("button");b.type="button";b.className="opt";b.dataset.oi=oi;
+    b.innerHTML=`<span class="k">${String.fromCharCode(97+oi)}.</span><span>${esc(t)}</span>`;box.appendChild(b);});return box;}
+function markOpts(box,q,sel){const corr=new Set(q.t==="s"?q.a:[q.a]);
+  [...box.children].forEach(b=>{const oi=Number(b.dataset.oi);b.disabled=true;b.classList.remove("picked");
+    if(corr.has(oi))b.classList.add("ok");else if(sel&&sel.has(oi))b.classList.add("no");});}
+function isOk(q,ans){if(q.t==="n"){const x=parseFloat(String(ans??"").replace(/,/g,""));return !isNaN(x)&&Math.abs(x-q.v)<=q.tol;}
+  if(q.t==="s"){const w=new Set(q.a);return ans&&ans.size===w.size&&[...ans].every(x=>w.has(x));}return ans===q.a;}
+
+/* ===== Quiz retake: instant feedback or answer-key view ===== */
+const answered={};let currentList=[];
+const sc=document.getElementById("setChips");
+const SETS=[...Array.from({length:12},(_,i)=>({k:String(i+1),label:"W"+(i+1)})),{k:"all",label:"All 120"}];
+SETS.forEach(s=>{const b=document.createElement("button");b.className="chip";b.type="button";b.textContent=s.label;b.dataset.k=s.k;b.addEventListener("click",()=>pickSet(s.k));sc.appendChild(b);});
+const keyEl=document.getElementById("keyMode");keyEl.checked=!!store.get("we_key",false);
+keyEl.addEventListener("change",()=>{store.set("we_key",keyEl.checked);renderQuiz();});
+document.getElementById("resetBtn").addEventListener("click",()=>{currentList.forEach(q=>delete answered[q.id]);delete submitted[state.set];renderQuiz();});
+function pickSet(k){if(!SETS.some(s=>s.k===k))k="1";state.set=k;store.set("we_set",k);[...sc.children].forEach(c=>c.setAttribute("aria-pressed",String(c.dataset.k===k)));renderQuiz();}
+const submitted={};
+function updScore(){const el=document.getElementById("score");
+  if(keyEl.checked){el.textContent=`Answer key · ${currentList.length} questions`;return;}
+  if(submitted[state.set]){const ok=currentList.filter(q=>answered[q.id]===q.a).length;el.textContent=`Score ${ok} / ${currentList.length}`;}
+  else el.textContent=`Attempted ${currentList.filter(q=>answered[q.id]!==undefined).length} / ${currentList.length}`;}
+function renderQuiz(){
+  const k=state.set;currentList=k==="all"?Q.filter(q=>q.w>=1&&q.w<=12):Q.filter(q=>q.w===Number(k));
+  const body=document.getElementById("quizBody");body.innerHTML="";const done=!!submitted[k];
+  if(done&&!keyEl.checked){const ok=currentList.filter(q=>answered[q.id]===q.a).length,n=currentList.length,pct=Math.round(ok/n*100);
+    const wrong=currentList.map((q,i)=>answered[q.id]===q.a?null:"Q"+(i+1)).filter(Boolean);
+    const r=document.createElement("div");r.className="result";
+    r.innerHTML=`<div class="eyebrow">Result · ${k==="all"?"All weeks":"Week "+k}</div><div class="big">${ok} / ${n} · ${pct}%</div><p>${wrong.length?"Galat ya chhoote hue: "+wrong.join(", ")+". Neeche har question ka sahi answer aur explanation diya hai.":"Saare sahi! Agla week karo."}</p>`;
+    body.appendChild(r);}
+  currentList.forEach((q,idx)=>{const d=card(q,idx);const box=optButtons(q);d.appendChild(box);
+    if(keyEl.checked){markOpts(box,q,null);const f=document.createElement("div");f.className="fb ok";f.innerHTML=`<span class="v">Answer:</span> ${corrText(q)}. ${esc(q.e)} <span class="lec">(${q.s}${q.fix?" · "+esc(q.fix)+", lecture se correct kiya":""})</span>`;d.appendChild(f);}
+    else if(done){const pick=answered[q.id];const ok=pick===q.a;markOpts(box,q,new Set(pick===undefined?[]:[pick]));
+      const f=document.createElement("div");f.className="fb "+(ok?"ok":"no");
+      f.innerHTML=pick===undefined?'<span class="v">Attempt nahi kiya.</span> Sahi answer: '+corrText(q)+". "+esc(q.e)+` <span class="lec">(${q.s})</span>`:fbHTML(q,ok);d.appendChild(f);}
+    else{[...box.children].forEach(b=>{const oi=Number(b.dataset.oi);if(answered[q.id]===oi){b.classList.add("picked");b.setAttribute("aria-pressed","true");}
+      b.addEventListener("click",()=>{answered[q.id]=oi;[...box.children].forEach(x=>{x.classList.toggle("picked",x===b);x.setAttribute("aria-pressed",String(x===b));});updScore();});});}
+    body.appendChild(d);});
+  if(!keyEl.checked&&!done){const sub=document.createElement("button");sub.className="btn solid";sub.type="button";sub.textContent="Submit · answer key dikhao";sub.style.margin="8px 0 24px";
+    sub.addEventListener("click",()=>{submitted[k]=true;renderQuiz();window.scrollTo({top:body.getBoundingClientRect().top+window.scrollY-120});});body.appendChild(sub);}
+  updScore();}
+
+/* ===== Mock tests: exam mode, reveal on submit ===== */
+const MOCKS=[{k:"m1",label:"Mock 1 · 50 Qs"},{k:"m2",label:"Mock 2 · 50 Qs"},{k:"bonus",label:"MSQ + Numerical · 32 Qs"},{k:"mix",label:"Mixed 40"}];
+const mc=document.getElementById("mockChips");let mockList=[],mockAns={},mockDone=false,t0=0,tick=null;
+MOCKS.forEach(s=>{const b=document.createElement("button");b.className="chip";b.type="button";b.textContent=s.label;b.dataset.k=s.k;b.addEventListener("click",()=>pickMock(s.k));mc.appendChild(b);});
+document.getElementById("mreset").addEventListener("click",()=>pickMock(state.mock||"m1"));
+function pickMock(k){state.mock=k;store.set("we_mock",k);[...mc.children].forEach(c=>c.setAttribute("aria-pressed",String(c.dataset.k===k)));
+  if(k==="m1")mockList=Q.filter(q=>q.w===-1);else if(k==="m2")mockList=Q.filter(q=>q.w===-2);else if(k==="bonus")mockList=Q.filter(q=>q.w===0);
+  else mockList=shuffle(shuffle(Q.filter(q=>q.w>=1&&q.w<=11)).slice(0,20).concat(shuffle(Q.filter(q=>q.w<0)).slice(0,14),shuffle(Q.filter(q=>q.w===0)).slice(0,6)));
+  mockAns={};mockDone=false;renderMock();}
+function mUpd(){document.getElementById("mscore").textContent=`Attempted ${Object.keys(mockAns).filter(id=>{const a=mockAns[id];return a!==undefined&&a!==""&&!(a instanceof Set&&a.size===0)}).length} / ${mockList.length}`;}
+function startTimer(){clearInterval(tick);t0=Date.now();const el=document.getElementById("mtimer");
+  tick=setInterval(()=>{const s=Math.floor((Date.now()-t0)/1000);el.textContent=String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0");},1000);el.textContent="00:00";}
+function renderMock(){const body=document.getElementById("mockBody");body.innerHTML="";
+  mockList.forEach((q,idx)=>{const d=card(q,idx);d.dataset.id=q.id;
+    if(q.t==="n"){const row=document.createElement("div");row.className="numrow";row.innerHTML=`<input type="text" inputmode="decimal" id="m${q.id}" aria-label="Answer" placeholder="Answer">`;
+      row.querySelector("input").addEventListener("input",e=>{mockAns[q.id]=e.target.value.trim();mUpd();});d.appendChild(row);}
+    else{const box=optButtons(q);d.appendChild(box);
+      [...box.children].forEach(b=>b.addEventListener("click",()=>{if(mockDone)return;const oi=Number(b.dataset.oi);
+        if(q.t==="m"){mockAns[q.id]=oi;[...box.children].forEach(x=>{x.classList.toggle("picked",x===b);x.setAttribute("aria-pressed",String(x===b));});}
+        else{let s=mockAns[q.id]||new Set();if(s.has(oi)){s.delete(oi);b.classList.remove("picked");b.setAttribute("aria-pressed","false");}else{s.add(oi);b.classList.add("picked");b.setAttribute("aria-pressed","true");}mockAns[q.id]=s;}
+        mUpd();}));}
+    body.appendChild(d);});
+  const sub=document.createElement("button");sub.className="btn solid";sub.type="button";sub.textContent="Submit test";sub.style.margin="8px 0 24px";
+  sub.addEventListener("click",submitMock);body.appendChild(sub);mUpd();startTimer();}
+function submitMock(){if(mockDone)return;mockDone=true;clearInterval(tick);
+  let ok=0;const byLec={};
+  mockList.forEach(q=>{const d=document.querySelector(`#mockBody .q[data-id="${q.id}"]`);const ans=mockAns[q.id];const good=isOk(q,ans);if(good)ok++;
+    else{byLec[q.s]=(byLec[q.s]||0)+1;}
+    if(q.t==="n"){const inp=d.querySelector("input");inp.disabled=true;}
+    else markOpts(d.querySelector(".opts"),q,q.t==="s"?(ans||new Set()):new Set(ans===undefined?[]:[ans]));
+    const f=document.createElement("div");f.className="fb "+(good?"ok":"no");f.innerHTML=(ans===undefined||ans===""?'<span class="v">Attempt nahi kiya.</span> Sahi answer: '+corrText(q)+". "+esc(q.e)+` <span class="lec">(${q.s})</span>`:fbHTML(q,good));d.appendChild(f);});
+  const n=mockList.length,pct=Math.round(ok/n*100);
+  const weak=Object.entries(byLec).sort((a,b)=>b[1]-a[1]).slice(0,6).map(([l,c])=>`${l} (${c})`).join(", ");
+  const r=document.createElement("div");r.className="result";
+  r.innerHTML=`<div class="eyebrow">Result · time ${document.getElementById("mtimer").textContent}</div><div class="big">${ok} / ${n} · ${pct}%</div><p>${pct>=75?"Bahut badhiya, exam ke liye ready ho.":pct>=50?"Theek hai. Neeche diye lectures dobara padho.":"Pehle IMP notes aur us week ke notes dobara padho."}${weak?" Kamzor lectures: "+weak+".":""}</p>`;
+  const body=document.getElementById("mockBody");body.insertBefore(r,body.firstChild);
+  body.querySelector(".btn.solid").disabled=true;window.scrollTo({top:body.getBoundingClientRect().top+window.scrollY-120});}
+
+/* ---------- INIT ---------- */
+showWeek(state.week>=1&&state.week<=12?state.week:1);
+pickSet(state.set);
+pickMock(["m1","m2","bonus","mix"].includes(store.get("we_mock","m1"))?store.get("we_mock","m1"):"m1");
+showTab(["strategy","imp","notes","num","quiz","mock"].includes(state.tab)?state.tab:"strategy");
+</script>
+
+</body></html>
