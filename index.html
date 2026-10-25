@@ -398,10 +398,10 @@ label.tog{display:flex;gap:6px;align-items:center;font-size:14px;color:var(--mut
 <!-- ================= MOCK ================= -->
 <section class="panel" id="p-mock" hidden>
   <h2>Mock tests</h2>
-  <p>Yeh naye questions hain jo maine aapke lecture transcripts se banaye hain, quiz se alag. Har mock mein saare weeks ke MCQ, MSQ aur numerical questions hain. Exam ki tarah saare answers mark karo, phir neeche <b>Submit</b> dabao. Uske baad score, sahi answers aur lecture reference dikhenge.</p>
+  <p>Yeh naye questions hain jo maine aapke lecture transcripts se banaye hain, quiz se alag. Har mock mein saare weeks ke MCQ, MSQ aur numerical questions hain. Option tap karte hi result dikhega: sahi answer, explanation aur lecture number. MSQ aur numerical questions mein answer select ya type karke <b>Check</b> dabao. Saare questions ho jaane pe neeche final score aur kamzor lectures dikhenge.</p>
   <div class="chips" id="mockChips" role="group" aria-label="Choose mock"></div>
   <div class="qbar">
-    <span class="score" id="mscore">Attempted 0 / 0</span>
+    <span class="score" id="mscore">0 / 0</span>
     <span class="score" id="mtimer">00:00</span>
     <button class="btn" id="mreset" type="button">Restart</button>
   </div>
@@ -1035,34 +1035,34 @@ function pickMock(k){state.mock=k;store.set("we_mock",k);[...mc.children].forEac
   if(k==="m1")mockList=Q.filter(q=>q.w===-1);else if(k==="m2")mockList=Q.filter(q=>q.w===-2);else if(k==="bonus")mockList=Q.filter(q=>q.w===0);
   else mockList=shuffle(shuffle(Q.filter(q=>q.w>=1&&q.w<=11)).slice(0,20).concat(shuffle(Q.filter(q=>q.w<0)).slice(0,14),shuffle(Q.filter(q=>q.w===0)).slice(0,6)));
   mockAns={};mockDone=false;renderMock();}
-function mUpd(){document.getElementById("mscore").textContent=`Attempted ${Object.keys(mockAns).filter(id=>{const a=mockAns[id];return a!==undefined&&a!==""&&!(a instanceof Set&&a.size===0)}).length} / ${mockList.length}`;}
+function mUpd(){const att=Object.keys(mockAns).length,ok=Object.values(mockAns).filter(x=>x.ok).length;
+  document.getElementById("mscore").textContent=`${ok} / ${att} sahi · ${mockList.length} mein se`;
+  if(att===mockList.length&&mockList.length&&!mockDone){mockDone=true;clearInterval(tick);showMockResult();}}
 function startTimer(){clearInterval(tick);t0=Date.now();const el=document.getElementById("mtimer");
   tick=setInterval(()=>{const s=Math.floor((Date.now()-t0)/1000);el.textContent=String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0");},1000);el.textContent="00:00";}
+function mFeedback(d,q,ok){const f=document.createElement("div");f.className="fb "+(ok?"ok":"no");f.innerHTML=fbHTML(q,ok);d.appendChild(f);}
 function renderMock(){const body=document.getElementById("mockBody");body.innerHTML="";
   mockList.forEach((q,idx)=>{const d=card(q,idx);d.dataset.id=q.id;
-    if(q.t==="n"){const row=document.createElement("div");row.className="numrow";row.innerHTML=`<input type="text" inputmode="decimal" id="m${q.id}" aria-label="Answer" placeholder="Answer">`;
-      row.querySelector("input").addEventListener("input",e=>{mockAns[q.id]=e.target.value.trim();mUpd();});d.appendChild(row);}
+    if(q.t==="n"){const row=document.createElement("div");row.className="numrow";
+      row.innerHTML=`<input type="text" inputmode="decimal" id="m${q.id}" aria-label="Answer" placeholder="Answer"><button class="btn solid" type="button">Check</button>`;
+      const inp=row.querySelector("input"),btn=row.querySelector("button");
+      const go=()=>{if(mockAns[q.id]||inp.value.trim()==="")return;const ok=isOk(q,inp.value);mockAns[q.id]={ok,s:q.s};inp.disabled=true;btn.disabled=true;mFeedback(d,q,ok);mUpd();};
+      btn.addEventListener("click",go);inp.addEventListener("keydown",e=>{if(e.key==="Enter")go();});d.appendChild(row);}
     else{const box=optButtons(q);d.appendChild(box);
-      [...box.children].forEach(b=>b.addEventListener("click",()=>{if(mockDone)return;const oi=Number(b.dataset.oi);
-        if(q.t==="m"){mockAns[q.id]=oi;[...box.children].forEach(x=>{x.classList.toggle("picked",x===b);x.setAttribute("aria-pressed",String(x===b));});}
-        else{let s=mockAns[q.id]||new Set();if(s.has(oi)){s.delete(oi);b.classList.remove("picked");b.setAttribute("aria-pressed","false");}else{s.add(oi);b.classList.add("picked");b.setAttribute("aria-pressed","true");}mockAns[q.id]=s;}
-        mUpd();}));}
+      if(q.t==="m"){[...box.children].forEach(b=>b.addEventListener("click",()=>{if(mockAns[q.id])return;const oi=Number(b.dataset.oi);const ok=oi===q.a;
+        mockAns[q.id]={ok,s:q.s};markOpts(box,q,new Set([oi]));mFeedback(d,q,ok);mUpd();}));}
+      else{const sel=new Set();[...box.children].forEach(b=>b.addEventListener("click",()=>{if(mockAns[q.id])return;const oi=Number(b.dataset.oi);
+          if(sel.has(oi)){sel.delete(oi);b.classList.remove("picked");b.setAttribute("aria-pressed","false");}else{sel.add(oi);b.classList.add("picked");b.setAttribute("aria-pressed","true");}}));
+        const c=document.createElement("button");c.className="btn solid";c.type="button";c.textContent="Check";c.style.marginTop="8px";
+        c.addEventListener("click",()=>{if(!sel.size||mockAns[q.id])return;const ok=isOk(q,sel);mockAns[q.id]={ok,s:q.s};markOpts(box,q,sel);c.disabled=true;mFeedback(d,q,ok);mUpd();});d.appendChild(c);}}
     body.appendChild(d);});
-  const sub=document.createElement("button");sub.className="btn solid";sub.type="button";sub.textContent="Submit test";sub.style.margin="8px 0 24px";
-  sub.addEventListener("click",submitMock);body.appendChild(sub);mUpd();startTimer();}
-function submitMock(){if(mockDone)return;mockDone=true;clearInterval(tick);
-  let ok=0;const byLec={};
-  mockList.forEach(q=>{const d=document.querySelector(`#mockBody .q[data-id="${q.id}"]`);const ans=mockAns[q.id];const good=isOk(q,ans);if(good)ok++;
-    else{byLec[q.s]=(byLec[q.s]||0)+1;}
-    if(q.t==="n"){const inp=d.querySelector("input");inp.disabled=true;}
-    else markOpts(d.querySelector(".opts"),q,q.t==="s"?(ans||new Set()):new Set(ans===undefined?[]:[ans]));
-    const f=document.createElement("div");f.className="fb "+(good?"ok":"no");f.innerHTML=(ans===undefined||ans===""?'<span class="v">Attempt nahi kiya.</span> Sahi answer: '+corrText(q)+". "+esc(q.e)+` <span class="lec">(${q.s})</span>`:fbHTML(q,good));d.appendChild(f);});
-  const n=mockList.length,pct=Math.round(ok/n*100);
+  mUpd();startTimer();}
+function showMockResult(){const n=mockList.length,ok=Object.values(mockAns).filter(x=>x.ok).length,pct=Math.round(ok/n*100);const byLec={};
+  Object.values(mockAns).forEach(x=>{if(!x.ok)byLec[x.s]=(byLec[x.s]||0)+1;});
   const weak=Object.entries(byLec).sort((a,b)=>b[1]-a[1]).slice(0,6).map(([l,c])=>`${l} (${c})`).join(", ");
   const r=document.createElement("div");r.className="result";
-  r.innerHTML=`<div class="eyebrow">Result · time ${document.getElementById("mtimer").textContent}</div><div class="big">${ok} / ${n} · ${pct}%</div><p>${pct>=75?"Bahut badhiya, exam ke liye ready ho.":pct>=50?"Theek hai. Neeche diye lectures dobara padho.":"Pehle IMP notes aur us week ke notes dobara padho."}${weak?" Kamzor lectures: "+weak+".":""}</p>`;
-  const body=document.getElementById("mockBody");body.insertBefore(r,body.firstChild);
-  body.querySelector(".btn.solid").disabled=true;window.scrollTo({top:body.getBoundingClientRect().top+window.scrollY-120});}
+  r.innerHTML=`<div class="eyebrow">Test complete · time ${document.getElementById("mtimer").textContent}</div><div class="big">${ok} / ${n} · ${pct}%</div><p>${pct>=75?"Bahut badhiya, exam ke liye ready ho.":pct>=50?"Theek hai. Neeche diye lectures dobara padho.":"Pehle IMP notes aur us week ke notes dobara padho."}${weak?" Kamzor lectures: "+weak+".":""}</p>`;
+  document.getElementById("mockBody").appendChild(r);}
 
 /* ---------- INIT ---------- */
 showWeek(state.week>=1&&state.week<=12?state.week:1);
